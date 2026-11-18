@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GymBro — самопроверка генератора</title>
+<style>
+  body { font: 15px/1.5 system-ui, sans-serif; margin: 24px auto; max-width: 640px; padding: 0 16px; }
+  h1 { font-size: 20px; }
+  .ok { color: #1a7f37; font-weight: 700; }
+  .fail { color: #cf222e; font-weight: 700; }
+  table { border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+  td, th { border: 1px solid #ddd; padding: 4px 8px; text-align: left; }
+  #summary { font-size: 17px; margin-top: 16px; }
+</style>
+</head>
+<body>
+<h1>Самопроверка генератора планов</h1>
+<p>Перебираем все комбинации цель × уровень × дни × инвентарь и проверяем, что план непустой.</p>
+<div id="summary">Запуск…</div>
+<div id="result"></div>
+
+<script src="./planner.js"></script>
+<script>
+(async () => {
+  const GOALS = ["muscle", "strength", "weight_loss", "health"];
+  const LEVELS = ["beginner", "intermediate", "advanced"];
+  const DAYS = [2, 3, 4, 5, 6];
+  const EQUIPS = ["full_gym", "dumbbell", "home"];
+
+  let catalog = [];
+  try {
+    const res = await fetch("./data/exercises.json");
+    catalog = (await res.json()).exercises || [];
+  } catch (e) {
+    document.getElementById("summary").innerHTML =
+      '<span class="fail">НЕ УДАЛОСЬ ЗАГРУЗИТЬ КАТАЛОГ:</span> ' + e.message +
+      '<br><small>Открывай сайт через HTTP (python -m http.server), а не двойным кликом по файлу.</small>';
+    return;
+  }
+
+  const problems = [];
+  let checked = 0, empty = 0, minItems = Infinity, maxItems = 0, totalSets = 0, plans = 0;
+
+  for (const goal of GOALS) {
+    for (const level of LEVELS) {
+      for (const days of DAYS) {
+        for (const equipment of EQUIPS) {
+          const seed = 12345 + checked;
+          const p = GymPlanner.build(catalog, { goal, level, days_per_week: days, equipment, seed });
+          const items = p.days.reduce((a, d) => a + d.items.length, 0);
+          const sets = p.days.reduce((a, d) => a + d.items.reduce((x, i) => x + i.sets, 0), 0);
+          checked++; plans++;
+          minItems = Math.min(minItems, items); maxItems = Math.max(maxItems, items);
+          totalSets += sets;
+          if (!items) { empty++; problems.push(`${goal}/${level}/${days}д/${equipment} — пустой план`); }
+          if (p.days.length !== days) problems.push(`${goal}/${level}/${days}д/${equipment} — дней: ${p.days.length}`);
+          // один и тот же seed должен давать один и тот же план
+          const again = GymPlanner.build(catalog, { goal, level, days_per_week: days, equipment, seed });
+          if (JSON.stringify(again) !== JSON.stringify(p)) problems.push(`${goal}/${level}/${days}/${equipment} — недетерминированно`);
+        }
+      }
+    }
+  }
+
+  // Детерминизм по seed
+  const a = GymPlanner.build(catalog, { goal: "muscle", level: "advanced", days_per_week: 5, equipment: "full_gym", seed: 777 });
+  const b = GymPlanner.build(catalog, { goal: "muscle", level: "advanced", days_per_week: 5, equipment: "full_gym", seed: 778 });
+  if (JSON.stringify(a) === JSON.stringify(b)) problems.push("разные seed дают одинаковый план");
+
+  const ok = problems.length === 0;
+  document.getElementById("summary").innerHTML = ok
+    ? '<span class="ok">PASS</span> — проверено ' + checked + ' комбинаций, пустых: ' + empty
+    : '<span class="fail">FAIL</span> — проблем: ' + problems.length;
+
+  document.getElementById("result").innerHTML =
+    '<table><tr><th>Метрика</th><th>Значение</th></tr>' +
+    '<tr><td>Упражнений в каталоге</td><td>' + catalog.length + '</td></tr>' +
+    '<tr><td>Комбинаций проверено</td><td>' + checked + '</td></tr>' +
+    '<tr><td>Мин. упражнений в плане</td><td>' + minItems + '</td></tr>' +
+    '<tr><td>Макс. упражнений в плане</td><td>' + maxItems + '</td></tr>' +
+    '<tr><td>Средне подходов в плане</td><td>' + (totalSets / plans).toFixed(1) + '</td></tr>' +
+    '</table>' +
+    (problems.length ? '<pre style="white-space:pre-wrap;margin-top:12px">' + problems.slice(0, 40).join('\n') + '</pre>' : '');
+})();
+</script>
+</body>
+</html>
