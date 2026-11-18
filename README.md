@@ -2,7 +2,7 @@
 
 Персональная программа тренировок за 5 шагов. Работает полностью в браузере — без сервера, без установки, офлайн.
 
-**Демо:** `https://weendd.github.io/gymbro/`
+**Демо:** `https://newendik.github.io/gymbro/`
 
 ## Возможности
 
@@ -10,9 +10,10 @@
 - **71 упражнение** с техниками выполнения, разделённые по мышечным группам
 - **Детерминированный генератор:** одинаковые параметры → одинаковый план (seed)
 - **iOS-дизайн:** grouped-карточки, blur-бары, bottom sheets, segmented controls, spring-анимации
-- **Автотема:** светлая / тёмная через `prefers-color-scheme` (или через тему Telegram, если открыто в боте)
+- **Автотема:** светлая / тёмная по системным настройкам
 - **PWA:** устанавливается на домашний экран, работает офлайн после первого визита
 - **Поделиться:** нативный Web Share (iOS Safari / Android Chrome) или копирование в буфер
+- **Приватность:** планы хранятся только в localStorage твоего браузера, аккаунт не нужен
 
 ## Структура
 
@@ -48,7 +49,7 @@ npx serve .
 
 ## Деплой на GitHub Pages
 
-1. Создать репозиторий `weendd/gymbro` (или любое имя)
+1. Создать репозиторий `newendik/gymbro` (или любое имя)
 2. Загрузить папку `site/`:
 
 ```bash
@@ -57,27 +58,18 @@ git init
 git add .
 git commit -m "GymBro — генератор тренировок"
 git branch -M main
-git remote add origin https://github.com/weendd/gymbro.git
+git remote add origin https://github.com/newendik/gymbro.git
 git push -u origin main
 ```
 
 3. В настройках репозитория: **Settings → Pages → Deploy from branch → main / (root)**
-4. Через пару минут сайт доступен по `https://weendd.github.io/gymbro/`
+4. Через пару минут сайт доступен по `https://newendik.github.io/gymbro/`
 
 ### Деплой на корневой домен
 
-Если нужен `https://weendd.github.io/` без пути:
-- Переименовать репозиторий в `weendd.github.io`
+Если нужен `https://newendik.github.io/` без пути:
+- Переименовать репозиторий в `newendik.github.io`
 - Или создать `CNAME`-файл с доменом
-
-## Интеграция с Telegram-ботом
-
-После деплоя на HTTPS можно привязать Mini App к боту:
-
-1. `@BotFather` → `/newapp` → ссылка на `https://weendd.github.io/gymbro/`
-2. Или в `/start` заменить ссылку на inline-кнопку с `web_app`
-
-Статическая версия генерирует план в браузере и отправляет компактный JSON через `sendData()` — бот восстанавливает текст упражнения из `exercises.json` и присылает карточку в чат.
 
 ## Тесты
 
@@ -89,19 +81,6 @@ PASS — проверено 180 комбинаций, пустых: 0
 Макс. упражнений: 24
 Средне подходов: 51.2
 ```
-
-## Серверная версия (для локальной разработки)
-
-Для режима Mini App в Telegram нужен Python-сервер (FastAPI + aiogram):
-
-```bash
-cd gym bot
-python -m pip install -r requirements.txt
-# скопировать .env.example в .env и вставить токен от @BotFather
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
-```
-
-Сервер раздаёт `web/` (iOS-дизайн) и предоставляет API (`/api/plans`, `/api/exercises`).
 
 ## Лицензия
 
