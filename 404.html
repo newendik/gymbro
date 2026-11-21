@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="0; url=./">
+<title>Переходим…</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="device">
+  <section class="screen">
+    <main class="scroll">
+      <div class="empty">
+        <div class="empty-badge"><svg class="ic" style="width:42px;height:42px"><use href="#i-dumbbell"/></svg></div>
+        <h3>Страница не найдена</h3>
+        <p>Перенаправляем на главную… Если ничего не произошло, <a href="./" style="color:var(--tint)">открыть GymBro</a>.</p>
+      </div>
+    </main>
+  </section>
+</div>
+<script>
+  // GitHub Pages лежит в подпапке /gymbro/ — перенаправляем на корень приложения.
+  location.replace(location.pathname.replace(/[^/]*$/, '') + 'index.html');
+</script>
+</body>
+</html>
