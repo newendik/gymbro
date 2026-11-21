@@ -556,7 +556,7 @@
   /* ---------------- Данные ---------------- */
   async function loadCatalog() {
     try {
-      const res = await fetch("./data/exercises.json", { cache: "force-cache" });
+      const res = await fetch("./data/exercises.json");
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
       state.exercises = data.exercises || [];
