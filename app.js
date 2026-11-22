@@ -23,7 +23,7 @@
     dumbbell:   { label: "Гантели",    icon: "i-dumbbell", desc: "Гантели и собственный вес" },
     home:       { label: "Дома",       icon: "i-home",     desc: "Свой вес и гантели" },
   };
-  const EX_EQUIP_LABEL = { full_gym: "Полный зал", dumbbell: "Гантели", no_equipment: "Свой вес" };
+  const EX_EQUIP_LABEL = { full_gym: "Полный зал", dumbbell: "Гантели", no_equipment: "Свой вес", band: "Резинки" };
   const DAYS_HINT = {
     2: "Верх / Низ — два сбалансированных дня.",
     3: "Жим · Тяга · Ноги — золотой стандарт.",

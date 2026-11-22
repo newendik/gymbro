@@ -1,83 +1,3379 @@
 {
-  "exercises": [
-    {"id": "bench_press", "name": "Жим штанги лёжа", "muscle": "Грудь", "movement": "Жим", "equipment": "full_gym", "compound": true, "tips": "Лопатки сведены, ноги упираются"},
-    {"id": "incline_dumbbell", "name": "Жим гантелей на наклонной", "muscle": "Грудь", "movement": "Жим", "equipment": "full_gym", "compound": true, "tips": "Угол 30-45 градусов"},
-    {"id": "cable_fly", "name": "Разводка на блоке", "muscle": "Грудь", "movement": "Сведение", "equipment": "full_gym", "compound": false, "tips": "Локти чуть согнуты"},
-    {"id": "pushup", "name": "Отжимания на брусьях", "muscle": "Грудь", "movement": "Жим", "equipment": "full_gym", "compound": true, "tips": "Наклон вперёд — акцент на грудь"},
-    {"id": "pec_deck", "name": "Пек-дек (бабочка)", "muscle": "Грудь", "movement": "Сведение", "equipment": "full_gym", "compound": false, "tips": "Контролируй движение, без инерции"},
-    {"id": "incline_barbell", "name": "Жим штанги наклон", "muscle": "Грудь", "movement": "Жим", "equipment": "full_gym", "compound": true, "tips": "Штанга к верхней части груди"},
-    {"id": "dumbbell_fly", "name": "Разводка гантелей", "muscle": "Грудь", "movement": "Сведение", "equipment": "full_gym", "compound": false, "tips": "Лёжа, локти чуть согнуты"},
-
-    {"id": "squats", "name": "Приседания со штангой", "muscle": "Квадрицепс", "movement": "Присед", "equipment": "full_gym", "compound": true, "tips": "Колени не выходят за носки"},
-    {"id": "leg_press", "name": "Жим ногами", "muscle": "Квадрицепс", "movement": "Присед", "equipment": "full_gym", "compound": true, "tips": "Спина прижата, амплитуда полная"},
-    {"id": "lunges", "name": "Выпады с гантелями", "muscle": "Квадрицепс", "movement": "Выпад", "equipment": "full_gym", "compound": true, "tips": "Колени 90 градусов"},
-    {"id": "leg_extension", "name": "Разгибание ног", "muscle": "Квадрицепс", "movement": "Разгибание", "equipment": "full_gym", "compound": false, "tips": "Пиковое сокращение вверху"},
-    {"id": "wall_sit", "name": "Стульчик у стены", "muscle": "Квадрицепс", "movement": "Статика", "equipment": "no_equipment", "compound": false, "tips": "Бёдра параллельно полу"},
-    {"id": "goblet_squat", "name": "Гоблет-присед", "muscle": "Квадрицепс", "movement": "Присед", "equipment": "dumbbell", "compound": true, "tips": "Гантель у груди, спина прямая"},
-    {"id": "hack_squat", "name": "Хак-приседания", "muscle": "Квадрицепс", "movement": "Присед", "equipment": "full_gym", "compound": true, "tips": "Стопы на разной ширине"},
-    {"id": "leg_curl", "name": "Сгибание ног лёжа", "muscle": "Бицепс бедра", "movement": "Сгибание", "equipment": "full_gym", "compound": false, "tips": "Не отрывай таз от скамьи"},
-    {"id": "deadlift", "name": "Становая тяга", "muscle": "Бицепс бедра", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Спина прямая, штанга у голеней"},
-    {"id": "romanian_deadlift", "name": "Румынская тяга", "muscle": "Бицепс бедра", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Штанга скользит по ногам"},
-    {"id": "glute_bridge", "name": "Ягодичный мост", "muscle": "Ягодицы", "movement": "Разгибание", "equipment": "no_equipment", "compound": true, "tips": "Пиковое сокращение вверху"},
-    {"id": "hip_thrust", "name": "Тазовый толчок", "muscle": "Ягодицы", "movement": "Разгибание", "equipment": "full_gym", "compound": true, "tips": "Лопатки на скамье"},
-
-    {"id": "overhead_press", "name": "Жим штанги стоя", "muscle": "Плечи", "movement": "Жим", "equipment": "full_gym", "compound": true, "tips": "Пресс напряжён, без прогиба"},
-    {"id": "lateral_raise", "name": "Разводка гантелей в стороны", "muscle": "Плечи", "movement": "Мах", "equipment": "full_gym", "compound": false, "tips": "Локти чуть выше кистей"},
-    {"id": "face_pull", "name": "Тяга к лицу", "muscle": "Плечи", "movement": "Тяга", "equipment": "full_gym", "compound": false, "tips": "Лопатки сведены, локти в стороны"},
-    {"id": "arnold_press", "name": "Жим Арнольда", "muscle": "Плечи", "movement": "Жим", "equipment": "dumbbell", "compound": true, "tips": "Разворачивай гантели кверху в конце движения"},
-    {"id": "front_raise", "name": "Подъём гантелей вперёд", "muscle": "Плечи", "movement": "Мах", "equipment": "dumbbell", "compound": false, "tips": "Поочерёдно или вместе"},
-    {"id": "rear_delt", "name": "Махи в наклоне", "muscle": "Плечи", "movement": "Мах", "equipment": "dumbbell", "compound": false, "tips": "Наклон 45 градусов, локти в стороны"},
-    {"id": "shoulder_press", "name": "Жим гантелей сидя", "muscle": "Плечи", "movement": "Жим", "equipment": "dumbbell", "compound": true, "tips": "Спина прижата к скамье"},
-
-    {"id": "pullup", "name": "Подтягивания широким хватом", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Лопатки вниз-вперед, грудь к перекладине"},
-    {"id": "lat_pulldown", "name": "Тяга верхнего блока", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "К груди, не за голову"},
-    {"id": "barbell_row", "name": "Тяга штанги в наклоне", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Корпус 45 градусов, к поясу"},
-    {"id": "cable_row", "name": "Тяга нижнего блока", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Локти к корпусу, сведи лопатки"},
-    {"id": "single_arm_row", "name": "Тяга гантели одной рукой", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Упор на скамью, спина параллельна"},
-    {"id": "seated_row", "name": "Тяга горизонтального блока", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Корпус зафиксирован"},
-    {"id": "assisted_pullup", "name": "Подтягивания с гравитроном", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": true, "tips": "Полная амплитуда"},
-    {"id": "straight_arm", "name": "Тяга прямыми руками", "muscle": "Спина", "movement": "Тяга", "equipment": "full_gym", "compound": false, "tips": "Локти чуть согнуты"},
-
-    {"id": "bicep_curl", "name": "Подъём штанги на бицепс", "muscle": "Бицепс", "movement": "Сгибание", "equipment": "full_gym", "compound": false, "tips": "Локти прижаты, без раскачки"},
-    {"id": "hammer_curl", "name": "Молотковые сгибания", "muscle": "Бицепс", "movement": "Сгибание", "equipment": "dumbbell", "compound": false, "tips": "Нейтральный хват"},
-    {"id": "concentration_curl", "name": "Сгибания с упором", "muscle": "Бицепс", "movement": "Сгибание", "equipment": "dumbbell", "compound": false, "tips": "Локоть на внутренней стороне бедра"},
-    {"id": "cable_curl", "name": "Сгибания на блоке", "muscle": "Бицепс", "movement": "Сгибание", "equipment": "full_gym", "compound": false, "tips": "Постоянное напряжение"},
-    {"id": "preacher_curl", "name": "Сгибания на скамье Скотта", "muscle": "Бицепс", "movement": "Сгибание", "equipment": "full_gym", "compound": false, "tips": "Полная изоляция"},
-    {"id": "incline_curl", "name": "Сгибания на наклонной", "muscle": "Бицепс", "movement": "Сгибание", "equipment": "dumbbell", "compound": false, "tips": "Руки свисают, растяжка"},
-
-    {"id": "triceps_pushdown", "name": "Разгибание на блоке", "muscle": "Трицепс", "movement": "Разгибание", "equipment": "full_gym", "compound": false, "tips": "Локти прижаты к корпусу"},
-    {"id": "skull_crusher", "name": "Французский жим", "muscle": "Трицепс", "movement": "Разгибание", "equipment": "full_gym", "compound": false, "tips": "Штанга ко лбу"},
-    {"id": "overhead_triceps", "name": "Жим гантели из-за головы", "muscle": "Трицепс", "movement": "Разгибание", "equipment": "dumbbell", "compound": false, "tips": "Длинная головка трицепса"},
-    {"id": "dip", "name": "Отжимания на брусьях", "muscle": "Трицепс", "movement": "Жим", "equipment": "full_gym", "compound": true, "tips": "Корпус вертикально — акцент на трицепс"},
-    {"id": "close_grip_bench", "name": "Жим узким хватом", "muscle": "Трицепс", "movement": "Жим", "equipment": "full_gym", "compound": true, "tips": "Хват на ширине плеч"},
-    {"id": "rope_pushdown", "name": "Разгибание с канатом", "muscle": "Трицепс", "movement": "Разгибание", "equipment": "full_gym", "compound": false, "tips": "Разводи концы каната внизу"},
-
-    {"id": "calf_raise", "name": "Подъёмы на носки", "muscle": "Икры", "movement": "Подъём", "equipment": "full_gym", "compound": false, "tips": "Пиковое сокращение вверху"},
-    {"id": "donkey_calf", "name": "Подъёмы в наклоне", "muscle": "Икры", "movement": "Подъём", "equipment": "full_gym", "compound": false, "tips": "Полная растяжка и сокращение"},
-
-    {"id": "ab_wheel", "name": "Колесо для пресса", "muscle": "Пресс", "movement": "Скручивание", "equipment": "no_equipment", "compound": false, "tips": "Корпус прямой, не прогибайся"},
-    {"id": "hanging_leg", "name": "Подъём ног в висе", "muscle": "Пресс", "movement": "Подъём", "equipment": "full_gym", "compound": false, "tips": "Не раскачивайся"},
-    {"id": "crunch", "name": "Скручивания", "muscle": "Пресс", "movement": "Скручивание", "equipment": "no_equipment", "compound": false, "tips": "Поясница прижата к полу"},
-    {"id": "plank", "name": "Планка", "muscle": "Пресс", "movement": "Статика", "equipment": "no_equipment", "compound": false, "tips": "Тело — прямая линия, пресс и ягодицы напряжены"},
-
-    {"id": "pushup_floor", "name": "Отжимания от пола", "muscle": "Грудь", "movement": "Жим", "equipment": "no_equipment", "compound": true, "tips": "Корпус прямой, локти 45 градусов"},
-    {"id": "dumbbell_press", "name": "Жим гантелей лёжа", "muscle": "Грудь", "movement": "Жим", "equipment": "dumbbell", "compound": true, "tips": "Гантели до касания, без рывка"},
-    {"id": "floor_press", "name": "Жим гантелей с пола", "muscle": "Грудь", "movement": "Жим", "equipment": "dumbbell", "compound": true, "tips": "Локти касаются пола, полная амплитуда"},
-    {"id": "pike_pushup", "name": "Отжимания «домиком»", "muscle": "Плечи", "movement": "Жим", "equipment": "no_equipment", "compound": true, "tips": "Таз вверх, касайся лбом пола"},
-    {"id": "dumbbell_press_seated", "name": "Жим гантелей сидя", "muscle": "Плечи", "movement": "Жим", "equipment": "dumbbell", "compound": true, "tips": "Спина прижата, жим над головой"},
-    {"id": "dumbbell_lateral_raise", "name": "Разводка гантелей стоя", "muscle": "Плечи", "movement": "Мах", "equipment": "dumbbell", "compound": false, "tips": "Мизинцы чуть выше кистей, без инерции"},
-    {"id": "pullup_bar", "name": "Подтягивания на турнике", "muscle": "Спина", "movement": "Тяга", "equipment": "no_equipment", "compound": true, "tips": "Лопатки вниз-вперед, грудь к перекладине"},
-    {"id": "dumbbell_row", "name": "Тяга гантели в наклоне", "muscle": "Спина", "movement": "Тяга", "equipment": "dumbbell", "compound": true, "tips": "Локоть к корпусу, тяни к поясу"},
-    {"id": "dumbbell_pullover", "name": "Пуловер с гантелью", "muscle": "Спина", "movement": "Разведение", "equipment": "dumbbell", "compound": true, "tips": "Чуть согнуты локти, растягивай широчайшие"},
-    {"id": "bench_dip", "name": "Отжимания от скамьи", "muscle": "Трицепс", "movement": "Жим", "equipment": "no_equipment", "compound": true, "tips": "Ноги на полу или вперёд — меняй угол"},
-    {"id": "dumbbell_skull_crusher", "name": "Французский жим с гантелью", "muscle": "Трицепс", "movement": "Разгибание", "equipment": "dumbbell", "compound": false, "tips": "Одна гантель двумя руками, локти в стороны"},
-    {"id": "dumbbell_curl", "name": "Подъём гантелей на бицепс", "muscle": "Бицепс", "movement": "Сгибание", "equipment": "dumbbell", "compound": false, "tips": "Локти прижаты, без раскачки"},
-    {"id": "dumbbell_overhead", "name": "Жим гантели из-за головы", "muscle": "Трицепс", "movement": "Разгибание", "equipment": "dumbbell", "compound": false, "tips": "Длинная головка трицепса, локти рядом"},
-    {"id": "squat_bodyweight", "name": "Приседания без веса", "muscle": "Квадрицепс", "movement": "Присед", "equipment": "no_equipment", "compound": true, "tips": "Глубоко, колени по носкам, спина прямая"},
-    {"id": "bulgarian_split", "name": "Болгарские выпады", "muscle": "Квадрицепс", "movement": "Выпад", "equipment": "no_equipment", "compound": true, "tips": "Задняя нога на диване, корпус ровно"},
-    {"id": "single_leg_deadlift", "name": "Становая на одной ноге", "muscle": "Бицепс бедра", "movement": "Тяга", "equipment": "no_equipment", "compound": true, "tips": "Опора на одну ногу, наклон 45 градусов"},
-    {"id": "dumbbell_rdl", "name": "Румынская тяга с гантелями", "muscle": "Бицепс бедра", "movement": "Тяга", "equipment": "dumbbell", "compound": true, "tips": "Гантели вдоль ног, наклон с прямой спиной"},
-    {"id": "calf_raise_bodyweight", "name": "Подъёмы на носки стоя", "muscle": "Икры", "movement": "Подъём", "equipment": "no_equipment", "compound": false, "tips": "Полная растяжка и сокращение, пауза вверху"},
-    {"id": "ab_roll_home", "name": "Скручивания лёжа", "muscle": "Пресс", "movement": "Скручивание", "equipment": "no_equipment", "compound": false, "tips": "Поясница прижата к полу, тяни локти к коленям"}
-  ]
+ "exercises": [
+  {
+   "id": "bench_barbell",
+   "name": "Жим штанги лёжа",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Прямой хват чуть шире плеч, лопатки сведены, штанга к низу груди"
+  },
+  {
+   "id": "bench_incline_barbell",
+   "name": "Жим штанги на наклонной 30°",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват на ширине плеч, корпус прижат, штанга к верху груди"
+  },
+  {
+   "id": "bench_decline_barbell",
+   "name": "Жим штанги с обратным наклоном",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Носки выше головы, акцент на нижний край груди"
+  },
+  {
+   "id": "bench_wide_grip",
+   "name": "Жим штанги широким хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват 1.5 ширины плеч, меньше работает трицепс"
+  },
+  {
+   "id": "bench_close_grip",
+   "name": "Жим штанги узким хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват на ширине плеч, локти идут вдоль корпуса"
+  },
+  {
+   "id": "bench_reverse_grip",
+   "name": "Жим штанги обратным хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ладони на себя, малый вес, акцент верх груди"
+  },
+  {
+   "id": "bench_paused",
+   "name": "Жим штанги с паузой",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Пауза 2 с на груди без отбива, спина стабильна"
+  },
+  {
+   "id": "bench_board",
+   "name": "Жим с брусками (Board Press)",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Брусок 5 см на груди, локти под 45°, короткий ход"
+  },
+  {
+   "id": "bench_swiss",
+   "name": "Жим со штангой Swiss / нейтральный хват",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Вертикальные рукоятки, кисти и плечи в свободном положении"
+  },
+  {
+   "id": "bench_floor_barbell",
+   "name": "Жим штанги с пола",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Локти касаются пола, снимает нагрузку с плечевых суставов"
+  },
+  {
+   "id": "smith_bench",
+   "name": "Жим штанги в тренажёре Смита",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Наклонная траектория, можно уйти в глубокую амплитуду"
+  },
+  {
+   "id": "hammer_chest",
+   "name": "Жим в рычажном тренажёре Хаммер",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Нейтральный хват рукоятей, жим без стабилизации"
+  },
+  {
+   "id": "machine_press",
+   "name": "Жим от груди в тренажёре сидя",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Рукояти на уровне сосков, лопатки прижаты к спинке"
+  },
+  {
+   "id": "pec_deck",
+   "name": "Сведение рук в тренажёре «бабочка»",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Предплечья на подушках, пауза в точке сведения"
+  },
+  {
+   "id": "cable_fly_mid",
+   "name": "Сведение на блоках на уровне груди",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Прямые рукояти, локти чуть согнуты, руки параллельны полу"
+  },
+  {
+   "id": "cable_fly_low",
+   "name": "Сведение на нижних блоках снизу вверх",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Акцент на верх груди, вверху разворот кистей большими пальцами вниз"
+  },
+  {
+   "id": "cable_fly_high",
+   "name": "Разведение на верхних блоках сверху вниз",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Наклон корпуса 15°, тянуть к низу живота"
+  },
+  {
+   "id": "cable_one_arm_fly",
+   "name": "Одноручная разводка на блоке",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Корпус в стороне от блока, антиротация прессом"
+  },
+  {
+   "id": "cable_press",
+   "name": "Жим на нижних блоках стоя",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Шаг вперёд, рукояти на уровне груди, нейтральный хват"
+  },
+  {
+   "id": "dips_chest",
+   "name": "Отжимания на брусьях с наклоном",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Корпус наклонён вперёд, локти в стороны, акцент на грудь"
+  },
+  {
+   "id": "landmine_press",
+   "name": "Жим штанги в наклоне (Landmine)",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Одной рукой снизу, локоть вперёд, плечо свободно"
+  },
+  {
+   "id": "pushup",
+   "name": "Отжимания от пола",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Хват на ширине плеч, локти под 45°, тело — прямая линия"
+  },
+  {
+   "id": "pushup_wide",
+   "name": "Отжимания широким хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Кисти в 1.5 раза шире плеч, минимальная амплитуда"
+  },
+  {
+   "id": "pushup_narrow",
+   "name": "Отжимания узким хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Кисти под серединой груди, локти вдоль корпуса"
+  },
+  {
+   "id": "pushup_diamond",
+   "name": "Алмазные отжимания",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Указательные и большие пальцы образуют ромб"
+  },
+  {
+   "id": "pushup_feet_elevated",
+   "name": "Отжимания с ногами на возвышении",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Опора 40–60 см, перенос нагрузки на верх груди"
+  },
+  {
+   "id": "pushup_hands_elevated",
+   "name": "Отжимания руками на возвышении",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Чем выше опора, тем легче; акцент на низ груди"
+  },
+  {
+   "id": "pushup_archer",
+   "name": "Отжимания «лучник»",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Одна рука прямая в сторону, вес на согнутой"
+  },
+  {
+   "id": "pushup_typewriter",
+   "name": "Отжимания «печатная машинка»",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "В нижней точке перенос корпуса от руки к руке"
+  },
+  {
+   "id": "pushup_pseudo",
+   "name": "Псевдо-отжимания (руки у пояса)",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Кисти на линии низа груди, локти назад, жим с пронацией"
+  },
+  {
+   "id": "pushup_one_arm",
+   "name": "Отжимания на одной руке",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Вторая рука за спиной, стопы широко для баланса"
+  },
+  {
+   "id": "pushup_explosive",
+   "name": "Взрывные отжимания с хлопком",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Максимальное ускорение вверх, мягкая амортизация"
+  },
+  {
+   "id": "pushup_knees",
+   "name": "Отжимания с колен",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Корпус от колен до головы прямой, без прогиба в пояснице"
+  },
+  {
+   "id": "db_press",
+   "name": "Жим гантелей лёжа",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Хват пронацией, вверху свести гантели, разворот к мизинцам"
+  },
+  {
+   "id": "db_press_incline",
+   "name": "Жим гантелей на наклонной 30°",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Скамья 30–45°, нижняя точка — глубокое растяжение"
+  },
+  {
+   "id": "db_press_decline",
+   "name": "Жим гантелей с обратным наклоном",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Носки выше головы, акцент нижний внешний край"
+  },
+  {
+   "id": "db_press_neutral",
+   "name": "Жим гантелей нейтральным хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Ладони друг к другу, безопаснее для передней дельты"
+  },
+  {
+   "id": "db_press_hammer",
+   "name": "Жим гантелей молотковым хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Большие пальцы внутрь, акцент на трицепс и внешнюю грудь"
+  },
+  {
+   "id": "db_press_semi_prone",
+   "name": "Жим гантелей полуобратным хватом",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Разворот кистей на 45°, меньше нагрузки на ротаторы"
+  },
+  {
+   "id": "db_press_paused",
+   "name": "Жим гантелей с паузой внизу",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "2 секунды в растянутой позиции, без отбива"
+  },
+  {
+   "id": "db_press_squeeze",
+   "name": "Жим гантелей с внутренним вращением",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "В конце жима разворот кистей внутрь, пик сокращения"
+  },
+  {
+   "id": "db_fly",
+   "name": "Разводка гантелей лёжа",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Локти согнуты 150°, движение по дуге, «обнять дерево»"
+  },
+  {
+   "id": "db_fly_incline",
+   "name": "Разводка гантелей на наклонной",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Угол 30°, акцент верх груди, мизинцы чуть выше"
+  },
+  {
+   "id": "db_fly_neutral",
+   "name": "Разводка гантелей нейтральным хватом",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Ладони друг к другу, безопасная траектория для плеча"
+  },
+  {
+   "id": "db_fly_low_to_front",
+   "name": "Сведение гантелей перед собой",
+   "muscle": "Грудь",
+   "movement": "Сведение",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Лёгкий вес, руки почти прямые, подъём до уровня глаз"
+  },
+  {
+   "id": "db_floor_press",
+   "name": "Жим гантелей с пола",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Пауза при касании трицепсом пола, взрывной жим"
+  },
+  {
+   "id": "db_pushup_deficit",
+   "name": "Отжимания на гантелях с глубокой амплитудой",
+   "muscle": "Грудь",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Руки на гантелях, опускание ниже уровня ладоней"
+  },
+  {
+   "id": "pullup_wide",
+   "name": "Подтягивания широким прямым хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват 1.5 ширины плеч, тянуть грудь к перекладине, лопатки вниз"
+  },
+  {
+   "id": "pullup_medium",
+   "name": "Подтягивания средним прямым хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Кисти чуть шире плеч, подбородок над грифом"
+  },
+  {
+   "id": "pullup_close",
+   "name": "Подтягивания узким прямым хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват уже плеч, акцент на нижнюю часть широчайших"
+  },
+  {
+   "id": "pullup_reverse",
+   "name": "Подтягивания обратным хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ладони на себя на ширине плеч, сильнее включается бицепс"
+  },
+  {
+   "id": "pullup_neutral",
+   "name": "Подтягивания параллельным (нейтральным) хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Параллельные рукояти, большая амплитуда, щадит плечи"
+  },
+  {
+   "id": "pullup_behind_neck",
+   "name": "Подтягивания за голову",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Только при мобильности плеч, гриф за шею до трапеций"
+  },
+  {
+   "id": "pullup_commando",
+   "name": "Подтягивания «коммандо» чередованием",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Узкий перпендикулярный хват, тянуть к груди поочерёдно"
+  },
+  {
+   "id": "chinup",
+   "name": "Подтягивания узким обратным хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Кисти на ширине плеч, локти идут вдоль корпуса"
+  },
+  {
+   "id": "lat_pulldown_wide",
+   "name": "Тяга верхнего блока широким хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Гриф на 1.5 ширины плеч, тянуть к ключицам, корпус отклонён"
+  },
+  {
+   "id": "lat_pulldown_reverse",
+   "name": "Тяга блока обратным хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ладони на себя, локти заводятся назад до максимума"
+  },
+  {
+   "id": "lat_pulldown_neutral",
+   "name": "Тяга блока параллельной рукоятью",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "V-рукоять, тянуть к верху живота, грудь вверх"
+  },
+  {
+   "id": "lat_pulldown_single",
+   "name": "Одноручная тяга верхнего блока",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "D-рукоять, свободная рука на стойке, большой разворот корпуса"
+  },
+  {
+   "id": "lat_pulldown_kneeling",
+   "name": "Тяга блока снизу на коленях",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Одна колено на полу, прямые рукояти, тянуть локтями"
+  },
+  {
+   "id": "straight_arm_bar",
+   "name": "Тяга прямого грифа вниз на блоке",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Руки прямые, дуга до бёдер, лопатки опущены"
+  },
+  {
+   "id": "straight_arm_rope",
+   "name": "Пуловер с канатом на блоке",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Наклон 30°, канат разводится к бёдрам, широчайшие без бицепса"
+  },
+  {
+   "id": "barbell_row",
+   "name": "Тяга штанги в наклоне прямым хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Корпус 45°, тянуть к низу живота, локти вдоль рёбер"
+  },
+  {
+   "id": "barbell_row_reverse",
+   "name": "Тяга штанги в наклоне обратным хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ладони на себя, акцент низ широчайших и бицепс"
+  },
+  {
+   "id": "pendlay_row",
+   "name": "Тяга штанги с пола (Pendlay)",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стартовый гриф в пол, взрывная тяга, корпус параллельно полу"
+  },
+  {
+   "id": "t_bar_row",
+   "name": "Тяга Т-грифа двумя руками",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Параллельные рукояти, грудь над грифом, тянуть к животу"
+  },
+  {
+   "id": "t_bar_one_arm",
+   "name": "Тяга Т-грифа одной рукой",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Поворот корпуса, локоть ведётся назад-вверх"
+  },
+  {
+   "id": "meadows_row",
+   "name": "Тяга Мэддоуза (гриф в углу)",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Одноручно за узкий конец нагруженного грифа, корпус боком"
+  },
+  {
+   "id": "seal_row",
+   "name": "Тяга на скамье Силача",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Грудь на приподнятой скамье, тяга без нагрузки на поясницу"
+  },
+  {
+   "id": "chest_supported_row",
+   "name": "Тяга гантелей с упором грудью в наклонную",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Скамья 45°, руки свисают вертикально, тянуть локтями вверх"
+  },
+  {
+   "id": "cable_row_v",
+   "name": "Тяга нижнего блока V-рукоятью",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Узкий параллельный хват, к низу живота, плечи от ушей"
+  },
+  {
+   "id": "cable_row_wide",
+   "name": "Тяга нижнего блока широким грифом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Прямой широкий гриф к животу, локти разведены"
+  },
+  {
+   "id": "cable_row_reverse",
+   "name": "Тяга нижнего блока обратным хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ладони вверх, тянуть к поясу, лопатки сводить"
+  },
+  {
+   "id": "cable_row_one",
+   "name": "Одноручная тяга нижнего блока",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "D-рукоять, корпус разворачивается, полная растяжка"
+  },
+  {
+   "id": "cable_row_seated_twist",
+   "name": "Тяга блока с поворотом корпуса",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Лёгкий вес, скручивание к бедру в конце тяги"
+  },
+  {
+   "id": "barbell_shrug",
+   "name": "Шраги со штангой",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Прямой хват, подъём плеч вверх без вращения, пауза"
+  },
+  {
+   "id": "rack_pull",
+   "name": "Тяга с плинтов (Rack Pull)",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Гриф на уровне колен, спина жёсткая, лопатки назад"
+  },
+  {
+   "id": "good_morning",
+   "name": "Наклон со штангой (Good Morning)",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Штанга на трапециях, колени мягкие, наклон до параллели"
+  },
+  {
+   "id": "back_extension",
+   "name": "Гиперэкстензия на римском стуле",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Сведение лопаток вверху, не переразгибать поясницу"
+  },
+  {
+   "id": "reverse_hyper",
+   "name": "Разгибание корпуса на тренажёре (Reverse Hyper)",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Ноги поднимаются вверх, таз зафиксирован"
+  },
+  {
+   "id": "inverted_row",
+   "name": "Австралийские подтягивания на низкой перекладине",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Прямой широкий хват, тело — линия, грудь к грифу"
+  },
+  {
+   "id": "db_row",
+   "name": "Тяга гантели одной рукой в упоре",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Колени на скамье, тянуть к бедру с поворотом корпуса"
+  },
+  {
+   "id": "db_row_neutral",
+   "name": "Тяга гантелей двумя руками нейтральным хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Ладони друг к другу, наклон 45°, локти вдоль корпуса"
+  },
+  {
+   "id": "db_row_prone",
+   "name": "Тяга гантелей прямым хватом с опорой грудью",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Скамья 30°, без раскачки, пауза в верхней точке"
+  },
+  {
+   "id": "db_renegade_row",
+   "name": "Тяга гантелей в планке (Renegade)",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Стопы широко, таз неподвижен, тяга без перекоса"
+  },
+  {
+   "id": "db_pullover",
+   "name": "Пуловер с гантелью лёжа",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Одна гантель за прямые руки, растяжение широчайших"
+  },
+  {
+   "id": "db_shrug",
+   "name": "Шраги с гантелями",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Руки висят вертикально, подъём к ушам, пауза 1 с"
+  },
+  {
+   "id": "db_bent_over_row",
+   "name": "Тяга двух гантелей в наклоне",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Корпус параллельно полу, тянуть к поясу, локти высоко"
+  },
+  {
+   "id": "db_pull_over_incline",
+   "name": "Пуловер на наклонной скамье",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Лопатки на краю скамьи, таз ниже уровня скамьи"
+  },
+  {
+   "id": "chinup_bw",
+   "name": "Подтягивания обратным хватом на турнике",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Ладони на себя, хват на ширине плеч, лопатки вниз"
+  },
+  {
+   "id": "pullup_bw",
+   "name": "Подтягивания прямым хватом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Хват шире плеч, грудь к перекладине, без рывков"
+  },
+  {
+   "id": "inverted_row_table",
+   "name": "Австралийские подтягивания под столом",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Узкий надёжный стол, тело прямое, подбородок к столешнице"
+  },
+  {
+   "id": "towel_pullup",
+   "name": "Подтягивания на полотенцах",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Два полотенца через перекладину, сильный хват и широчайшие"
+  },
+  {
+   "id": "dead_hang",
+   "name": "Вис на перекладине",
+   "muscle": "Спина",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Полное растяжение, плечи активны, дышать ровно"
+  },
+  {
+   "id": "scap_pullup",
+   "name": "Лопаточные подтягивания",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Из виса только сведение лопаток, руки прямые"
+  },
+  {
+   "id": "superman",
+   "name": "«Лодочка» лёжа на животе",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Одновременный подъём рук и ног, пауза 2 с"
+  },
+  {
+   "id": "back_ext_floor",
+   "name": "Разгибание спины на полу",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Руки за головой, подъём грудного отдела, поясница не заламывается"
+  },
+  {
+   "id": "band_pull_apart",
+   "name": "Разведение резиновой ленты перед собой",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Прямые руки, лента на уровне груди, сводить лопатки"
+  },
+  {
+   "id": "band_row",
+   "name": "Тяга резиновой ленты сидя",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Лента вокруг стоп, локти вдоль корпуса, пауза у живота"
+  },
+  {
+   "id": "band_pulldown",
+   "name": "Тяга резиновой ленты сверху",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Крепление высоко, колени на полу, локти к бёдрам"
+  },
+  {
+   "id": "band_face_pull",
+   "name": "Тяга ленты к лицу",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Уровень глаз, разворот кистей назад, задняя дельта"
+  },
+  {
+   "id": "band_straight_pulldown",
+   "name": "Пуловер с лентой прямыми руками",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Наклон корпуса, лента к бёдрам, без сгибания локтей"
+  },
+  {
+   "id": "ohp",
+   "name": "Жим штанги стоя (Армейский)",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват чуть шире плеч, голова уходит назад, затем вперёд"
+  },
+  {
+   "id": "ohp_push",
+   "name": "Толчковый жим (Push Press)",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Подседание ногами, взрывной выталкивание штанги"
+  },
+  {
+   "id": "ohp_behind",
+   "name": "Жим штанги из-за головы",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Только при мобильности, гриф за шею до трапеций"
+  },
+  {
+   "id": "ohp_seated",
+   "name": "Жим штанги сидя с упором",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Спинка 85°, гриф до уровня подбородка"
+  },
+  {
+   "id": "upright_row",
+   "name": "Тяга штанги к подбородку",
+   "muscle": "Плечи",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Узкий хват, штанга скользит вдоль корпуса, локти выше кистей"
+  },
+  {
+   "id": "upright_row_rope",
+   "name": "Тяга каната к подбородку",
+   "muscle": "Плечи",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Широкая рукоять, локти разводятся в стороны"
+  },
+  {
+   "id": "face_pull",
+   "name": "Тяга каната к лицу",
+   "muscle": "Плечи",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Верхний блок, канат к глазам, разворот кистей назад"
+  },
+  {
+   "id": "face_pull_rope_single",
+   "name": "Одноручная тяга к лицу",
+   "muscle": "Плечи",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "D-рукоять, локоть уходит выше плеча, задняя дельта"
+  },
+  {
+   "id": "lateral_cable",
+   "name": "Разводка гантели/рукояти через нижний блок",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Блок за спиной, постоянная натяжка, локоть чуть согнут"
+  },
+  {
+   "id": "rear_delt_cable",
+   "name": "Мах назад на нижнем блоке",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Корпус наклонён, рукоять далеко от тела, лопатка движется"
+  },
+  {
+   "id": "rear_delt_cable_high",
+   "name": "Разведение рук на верхнем блоке стоя",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Наклон вперёд, прямые руки, подъём к уровню глаз"
+  },
+  {
+   "id": "y_raise_cable",
+   "name": "Y-подъём на блоке",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Канат между ног, руки под 45° вверх, большие пальцы вперёд"
+  },
+  {
+   "id": "machine_shoulder",
+   "name": "Жим в тренажёре от плеч",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Рукояти на уровне ушей, спинка вверх, без отрыва таза"
+  },
+  {
+   "id": "landmine_press_one",
+   "name": "Жим Landmine одной рукой стоя",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "За узкий конец грифа, локоть вперёд, корпус не заваливать"
+  },
+  {
+   "id": "z_press",
+   "name": "Жим Z с пола",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ноги врозь, старт с предплечий, мощнейшая стабилизация корпуса"
+  },
+  {
+   "id": "sots_press",
+   "name": "Фронтальный жим с гантелями",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Гриф на ключицах, локти высоко, жим с прогибом назад"
+  },
+  {
+   "id": "pike_pushup",
+   "name": "Отжимания «домиком»",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Таз вверх, голова к полу между руками, локти в стороны"
+  },
+  {
+   "id": "pike_pushup_elevated",
+   "name": "Отжимания «домиком» с ногами на возвышении",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Опора 40 см, перенос веса на плечи"
+  },
+  {
+   "id": "handstand_hold",
+   "name": "Стойка на руках у стены",
+   "muscle": "Плечи",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Руки на ширине плеч, корпус в струну, дышать ровно"
+  },
+  {
+   "id": "wall_handstand_push",
+   "name": "Отжимания в стойке у стены",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Спина к стене, касание головы пола, малая амплитуда"
+  },
+  {
+   "id": "y_raise_floor",
+   "name": "Y-подъём лёжа головой на скамье",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Минимальный вес, большие пальцы вверх, пауза вверху"
+  },
+  {
+   "id": "lateral_lean_floor",
+   "name": "Разводка в стороны с опорой на бок",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Локоть нижней руки под плечом, подъём до вертикали"
+  },
+  {
+   "id": "db_shoulder_press",
+   "name": "Жим гантелей сидя",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Хват пронацией, гантели не сводить, разворот к мизинцам"
+  },
+  {
+   "id": "db_press_neutral_shoulder",
+   "name": "Жим гантелей нейтральным хватом над головой",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Ладони друг к другу, безопасен для акромиально-ключичного сочленения"
+  },
+  {
+   "id": "db_arnold_press",
+   "name": "Жим Арнольда",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Старт ладонями к лицу, плавный разворот в пронацию"
+  },
+  {
+   "id": "db_press_half_turn",
+   "name": "Жим гантелей с полуразворотом",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Разворот кистей на 45°, акцент передняя дельта"
+  },
+  {
+   "id": "db_upright_row",
+   "name": "Тяга гантелей к подбородку",
+   "muscle": "Плечи",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантели у бёдер, локти ведут движение выше кистей"
+  },
+  {
+   "id": "db_lateral",
+   "name": "Махи гантелей в стороны",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Локти чуть согнуты, кисть ниже локтя, без раскачки"
+  },
+  {
+   "id": "db_lateral_incline",
+   "name": "Махи в стороны лёжа на наклонной",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Скамья 60°, рука свисает за голову, растяжение в нижней точке"
+  },
+  {
+   "id": "db_lateral_lean",
+   "name": "Махи в стороны с наклоном корпуса",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Наклон 30°, рука уходит чуть дальше корпуса"
+  },
+  {
+   "id": "db_lateral_prone",
+   "name": "Махи в стороны с опорой грудью",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Скамья 45°, изоляция средней дельты без инерции"
+  },
+  {
+   "id": "db_lateral_full",
+   "name": "Махи с паузой вверху",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "2 секунды на уровне плеч, опускание 3 счёта"
+  },
+  {
+   "id": "db_front_raise",
+   "name": "Подъём гантелей вперёд",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Прямые руки, до уровня глаз, корпус неподвижен"
+  },
+  {
+   "id": "db_front_alternate",
+   "name": "Поочерёдный подъём гантелей вперёд",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Нейтральный хват, лёгкий вес, ритм без паузы"
+  },
+  {
+   "id": "db_front_hammer",
+   "name": "Подъём гантелей молотковым хватом",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Большие пальцы вверх, акцент передняя дельта и клювовидная"
+  },
+  {
+   "id": "db_rear_bent",
+   "name": "Махи в стороны в наклоне",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Наклон до параллели, локти разведены, мизинцы выше"
+  },
+  {
+   "id": "db_rear_prone",
+   "name": "Махи назад лёжа на наклонной скамье",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Грудь на спинке 30°, руки свисают вертикально, подъём в стороны"
+  },
+  {
+   "id": "db_rear_neutral",
+   "name": "Махи назад нейтральным хватом",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Ладони вниз-внутрь, тянуть локтями, вес минимальный"
+  },
+  {
+   "id": "db_external_rotation",
+   "name": "Наружная ротация с гантелью",
+   "muscle": "Плечи",
+   "movement": "Ротация",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Локоть прижат к корпусу, подъём предплечья до горизонтали"
+  },
+  {
+   "id": "db_internal_rotation",
+   "name": "Внутренняя ротация с гантелью",
+   "muscle": "Плечи",
+   "movement": "Ротация",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Опора на скамью, медленное опускание, лёгкий вес"
+  },
+  {
+   "id": "db_farm_hold",
+   "name": "Прогулка фермера",
+   "muscle": "Плечи",
+   "movement": "Статика",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Тяжёлые гантели, плечи вверх, шаг короткий, корпус прямой"
+  },
+  {
+   "id": "band_lateral",
+   "name": "Разведение рук с резиновой лентой",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Лента под ногами, руки прямые, пауза на уровне плеч"
+  },
+  {
+   "id": "band_press",
+   "name": "Жим резиновой ленты над головой",
+   "muscle": "Плечи",
+   "movement": "Жим",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Стойка на ленте, рукояти на уровне ушей, разгибание вверх"
+  },
+  {
+   "id": "band_rear_fly",
+   "name": "Разведение рук с лентой в наклоне",
+   "muscle": "Плечи",
+   "movement": "Мах",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Наклон 45°, лента на уровне груди, тянуть в стороны"
+  },
+  {
+   "id": "band_face_pull_s",
+   "name": "Тяга ленты к лицу (верхняя дельта)",
+   "muscle": "Плечи",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Крепление на уровне глаз, разворот кистей в конечной точке"
+  },
+  {
+   "id": "squat_high_bar",
+   "name": "Приседания со штангой на трапециях",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Высокое положение грифа, узкая постановка стоп, корпус вертикальнее"
+  },
+  {
+   "id": "squat_low_bar",
+   "name": "Приседания со штангой на задних дельтах",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Низкое положение грифа, наклон корпуса больше, шаг шире"
+  },
+  {
+   "id": "front_squat",
+   "name": "Фронтальные приседания",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Гриф на ключицах, локти вверх, корпус вертикально, глубже"
+  },
+  {
+   "id": "squat_box",
+   "name": "Приседания на тумбу",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Касание тумбы без отскока, контроль глубины"
+  },
+  {
+   "id": "squat_sumo",
+   "name": "Приседания сумо",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы широко, носки врозь 45°, акцент внутренняя поверхность"
+  },
+  {
+   "id": "squat_heels",
+   "name": "Приседания с поднятными пятками",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Диски 5 см или лифтерки, колено уходит дальше носка"
+  },
+  {
+   "id": "squat_narrow",
+   "name": "Приседания с узкой постановкой стоп",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы на ширине таза, акцент внешняя часть бедра"
+  },
+  {
+   "id": "smith_squat",
+   "name": "Приседания в тренажёре Смита",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ноги вынесены вперёд, спина прижата к направляющей"
+  },
+  {
+   "id": "hack_squat",
+   "name": "Гакк-приседания",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы на середине платформы, поясница прижата, до параллели"
+  },
+  {
+   "id": "hack_squat_high",
+   "name": "Гакк-приседания с высокой постановкой стоп",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы выше — акцент ягодицы и бицепс бедра"
+  },
+  {
+   "id": "belt_squat",
+   "name": "Приседания с подвесным поясом",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Вес на поясе, руки свободны, вертикальный корпус"
+  },
+  {
+   "id": "zercher_squat",
+   "name": "Приседания Зерчера",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Гриф в локтевых сгибах, корпус прямо, пресс жёсткий"
+  },
+  {
+   "id": "leg_press",
+   "name": "Жим ногами (средняя постановка)",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы на ширине плеч в центре платформы, поясница не отрывать"
+  },
+  {
+   "id": "leg_press_high",
+   "name": "Жим ногами с высокой постановкой стоп",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы у верхнего края — акцент ягодицы и задняя поверхность"
+  },
+  {
+   "id": "leg_press_wide",
+   "name": "Жим ногами сумо",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Широко, носки врозь, внутренняя часть бедра"
+  },
+  {
+   "id": "leg_press_narrow",
+   "name": "Жим ногами узкой постановкой",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы вместе внизу платформы, акцент квадрицепс"
+  },
+  {
+   "id": "leg_press_one",
+   "name": "Жим ногами одной ногой",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Работа поочерёдно, таз не перекручивать"
+  },
+  {
+   "id": "leg_extension",
+   "name": "Разгибание ног в тренажёре",
+   "muscle": "Квадрицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Пауза 1 с вверху, опускать без бросания веса"
+  },
+  {
+   "id": "leg_extension_int",
+   "name": "Разгибание ног с внутренней ротацией",
+   "muscle": "Квадрицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Носки внутрь — акцент латеральная головка"
+  },
+  {
+   "id": "leg_extension_single",
+   "name": "Разгибание одной ноги",
+   "muscle": "Квадрицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Контроль, без раскачки таза"
+  },
+  {
+   "id": "sissy_squat",
+   "name": "Сисси-приседания",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Опора за раму, колени вперёд, корпус отклоняется назад"
+  },
+  {
+   "id": "meadows_smith",
+   "name": "Тяга гантели в раме Смита одной рукой",
+   "muscle": "Спина",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Корпус боком к грифу, тянуть к бедру, лопатка ведёт движение"
+  },
+  {
+   "id": "step_up_barbell",
+   "name": "Зашагивания на тумбу со штангой",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Тумба 40–50 см, толчок пяткой рабочей ноги"
+  },
+  {
+   "id": "lunge_barbell",
+   "name": "Выпады со штангой на спине",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Шаг широкий, колено задней ноги почти к полу"
+  },
+  {
+   "id": "bulgarian_barbell",
+   "name": "Болгарский присед со штангой",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Задняя нога на скамье, корпус чуть наклонён"
+  },
+  {
+   "id": "squat_bodyweight",
+   "name": "Приседания без веса",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Пятки на полу, глубина полная, колени по носкам"
+  },
+  {
+   "id": "squat_pause_bw",
+   "name": "Приседания с паузой внизу",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "2–3 секунды в нижней точке, без отрыва пяток"
+  },
+  {
+   "id": "squat_jump",
+   "name": "Выпрыгивания из приседа",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Максимальное усилие вверх, мягкое приземление в присед"
+  },
+  {
+   "id": "wall_sit",
+   "name": "Стульчик у стены",
+   "muscle": "Квадрицепс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Бёдра параллельно полу, колени над носками, дышать ровно"
+  },
+  {
+   "id": "pistol_squat",
+   "name": "Пистолетик (присед на одной ноге)",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Вторая нога вперёд, опускаться до касания бицепсом икры"
+  },
+  {
+   "id": "assisted_pistol",
+   "name": "Присед на одной ноге с опорой",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Держась за стойку, вес на рабочей ноге"
+  },
+  {
+   "id": "shrimp_squat",
+   "name": "Присед «креветка»",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Стопа сзади рукой, глубокое одностороннее седалище"
+  },
+  {
+   "id": "squat_hold",
+   "name": "Удержание в приседе",
+   "muscle": "Квадрицепс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Угол 90° в коленях, удержание до отказа"
+  },
+  {
+   "id": "lunge_walking",
+   "name": "Выпады шагом",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Длинный шаг, колено не заваливать внутрь"
+  },
+  {
+   "id": "lunge_reverse_bw",
+   "name": "Обратные выпады",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Шаг назад, вес на передней ноге, безопаснее для колен"
+  },
+  {
+   "id": "lunge_side_bw",
+   "name": "Боковые выпады",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Приставной шаг, таз уходит назад, колено по носку"
+  },
+  {
+   "id": "curtsy_lunge",
+   "name": "Выпады крест-накрест",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Нога назад по диагонали, акцент ягодицы"
+  },
+  {
+   "id": "bulgarian_bw",
+   "name": "Болгарский присед без веса",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Задняя нога на диване, колено передней над стопой"
+  },
+  {
+   "id": "step_up_bw",
+   "name": "Зашагивания на ступеньку",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Высота 30–40 см, подъём силой рабочей ноги"
+  },
+  {
+   "id": "single_leg_squat_box",
+   "name": "Присед на одной ноге на стул",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Руки вперёд для баланса, сесть и встать без опоры"
+  },
+  {
+   "id": "goblet_squat",
+   "name": "Кубковый присед с гантелью",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель у груди, локти внутри колен, спина вертикальна"
+  },
+  {
+   "id": "db_squat",
+   "name": "Приседания с гантелями в руках",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантели по бокам, корпус держит вертикаль"
+  },
+  {
+   "id": "db_front_rack_squat",
+   "name": "Фронтальные приседания с гантелями",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантели на плечах хватом «на груди», локти вверх"
+  },
+  {
+   "id": "db_sumo_squat",
+   "name": "Приседания сумо с гантелью",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель за прямые руки вниз, носки врозь"
+  },
+  {
+   "id": "db_lunge",
+   "name": "Выпады с гантелями",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Корпус прямо, шаг подлиннее, колени 90°"
+  },
+  {
+   "id": "db_reverse_lunge",
+   "name": "Обратные выпады с гантелями",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантели вдоль корпуса, шаг назад, акцент ягодицы"
+  },
+  {
+   "id": "db_bulgarian",
+   "name": "Болгарский присед с гантелями",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантели по бокам, наклон корпуса для ягодиц"
+  },
+  {
+   "id": "db_split_squat",
+   "name": "Раздельные приседания на месте",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Стопы врозь на месте, вертикальные голени"
+  },
+  {
+   "id": "db_step_up",
+   "name": "Зашагивания с гантелями",
+   "muscle": "Квадрицепс",
+   "movement": "Выпад",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Тумба 40 см, без отталкивания нижней ногой"
+  },
+  {
+   "id": "db_leg_extension",
+   "name": "Подъём ноги лёжа с гантелью",
+   "muscle": "Квадрицепс",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Гантель за коленом, подъём до разгибания, пауза"
+  },
+  {
+   "id": "band_squat",
+   "name": "Приседание с резиновой лентой",
+   "muscle": "Квадрицепс",
+   "movement": "Присед",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Лента под стопами и на плечах, сопротивление в верхней фазе"
+  },
+  {
+   "id": "band_leg_extension",
+   "name": "Разгибание ноги с лентой стоя",
+   "muscle": "Квадрицепс",
+   "movement": "Разгибание",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Крепление низко, манжета на щиколотке, тянуть пятку вперёд"
+  },
+  {
+   "id": "deadlift",
+   "name": "Классическая становая тяга",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват на ширине плеч, штанга у середины стопы, спина жёсткая"
+  },
+  {
+   "id": "deadlift_sumo",
+   "name": "Становая тяга сумо",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы широко, носки врозь, руки внутри колен, корпус вертикальнее"
+  },
+  {
+   "id": "deadlift_snatch",
+   "name": "Тяга с узким хватом (Snatch-grip)",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват шире колен, большая амплитуда, широчайшие и спина"
+  },
+  {
+   "id": "deadlift_block",
+   "name": "Тяга с тумб (Block Pull)",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Старт с высоты 15–20 см, акцент верхняя фаза и шраги"
+  },
+  {
+   "id": "rdl",
+   "name": "Румынская тяга со штангой",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Штанга скользит по бёдрам, колени мягкие, наклон до растяжения"
+  },
+  {
+   "id": "stiff_leg_dl",
+   "name": "Тяга на прямых ногах",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Колени почти прямые, штанга ниже колен, растяжение бицепса бедра"
+  },
+  {
+   "id": "rdl_smith",
+   "name": "Румынская тяга в тренажёре Смита",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Гриф за ногами или перед ними, стабильная траектория"
+  },
+  {
+   "id": "leg_curl_lying",
+   "name": "Сгибание ног лёжа",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Бёдра прижаты, пятки к ягодицам, пауза вверху"
+  },
+  {
+   "id": "leg_curl_seated",
+   "name": "Сгибание ног сидя",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Бедра фиксированы подушкой, подконтрольное опускание"
+  },
+  {
+   "id": "leg_curl_one",
+   "name": "Сгибание ноги одной",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Работа поочерёдно, коррекция дисбаланса"
+  },
+  {
+   "id": "leg_curl_lying_toes_in",
+   "name": "Сгибание ног с разворотом носков внутрь",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Акцент медиальная головка бицепса бедра"
+  },
+  {
+   "id": "glute_ham",
+   "name": "Обратная гиперэкстензия на GHD (GHR)",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы фиксированы, сгибание корпуса руками за головой"
+  },
+  {
+   "id": "back_ext_ham",
+   "name": "Гиперэкстензия с акцентом на бицепс бедра",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Круглая спина, носки врозь, подъём силой задней поверхности"
+  },
+  {
+   "id": "pull_through",
+   "name": "Тяга каната между ног (Pull-through)",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Канат между ног, наклон с прямой спиной, разгибание тазом"
+  },
+  {
+   "id": "single_leg_dl_barbell",
+   "name": "Румынская тяга на одной ноге со штангой",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Опора на одну ногу, таз ровно, свободная нога назад"
+  },
+  {
+   "id": "db_rdl",
+   "name": "Румынская тяга с гантелями",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантели вдоль бёдер, наклон с прямой спиной до растяжения"
+  },
+  {
+   "id": "db_sumo_dl",
+   "name": "Сумо-тяга с гантелью",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель за прямыми руками, носки врозь, подъём разгибанием бёдер"
+  },
+  {
+   "id": "db_single_leg_dl",
+   "name": "Румынская тяга на одной ноге с гантелью",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Корпус и свободная нога — одна линия, без перекоса таза"
+  },
+  {
+   "id": "db_leg_curl",
+   "name": "Сгибание ног лёжа с гантелью между стоп",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Гантель зафиксирована стопами, подъём к ягодицам"
+  },
+  {
+   "id": "db_good_morning",
+   "name": "Клевок с гантелей на плечах",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель прижата к груди, наклон с прямой спиной"
+  },
+  {
+   "id": "nordic_curl",
+   "name": "Норвежские скручивания (Nordic)",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Стопы зафиксированы, медленное опускание корпуса руками"
+  },
+  {
+   "id": "single_leg_dl_bw",
+   "name": "Румынская тяга на одной ноге без веса",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Баланс, таз параллельно полу, рука в сторону"
+  },
+  {
+   "id": "glute_bridge_leg_curl",
+   "name": "Сгибание ног в планке на полу",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Пятки скользят по полу, таз поднят, пресс жёсткий"
+  },
+  {
+   "id": "hamstring_slide_curl",
+   "name": "Сгибание ног на скользящих подложках",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Таз вверх, подтягивание пяток к ягодицам, без паузы"
+  },
+  {
+   "id": "single_leg_bridge",
+   "name": "Ягодичный мост одной ногой",
+   "muscle": "Бицепс бедра",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Вторая нога на весу, таз не ронять, пауза вверху"
+  },
+  {
+   "id": "band_leg_curl",
+   "name": "Сгибание ноги с лентой стоя",
+   "muscle": "Бицепс бедра",
+   "movement": "Сгибание",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Крепление низко, манжета на щиколотке, пятка к ягодице"
+  },
+  {
+   "id": "band_rdl",
+   "name": "Румынская тяга с резиновой лентой",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Лента под стопами и в кистях, наклон с прямой спиной"
+  },
+  {
+   "id": "band_good_morning",
+   "name": "Клевок с лентой на спине",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Лента за шеей и под стопами, наклон до параллели"
+  },
+  {
+   "id": "band_pull_through",
+   "name": "Тяга ленты между ног",
+   "muscle": "Бицепс бедра",
+   "movement": "Тяга",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Низкое крепление, наклон, разгибание бёдер в конечной точке"
+  },
+  {
+   "id": "hip_thrust",
+   "name": "Ягодичный мост со штангой на скамье",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Скамья под лопатками, подбородок к груди, пауза сверху"
+  },
+  {
+   "id": "hip_thrust_single",
+   "name": "Ягодичный мост одной ногой со штангой",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Опора одной стопой, таз не провисает"
+  },
+  {
+   "id": "thrust_machine",
+   "name": "Тазовый толчок в тренажёре",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Подушка на бёдрах, полная амплитуда без нагрузки на спину"
+  },
+  {
+   "id": "glute_bridge_machine",
+   "name": "Мост в рычажном тренажёре",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Сведение ягодиц вверху, без переразгиба поясницы"
+  },
+  {
+   "id": "hip_abduction",
+   "name": "Отведение ног в тренажёре сидя",
+   "muscle": "Ягодицы",
+   "movement": "Отведение",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Корпус наклонён вперёд — больше ягодицы, назад — больше напрягатели"
+  },
+  {
+   "id": "cable_kickback",
+   "name": "Отведение ноги на нижнем блоке",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Манжета на щиколотке, корпус наклонён, пятка вверх"
+  },
+  {
+   "id": "cable_abduction",
+   "name": "Отведение ноги на блоке стоя",
+   "muscle": "Ягодицы",
+   "movement": "Отведение",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Крепление низко, нога в сторону с разворотом носка вниз"
+  },
+  {
+   "id": "back_extension_glute",
+   "name": "Гиперэкстензия с акцентом на ягодицы",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Носки врозь 45°, круглая спина, сжатие ягодиц вверху"
+  },
+  {
+   "id": "reverse_hack_glute",
+   "name": "Жим ногами с высокой широкой постановкой",
+   "muscle": "Ягодицы",
+   "movement": "Присед",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Стопы у верхнего края платформы, таз чуть отрывать от спинки"
+  },
+  {
+   "id": "pull_through_hip",
+   "name": "Тяга каната с акцентом на ягодицы",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Широкая стойка, дожим бёдрами вперёд, сжатие вверху"
+  },
+  {
+   "id": "db_glute_bridge",
+   "name": "Ягодичный мост с гантелью",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель на бёдрах, подъём до линии колено-таз-плечо"
+  },
+  {
+   "id": "db_hip_thrust",
+   "name": "Тазовый толчок с гантелью на скамье",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Спинка скамьи под лопатками, гантель на сгибе бёдер"
+  },
+  {
+   "id": "db_sumo_dl_glute",
+   "name": "Сумо-тяга с гантелью (акцент ягодицы)",
+   "muscle": "Ягодицы",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Плечо уходит вперёд, носки врозь, сжатие вверху"
+  },
+  {
+   "id": "db_lunge_glute",
+   "name": "Длинные выпады с гантелями",
+   "muscle": "Ягодицы",
+   "movement": "Выпад",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Шаг длиннее, наклон корпуса вперёд — ягодицы вместо квадрицепса"
+  },
+  {
+   "id": "db_step_through",
+   "name": "Выпад-перешагивание с гантелями",
+   "muscle": "Ягодицы",
+   "movement": "Выпад",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Одна нога постоянно впереди, чередование направлений"
+  },
+  {
+   "id": "db_deadlift_glute",
+   "name": "Румынская тяга с гантелями (узкая стойка)",
+   "muscle": "Ягодицы",
+   "movement": "Тяга",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Стопы вместе, колени разведены, наклон с прямой спиной"
+  },
+  {
+   "id": "glute_bridge",
+   "name": "Ягодичный мост лёжа",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Стопы на полу, подъём таза, сжатие ягодиц 2 с"
+  },
+  {
+   "id": "single_leg_glute_bridge",
+   "name": "Мост на одной ноге",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Свободная нога вверх, таз удерживать горизонтально"
+  },
+  {
+   "id": "frog_pump",
+   "name": "«Лягушка» — подъём таза со сведёнными стопами",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Пятки вместе, носки врозь, быстрые подъёмы с паузами"
+  },
+  {
+   "id": "donkey_kick",
+   "name": "Отведение ноги на четвереньках",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Колено согнуто 90°, пятка в потолок, без прогиба в пояснице"
+  },
+  {
+   "id": "fire_hydrant",
+   "name": "«Пожарный гидрант»",
+   "muscle": "Ягодицы",
+   "movement": "Отведение",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "На четвереньках, отведение согнутой ноги в бок до параллели"
+  },
+  {
+   "id": "curtsy_lunge_glute",
+   "name": "Крестный выпад с акцентом на ягодицы",
+   "muscle": "Ягодицы",
+   "movement": "Выпад",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Дальний шаг по диагонали, наклон корпуса вперёд"
+  },
+  {
+   "id": "wall_sit_ball",
+   "name": "Удержание с фитболом у стены",
+   "muscle": "Ягодицы",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Мяч под поясницей, бёдра параллельно, сжимать мяч"
+  },
+  {
+   "id": "single_leg_wall_push",
+   "name": "Жим пяткой в стену стоя",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Стопа на стене под 45°, подъём таза пяткой, пауза"
+  },
+  {
+   "id": "band_monster_walk",
+   "name": "Боковой шаг с резиновой лентой",
+   "muscle": "Ягодицы",
+   "movement": "Отведение",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Лента выше колен, полуприсед, приставной шаг без раскачки"
+  },
+  {
+   "id": "band_clamshell",
+   "name": "Ракушка с лентой",
+   "muscle": "Ягодицы",
+   "movement": "Отведение",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Лёжа на боку, колени разведены, пятки вместе, подъём колена"
+  },
+  {
+   "id": "band_kickback",
+   "name": "Отведение назад с лентой на четвереньках",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Носок в петле, пятка в потолок, таз не разворачивать"
+  },
+  {
+   "id": "band_glute_bridge",
+   "name": "Мост с лентой выше колен",
+   "muscle": "Ягодицы",
+   "movement": "Разгибание",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Лента разведена в приседе, подъём таза с сопротивлением"
+  },
+  {
+   "id": "band_abduction_standing",
+   "name": "Отведение ноги стоя с лентой",
+   "muscle": "Ягодицы",
+   "movement": "Отведение",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Крепление низко, носок вниз, отведение с паузой"
+  },
+  {
+   "id": "bar_curl",
+   "name": "Подъём штанги на бицепс",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Прямой гриф, хват на ширине плеч, локти прижаты, без раскачки"
+  },
+  {
+   "id": "ez_curl",
+   "name": "Подъём на EZ-грифе",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Полухват на изгибах грифа, кисти в нейтральном положении"
+  },
+  {
+   "id": "ez_curl_close",
+   "name": "Подъём на EZ-грифе узким хватом",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Руки на внутренних изгибах, акцент длинная головка"
+  },
+  {
+   "id": "reverse_curl",
+   "name": "Подъём штанги обратным хватом",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ладони вниз, работает брахиалис и предплечья"
+  },
+  {
+   "id": "preacher_curl",
+   "name": "Сгибания на скамье Скотта (EZ)",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Подмышки на подушке, руки не разгибать до щелчка"
+  },
+  {
+   "id": "preacher_cable",
+   "name": "Сгибания на нижнем блоке со Скотта",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "D-рукояти, постоянная натяжка по всей амплитуде"
+  },
+  {
+   "id": "spider_curl",
+   "name": "Сгибания «паук» на наклонной",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Грудь на скамье 45°, руки свисают вертикально, пиковое сокращение"
+  },
+  {
+   "id": "drag_curl",
+   "name": "Тяговый подъём штанги (Drag Curl)",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Штанга скользит по корпусу, локти уходят назад"
+  },
+  {
+   "id": "cable_curl_bar",
+   "name": "Сгибания на блоке с прямым грифом",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Блок внизу, локти по бокам, ровное напряжение"
+  },
+  {
+   "id": "cable_curl_rope",
+   "name": "Сгибания с канатом на блоке",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Разворот кистей наружу в верхней точке"
+  },
+  {
+   "id": "cable_curl_one",
+   "name": "Одноручные сгибания на блоке",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "D-рукоять, плечо отведено назад, акцент длинная головка"
+  },
+  {
+   "id": "bayesian_curl",
+   "name": "Сгибания за спиной на нижнем блоке",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Блок позади, рука вытянута назад — растяжение длинной головки"
+  },
+  {
+   "id": "incline_cable_curl",
+   "name": "Сгибания на наклонной скамье на блоках",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Скамья 60%, руки за головой, максимальное растяжение"
+  },
+  {
+   "id": "curl_21",
+   "name": "Сгибания 21 (7 вниз + 7 вверх + 7 полные)",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Деление амплитуды, жжение как сигнал отказа"
+  },
+  {
+   "id": "db_curl",
+   "name": "Подъём гантелей на бицепс",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Хват супинацией, разворот от бедра к плечу"
+  },
+  {
+   "id": "db_curl_alternate",
+   "name": "Поочерёдный подъём гантелей",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Локти неподвижны, пауза в верхней точке"
+  },
+  {
+   "id": "db_curl_hammer",
+   "name": "Молотковые сгибания",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Нейтральный хват, брахиалис и предплечья"
+  },
+  {
+   "id": "db_curl_cross",
+   "name": "Сгибания молот с заводом руки вперёд",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель уходит к противоположному плечу"
+  },
+  {
+   "id": "db_curl_neutral",
+   "name": "Сгибания с разворотом в нейтральный хват",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Старт пронацией, разворот 90° в середине движения"
+  },
+  {
+   "id": "db_concentration",
+   "name": "Сгибание с упором локтя о бедро",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Локоть на внутренней стороне бедра, пиковое сжатие"
+  },
+  {
+   "id": "db_incline_curl",
+   "name": "Сгибания на наклонной скамье",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Руки свисают за голову, максимальная растяжка бицепса"
+  },
+  {
+   "id": "db_preacher",
+   "name": "Сгибания с гантелью на Скотте",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Одна рука на подушке, старт с вытянутой, без рывка"
+  },
+  {
+   "id": "db_zottman",
+   "name": "Сгибания Зоттмана",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Подъём супинацией, опускание пронацией, работает предплечье"
+  },
+  {
+   "id": "db_curl_to_press",
+   "name": "Сгибание с переходом в жим",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Верх сгибания разворачивается в жим над головой"
+  },
+  {
+   "id": "db_drag_curl",
+   "name": "Тяговые сгибания с гантелями",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Локти ведут гантели вдоль корпуса назад"
+  },
+  {
+   "id": "db_curl_prone",
+   "name": "Сгибания лицом вниз на наклонной",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Грудь на скамье 45°, руки свисают, подъём без раскачки"
+  },
+  {
+   "id": "wrist_curl",
+   "name": "Сгибание кистей со штангой",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Предплечья на скамье, кисти вверх, полный диапазон"
+  },
+  {
+   "id": "wrist_reverse",
+   "name": "Разгибание кистей со штангой",
+   "muscle": "Бицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Хват пронацией, подъём кистей, профилактика локтя теннисиста"
+  },
+  {
+   "id": "db_wrist_curl",
+   "name": "Сгибание кистей с гантелями",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Предплечья на бёдрах, кисти свисают, малый вес"
+  },
+  {
+   "id": "band_curl",
+   "name": "Сгибания с резиновой лентой",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Стойка на середине ленты, локти прижаты, пауза вверху"
+  },
+  {
+   "id": "band_hammer_curl",
+   "name": "Молотковые сгибания с лентой",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Нейтральный хват рукоятей, медленное опускание"
+  },
+  {
+   "id": "bodyweight_curl_bar",
+   "name": "Сгибания на низкой перекладине обратным хватом",
+   "muscle": "Бицепс",
+   "movement": "Сгибание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Тело прямое, тянуть грудь к перекладине силой бицепса"
+  },
+  {
+   "id": "pushdown_bar",
+   "name": "Разгибание на блоке с прямым грифом",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Локти прижаты, кисти на широком конце, дожим вниз"
+  },
+  {
+   "id": "pushdown_v",
+   "name": "Разгибание с V-рукоятью",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Узкий параллельный хват, локти не разводить"
+  },
+  {
+   "id": "pushdown_rope",
+   "name": "Разгибание с канатом",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Внизу развести концы каната в стороны, сжатие 1 с"
+  },
+  {
+   "id": "pushdown_reverse",
+   "name": "Разгибание обратным хватом",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ладони вверх, узкий гриф, акцент медиальная головка"
+  },
+  {
+   "id": "pushdown_one",
+   "name": "Одноручное разгибание на блоке",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "D-рукоять, плечо прижато, полный дожим"
+  },
+  {
+   "id": "pushdown_overhead",
+   "name": "Разгибание из-за головы на блоке",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Канат за шею, локти смотрят вверх, растяжение длинной головки"
+  },
+  {
+   "id": "french_press",
+   "name": "Французский жим со штангой лёжа",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "EZ-гриф, локти разведены минимально, кисть над локтем"
+  },
+  {
+   "id": "skullcrusher_ez",
+   "name": "Французский жим к голове (EZ)",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Опускать за голову, а не ко лбу — длинная головка"
+  },
+  {
+   "id": "jm_press",
+   "name": "JM-жим",
+   "muscle": "Трицепс",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Полуузкий хват, пауза у низа груди, локти вперёд"
+  },
+  {
+   "id": "close_grip_bench",
+   "name": "Жим узким хватом",
+   "muscle": "Трицепс",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Хват на ширине плеч, локти вдоль корпуса, дожим без отрыва"
+  },
+  {
+   "id": "triceps_dip",
+   "name": "Отжимания на брусьях (трицепс)",
+   "muscle": "Трицепс",
+   "movement": "Жим",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Корпус вертикально, локти назад, минимум наклона"
+  },
+  {
+   "id": "bench_dip",
+   "name": "Обратные отжимания от скамьи",
+   "muscle": "Трицепс",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Ладони на краю скамьи пальцами к себе, ноги ближе — легче"
+  },
+  {
+   "id": "triceps_pushup",
+   "name": "Отжимания с узкой постановкой рук",
+   "muscle": "Трицепс",
+   "movement": "Жим",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Кисти под грудью, локти скользят вдоль корпуса"
+  },
+  {
+   "id": "bodyweight_skullcrusher",
+   "name": "Французский жим от опоры",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Руки на тумбе, сгибание только в локтях, голова к кистям"
+  },
+  {
+   "id": "triceps_kickback",
+   "name": "Разгибание руки назад с опорой",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Корпус параллельно, плечо неподвижно, дожим с паузой"
+  },
+  {
+   "id": "db_overhead_ext",
+   "name": "Разгибание из-за головы с гантелью",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Одна гантель двумя руками, локти рядом у головы"
+  },
+  {
+   "id": "db_overhead_one",
+   "name": "Одноручное разгибание из-за головы",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель за головой, локоть смотрит вверх, без раскрытия"
+  },
+  {
+   "id": "db_neutral_ext",
+   "name": "Разгибание из-за головы нейтральным хватом",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Ладонь к затылку, меньше нагрузки на локтевой сустав"
+  },
+  {
+   "id": "db_skullcrusher",
+   "name": "Французский жим с гантелями",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Нейтральный хват, опускать к ушам, локти вперёд"
+  },
+  {
+   "id": "db_kickback",
+   "name": "Разгибание с гантелью назад",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Плечо параллельно полу, дожим с разворотом кисти вниз"
+  },
+  {
+   "id": "db_close_grip",
+   "name": "Жим гантелей узким хватом лёжа",
+   "muscle": "Трицепс",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантели соприкасаются, локти скользят вдоль корпуса"
+  },
+  {
+   "id": "db_floor_press_triceps",
+   "name": "Жим с пола с узкой постановкой",
+   "muscle": "Трицепс",
+   "movement": "Жим",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Локти касаются пола у рёбер, взрывной выталкивание"
+  },
+  {
+   "id": "band_pushdown",
+   "name": "Разгибание с лентой на голове",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Лента под стопой, руки в петле, дожим вниз с разворотом"
+  },
+  {
+   "id": "band_overhead_ext",
+   "name": "Разгибание из-за головы с лентой",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Низкое крепление ленты, локти вверх, растяжение длинной головки"
+  },
+  {
+   "id": "band_kickback_tri",
+   "name": "Разгибание назад с лентой",
+   "muscle": "Трицепс",
+   "movement": "Разгибание",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Наклон корпуса, лента под стопой, дожим с паузой"
+  },
+  {
+   "id": "crunch",
+   "name": "Скручивания на полу",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Поясница прижата, отрыв только лопаток, выдох на усилии"
+  },
+  {
+   "id": "crunch_bicycle",
+   "name": "Велосипед",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Локоть к противоположному колену, медленный темп"
+  },
+  {
+   "id": "crunch_reverse",
+   "name": "Обратные скручивания",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Подъём таза силой низа живота, поясница не отрывать"
+  },
+  {
+   "id": "sit_up",
+   "name": "Подъём корпуса",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Полная амплитуда, руки за головой без тяги шеи"
+  },
+  {
+   "id": "leg_raise_lying",
+   "name": "Подъём ног лёжа",
+   "muscle": "Пресс",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Поясница прижата, опускать ноги не касаясь пола"
+  },
+  {
+   "id": "leg_lower",
+   "name": "Опускание прямых ног",
+   "muscle": "Пресс",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Из вертикали вниз до 15°, поясница вжимается в пол"
+  },
+  {
+   "id": "hanging_leg_raise",
+   "name": "Подъём прямых ног в висе",
+   "muscle": "Пресс",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Без раскачки, до горизонтали и выше, контроль вниз"
+  },
+  {
+   "id": "hanging_knee",
+   "name": "Подъём коленей в висе",
+   "muscle": "Пресс",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Таз подкручивается вверх, пауза в верхней точке"
+  },
+  {
+   "id": "toes_to_bar",
+   "name": "Носки к перекладине",
+   "muscle": "Пресс",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Прямые ноги, касание носками грифа, без рывка корпусом"
+  },
+  {
+   "id": "captains_chair",
+   "name": "Подъём ног в упоре локтей",
+   "muscle": "Пресс",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Спина прижата к спинке, лопатки не отрывать"
+  },
+  {
+   "id": "windshield_wiper",
+   "name": "«Дворники» в висе",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Ноги горизонтально, повороты таза влево-вправо"
+  },
+  {
+   "id": "cable_crunch",
+   "name": "«Молитва» — скручивания на блоке",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Канат за головой, округление позвоночника, таз неподвижен"
+  },
+  {
+   "id": "cable_side_crunch",
+   "name": "Боковые скручивания на блоке",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Бок к блоку, наклон к противоположной ноге"
+  },
+  {
+   "id": "woodchop",
+   "name": "Дровосек на блоке",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "full_gym",
+   "compound": true,
+   "tips": "Диагональ сверху вниз, работа корпусом, не руками"
+  },
+  {
+   "id": "pallof_press",
+   "name": "Жим Палофа на блоке",
+   "muscle": "Пресс",
+   "movement": "Антиротация",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Руки вытянуты, сопротивление повороту, 30 с на сторону"
+  },
+  {
+   "id": "ab_machine",
+   "name": "Скручивания в тренажёре",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Подушки на плечах, округление без рывка"
+  },
+  {
+   "id": "decline_situp",
+   "name": "Подъём корпуса на скамье с наклоном",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Ноги под валиками, руки за головой, медленное опускание"
+  },
+  {
+   "id": "decline_twist",
+   "name": "Подъём корпуса с поворотом на скамье",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Локоть к противоположному колену в верхней точке"
+  },
+  {
+   "id": "russian_twist",
+   "name": "Повороты корпуса с гантелью",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Корпус отклонён 45°, поворот гантели к полу, пятки на опоре"
+  },
+  {
+   "id": "weight_crunch",
+   "name": "Скручивания с диском на груди",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Блин 5–10 кг, отрыв лопаток, пауза вверху"
+  },
+  {
+   "id": "side_bend",
+   "name": "Наклон с гантелью в сторону",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Одна рука за головой, движение строго во фронтальной плоскости"
+  },
+  {
+   "id": "db_windmill",
+   "name": "«Мельница» с гантелью",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Ноги широко, гантель над головой, наклон к дальней стопе"
+  },
+  {
+   "id": "half_kneeling_chop",
+   "name": "Полуколенный рубящий подъём",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Гантель от бедра над противоположным плечом, таз жёсткий"
+  },
+  {
+   "id": "plank",
+   "name": "Планка на локтях",
+   "muscle": "Пресс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Линия от головы до пяток, ягодицы сжаты, дышать ровно"
+  },
+  {
+   "id": "plank_high",
+   "name": "Планка на прямых руках",
+   "muscle": "Пресс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Кисти под плечами, лопатки активны, без провисания"
+  },
+  {
+   "id": "side_plank",
+   "name": "Боковая планка",
+   "muscle": "Пресс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Локоть под плечом, таз вверх, линия корпуса ровная"
+  },
+  {
+   "id": "plank_shoulder_tap",
+   "name": "Планка с касанием плеча",
+   "muscle": "Пресс",
+   "movement": "Антиротация",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Таз не разворачивать, стопы широко, пауза на руке"
+  },
+  {
+   "id": "plank_leg_lift",
+   "name": "Планка с подъёмом ноги",
+   "muscle": "Пресс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Прямая нога вверх на 10 см, без прогиба в пояснице"
+  },
+  {
+   "id": "ab_wheel",
+   "name": "Выкатывание ролика",
+   "muscle": "Пресс",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "От колен, таз подкручен, спина не прогибается, дожим прессом"
+  },
+  {
+   "id": "ab_wheel_kneeling",
+   "name": "Выкатывание ролика от колен",
+   "muscle": "Пресс",
+   "movement": "Разгибание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Дальше — больше нагрузка, возврат силой пресса"
+  },
+  {
+   "id": "dead_bug",
+   "name": "«Мёртвый жук»",
+   "muscle": "Пресс",
+   "movement": "Антиротация",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Поясница вжата, противоположная рука и нога вниз по диагонали"
+  },
+  {
+   "id": "bird_dog",
+   "name": "«Собака-птица» на четвереньках",
+   "muscle": "Пресс",
+   "movement": "Антиротация",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Прямые рука и нога, таз неподвижен, пауза 3 с"
+  },
+  {
+   "id": "hollow_hold",
+   "name": "«Лодочка» (Hollow Body)",
+   "muscle": "Пресс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Поясница прижата, руки и ноги над полом, дышать коротко"
+  },
+  {
+   "id": "arch_hold",
+   "name": "Супермен-удержка",
+   "muscle": "Пресс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Руки и ноги вверх, пауза 20 с, баланс на животе"
+  },
+  {
+   "id": "v_up",
+   "name": "Складка (V-Up)",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Одновременный подъём рук и ног, касание носков, прямые ноги"
+  },
+  {
+   "id": "flutter_kicks",
+   "name": "«Ножницы»",
+   "muscle": "Пресс",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Ноги низко, мелкий темп, поясница прижата"
+  },
+  {
+   "id": "mountain_climber",
+   "name": "«Альпинист»",
+   "muscle": "Пресс",
+   "movement": "Кардио",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Планка, колени к груди поочерёдно, таз не задирать"
+  },
+  {
+   "id": "vacuum",
+   "name": "Вакуум живота",
+   "muscle": "Пресс",
+   "movement": "Статика",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Выдох, втягивание пупка к позвоночнику, удержание 20 с"
+  },
+  {
+   "id": "spiderman_climb",
+   "name": "Шаг «человек-паук» в планке",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Колено к локтю снаружи, корпус не разворачивать"
+  },
+  {
+   "id": "side_crunch_floor",
+   "name": "Боковые скручивания лёжа",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Лёжа на боку, локоть к бедру, подъём верхней половины"
+  },
+  {
+   "id": "standing_crunch",
+   "name": "Скручивание стоя с коленом",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Руки за головой, колено вверх к локтю, баланс на одной ноге"
+  },
+  {
+   "id": "band_pallof",
+   "name": "Жим Палофа с лентой",
+   "muscle": "Пресс",
+   "movement": "Антиротация",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Крепление на уровне груди, вытянуть руки, удержать 30 с"
+  },
+  {
+   "id": "band_chop",
+   "name": "Рубящее движение с лентой",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "band",
+   "compound": true,
+   "tips": "Диагональ сверху вниз, поворот в бёдрах, руки прямые"
+  },
+  {
+   "id": "band_crunch",
+   "name": "Скручивания с лентой за головой",
+   "muscle": "Пресс",
+   "movement": "Скручивание",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Низкое крепление ленты, сопротивление растёт вверху"
+  },
+  {
+   "id": "calf_stand_machine",
+   "name": "Подъём на носки стоя в тренажёре",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Максимальная растяжение внизу, пауза 2 с наверху, пятки не ронять"
+  },
+  {
+   "id": "calf_seated_machine",
+   "name": "Подъём на носки сидя",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Угол в колене 90° — акцент камбаловидная мышца"
+  },
+  {
+   "id": "calf_one_leg_machine",
+   "name": "Подъём на носки одной ногой",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Опора подушкой на одно бедро, коррекция дисбаланса"
+  },
+  {
+   "id": "calf_leg_press",
+   "name": "Подъём на носки на платформе жима ногами",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Только стопочное движение, колени выпрямлены, без рывка"
+  },
+  {
+   "id": "calf_donkey",
+   "name": "Подъём на носки в наклоне (Ослик)",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Угол в колене 45°, полная амплитуда, темп медленный"
+  },
+  {
+   "id": "calf_smith",
+   "name": "Подъём на носки под грифом Смита",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Пятки на краю платформы, корпус вертикально, без прогиба"
+  },
+  {
+   "id": "calf_toes_in",
+   "name": "Подъём на носки с разворотом стоп внутрь",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Носки вместе, пятки врозь — внешняя часть икроножной"
+  },
+  {
+   "id": "calf_toes_out",
+   "name": "Подъём на носки с разворотом стоп наружу",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "full_gym",
+   "compound": false,
+   "tips": "Пятки вместе, носки врозь — внутренняя часть икроножной"
+  },
+  {
+   "id": "calf_db",
+   "name": "Подъём на носки с гантелями",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Стопа на краю диска или ступеньки, полная амплитуда"
+  },
+  {
+   "id": "calf_db_one",
+   "name": "Подъём на носки одной ногой с гантелью",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "dumbbell",
+   "compound": true,
+   "tips": "Опора рукой о стену, пятка ниже уровня опоры в нижней фазе"
+  },
+  {
+   "id": "calf_db_step",
+   "name": "Подъём на носки на ступеньке с гантелью",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "dumbbell",
+   "compound": false,
+   "tips": "Свободная стопа висит, растяжение ниже уровня ступени"
+  },
+  {
+   "id": "calf_raise_bw",
+   "name": "Подъём на носки стоя без веса",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Пауза 2 с вверху, опускание подконтрольно, полная амплитуда"
+  },
+  {
+   "id": "calf_one_leg_bw",
+   "name": "Подъём на носки на одной ноге",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": true,
+   "tips": "Опора пальцем о стену, на ступеньке — растяжение глубже"
+  },
+  {
+   "id": "calf_step_bw",
+   "name": "Подъём на носки на краю ступени",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Пятка ниже носка в нижней точке, без отскока"
+  },
+  {
+   "id": "calf_sit_bw",
+   "name": "Подъём носков сидя с отягощением",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Стопы под тяжёлым предметом, подъём носков на себя"
+  },
+  {
+   "id": "calf_pulse",
+   "name": "Пульсирующие подъёмы на носки",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "no_equipment",
+   "compound": false,
+   "tips": "Мелкая амплитуда в верхней половине, жжение — норма"
+  },
+  {
+   "id": "band_calf",
+   "name": "Подъём на носки с лентой",
+   "muscle": "Икры",
+   "movement": "Подъём",
+   "equipment": "band",
+   "compound": false,
+   "tips": "Лента под стопой и на плечах, пауза в верхней точке"
+  }
+ ]
 }

@@ -1,5 +1,5 @@
 /* GymBro — Service Worker (offline-first) */
-const CACHE = "gymbro.v2";
+const CACHE = "gymbro.v3";
 const ASSETS = [
   "./",
   "./style.css",

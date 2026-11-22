@@ -50,8 +50,8 @@
   const SMALL_MUSCLES = new Set(["Пресс", "Икры", "Бицепс", "Трицепс"]);
 
   function allowedEquipment(equipment) {
-    // В полном зале доступно всё; гантели и дом — только свой вес и гантели.
-    if (equipment === "full_gym") return new Set(["full_gym", "dumbbell", "no_equipment"]);
+    if (equipment === "full_gym") return new Set(["full_gym", "dumbbell", "no_equipment", "band"]);
+    if (equipment === "home") return new Set(["dumbbell", "no_equipment", "band"]);
     return new Set(["dumbbell", "no_equipment"]);
   }
 
@@ -87,7 +87,6 @@
     const params = GOAL_PARAMS[goal] || GOAL_PARAMS.health;
     const perGroup = EXERCISES_PER_GROUP[level] || 1;
     const maxItems = MAX_ITEMS_PER_DAY[level] || 5;
-    const byId = new Map(catalog.map((e) => [e.id, e]));
 
     const days = [];
     split.forEach((dayDef, i) => {
@@ -95,15 +94,10 @@
       for (const muscle of dayDef.muscles) {
         let pool = catalog.filter((e) => e.muscle === muscle && allowed.has(e.equipment));
         if (!pool.length) continue;
-        pool = pool.slice().sort((a, b) => {
-          const ca = a.compound ? 0 : 1, cb = b.compound ? 0 : 1;
-          if (ca !== cb) return ca - cb;
-          return String(a.name).localeCompare(String(b.name), "ru");
-        });
-        const base = pool.filter((e) => e.compound);
+        // Перемешиваем базовые и изолированные детерминированно
+        const base = shuffle(pool.filter((e) => e.compound), rand);
         const iso = shuffle(pool.filter((e) => !e.compound), rand);
-        const merged = base.concat(iso);
-        const picked = merged.length > perGroup ? merged.slice(0, perGroup) : merged;
+        const picked = (base.concat(iso)).slice(0, perGroup);
         for (const ex of picked) {
           const [low, high] = params.reps;
           const rest = SMALL_MUSCLES.has(muscle) ? SMALL_MUSCLE_REST : params.rest;
@@ -123,5 +117,5 @@
     };
   }
 
-  global.GymPlanner = { build, SPLITS, GOAL_PARAMS, byId: (c) => new Map(c.map((e) => [e.id, e])) };
+  global.GymPlanner = { build, GOAL_PARAMS };
 })(window);

@@ -68,6 +68,14 @@
   const b = GymPlanner.build(catalog, { goal: "muscle", level: "advanced", days_per_week: 5, equipment: "full_gym", seed: 778 });
   if (JSON.stringify(a) === JSON.stringify(b)) problems.push("разные seed дают одинаковый план");
 
+  // Разнообразие: 50 разных seed не должны сводиться к одному набору упражнений
+  const seen = new Set();
+  for (let s = 1; s <= 50; s++) {
+    const p = GymPlanner.build(catalog, { goal: "muscle", level: "advanced", days_per_week: 4, equipment: "full_gym", seed: s * 101 });
+    p.days.forEach((d) => d.items.forEach((it) => seen.add(it.exercise_id)));
+  }
+  if (seen.size < 20) problems.push("мало разнообразия: уникальных упражнений за 50 seed = " + seen.size);
+
   const ok = problems.length === 0;
   document.getElementById("summary").innerHTML = ok
     ? '<span class="ok">PASS</span> — проверено ' + checked + ' комбинаций, пустых: ' + empty
