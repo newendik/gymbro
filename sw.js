@@ -1,5 +1,5 @@
-/* GymBro — Service Worker (offline-first) */
-const CACHE = "gymbro.v3";
+﻿/* GymBro — Service Worker (network-first, offline fallback) */
+const CACHE = "gymbro.v5";
 const ASSETS = [
   "./",
   "./style.css",
@@ -29,12 +29,8 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
   e.respondWith(
-    caches.match(e.request).then((cached) => cached || fetch(e.request).then((resp) => {
-      if (resp.ok) {
-        const clone = resp.clone();
-        caches.open(CACHE).then((c) => c.put(e.request, clone));
-      }
-      return resp;
-    }).catch(() => cached))
+    fetch(e.request).catch(() =>
+      caches.match(e.request)
+    )
   );
 });

@@ -321,6 +321,7 @@ svg.ic { width: 22px; height: 22px; flex: none; }
   transition: transform .5s var(--spring);
 }
 .sheet.open { transform: translateY(0); }
+.sheet-lg { height: 88dvh; max-height: 88dvh; }
 .sheet-grab { display: flex; justify-content: center; padding: 8px 0 2px; }
 .sheet-grab span { width: 38px; height: 5px; border-radius: 99px; background: var(--grab); }
 .sheet-nav {
@@ -485,3 +486,122 @@ svg.ic { width: 22px; height: 22px; flex: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
 }
+
+/* ---------- Модификаторы кнопок ---------- */
+.bottom-bar.three { gap: 8px; }
+.bottom-bar.three .btn { flex: 1; height: 48px; padding: 0 8px; font-size: 13px; gap: 5px; }
+.bottom-bar.three .btn svg { width: 17px; height: 17px; }
+.btn-quiet.danger { color: var(--red); }
+.ab-btn.accent {
+  width: auto; height: 34px; border-radius: 10px; padding: 0 12px;
+  display: flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 600;
+}
+.ab-btn.accent span { display: inline; }
+
+/* ---------- Поля ввода ---------- */
+.b-inp {
+  width: 38px; height: 30px; border: 1px solid var(--sep); border-radius: 8px;
+  text-align: center; font-size: 14px; font-weight: 600; color: var(--text);
+  background: var(--card); -moz-appearance: textfield; appearance: textfield;
+}
+.b-inp::-webkit-outer-spin-button, .b-inp::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.b-inp.b-reps { width: 62px; }
+.b-step, .b-del {
+  width: 30px; height: 30px; border-radius: 50%; flex: none;
+  display: grid; place-items: center; background: var(--seg-bg); color: var(--text);
+  transition: background .15s, transform .15s;
+}
+.b-step svg, .b-del svg { width: 14px; height: 14px; }
+.b-step:active { transform: scale(.88); background: color-mix(in srgb, var(--text) 14%, transparent); }
+.b-del { color: var(--red); }
+.b-stepper { display: flex; align-items: center; gap: 3px; }
+
+/* ---------- Конструктор ---------- */
+.build-list { margin: 0 16px; }
+.build-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; margin-bottom: 8px;
+  border-radius: var(--r-md); background: var(--card); box-shadow: var(--shadow);
+}
+.build-row-info { min-width: 0; flex: 1; }
+.build-row-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 400px) {
+  .build-row { flex-wrap: wrap; }
+  .build-row-controls { width: 100%; justify-content: space-between; }
+}
+
+/* ---------- Палитра упражнений ---------- */
+.pick-row {
+  position: relative; display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; width: 100%; text-align: left; transition: background .15s;
+}
+.pick-row::before {
+  content: ""; position: absolute; left: 58px; right: 0; bottom: 0; height: 1px; background: var(--sep);
+}
+.pick-row:last-child::before { display: none; }
+.pick-row:active { background: color-mix(in srgb, var(--text) 5%, transparent); }
+.pick-info { min-width: 0; flex: 1; }
+.pick-add {
+  width: 30px; height: 30px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  background: var(--tint); color: #fff; transition: transform .15s;
+}
+.pick-add svg { width: 15px; height: 15px; }
+.pick-add:active { transform: scale(.88); }
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 500;
+  background: var(--seg-bg); color: var(--text); transition: background .15s, color .15s;
+}
+.chip.on { background: var(--tint); color: #fff; }
+
+/* ---------- Вкладки недель ---------- */
+.wave-tabs {
+  position: sticky; top: 52px; z-index: 19;
+  display: flex; gap: 8px; padding: 6px 16px 10px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.wave-tabs::-webkit-scrollbar { display: none; }
+.wave-tabs button {
+  flex: none; min-width: 86px; padding: 8px 12px; border-radius: 12px;
+  background: var(--card); box-shadow: var(--shadow);
+  border: 2px solid transparent; text-align: left;
+  display: flex; flex-direction: column; gap: 1px;
+  transition: border-color .15s, transform .15s;
+}
+.wave-tabs button:active { transform: scale(.96); }
+.wave-tabs button.on { border-color: var(--tint); }
+.wave-tabs b { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.wave-tabs span { font-size: 11.5px; color: var(--text2); }
+
+/* ---------- Календарь месяца ---------- */
+.cal-session { margin: 0 16px 12px; }
+.cal-session-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 13px; border-radius: var(--r-md) var(--r-md) 0 0;
+  background: var(--card); box-shadow: var(--shadow);
+  border-left: 4px solid var(--sep);
+}
+.cal-wave-badge {
+  flex: none; width: 30px; height: 30px; border-radius: 9px;
+  display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 800;
+}
+.cal-session-info { min-width: 0; flex: 1; }
+.cal-session-info b { display: block; font-size: 15.5px; font-weight: 600; letter-spacing: -.2px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cal-session-info span { display: block; font-size: 12px; color: var(--text2); margin-top: 2px; }
+.cal-items { border-radius: 0 0 var(--r-md) var(--r-md); box-shadow: var(--shadow); }
+.cal-item {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 9px 13px; border-top: 1px solid var(--sep);
+}
+.cal-item:first-child { border-top: none; }
+.cal-ex-name { flex: 1; min-width: 0; font-size: 14.5px; }
+.cal-ex-scheme { flex: none; font-size: 13px; font-weight: 600; color: var(--text2); font-variant-numeric: tabular-nums; }
+.cal-legend {
+  display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 0 16px 14px;
+  padding: 12px 14px; border-radius: var(--r-md);
+  background: var(--card); box-shadow: var(--shadow);
+  font-size: 12.5px; color: var(--text2);
+}
+.cal-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; margin-right: 6px; }

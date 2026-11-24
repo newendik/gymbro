@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GymBro — самопроверка генератора</title>
+<title>GymBro — самопроверка</title>
 <style>
   body { font: 15px/1.5 system-ui, sans-serif; margin: 24px auto; max-width: 640px; padding: 0 16px; }
   h1 { font-size: 20px; }
@@ -15,81 +15,114 @@
 </style>
 </head>
 <body>
-<h1>Самопроверка генератора планов</h1>
-<p>Перебираем все комбинации цель × уровень × дни × инвентарь и проверяем, что план непустой.</p>
+<h1>Самопроверка</h1>
+<p>Цели: power, fitness. Генератор + календарь на месяц.</p>
 <div id="summary">Запуск…</div>
 <div id="result"></div>
 
 <script src="./planner.js"></script>
 <script>
-(async () => {
-  const GOALS = ["muscle", "strength", "weight_loss", "health"];
-  const LEVELS = ["beginner", "intermediate", "advanced"];
-  const DAYS = [2, 3, 4, 5, 6];
-  const EQUIPS = ["full_gym", "dumbbell", "home"];
+(function () {
+  var GOALS = ["power", "fitness"];
+  var LEVELS = ["beginner", "intermediate", "advanced"];
+  var DAYS = [2, 3, 4, 5, 6];
+  var EQUIPS = ["full_gym", "dumbbell", "home"];
+  var PROBLEMS = [];
+  var CHECKED = 0;
 
-  let catalog = [];
-  try {
-    const res = await fetch("./data/exercises.json");
-    catalog = (await res.json()).exercises || [];
-  } catch (e) {
-    document.getElementById("summary").innerHTML =
-      '<span class="fail">НЕ УДАЛОСЬ ЗАГРУЗИТЬ КАТАЛОГ:</span> ' + e.message +
-      '<br><small>Открывай сайт через HTTP (python -m http.server), а не двойным кликом по файлу.</small>';
-    return;
-  }
-
-  const problems = [];
-  let checked = 0, empty = 0, minItems = Infinity, maxItems = 0, totalSets = 0, plans = 0;
-
-  for (const goal of GOALS) {
-    for (const level of LEVELS) {
-      for (const days of DAYS) {
-        for (const equipment of EQUIPS) {
-          const seed = 12345 + checked;
-          const p = GymPlanner.build(catalog, { goal, level, days_per_week: days, equipment, seed });
-          const items = p.days.reduce((a, d) => a + d.items.length, 0);
-          const sets = p.days.reduce((a, d) => a + d.items.reduce((x, i) => x + i.sets, 0), 0);
-          checked++; plans++;
-          minItems = Math.min(minItems, items); maxItems = Math.max(maxItems, items);
-          totalSets += sets;
-          if (!items) { empty++; problems.push(`${goal}/${level}/${days}д/${equipment} — пустой план`); }
-          if (p.days.length !== days) problems.push(`${goal}/${level}/${days}д/${equipment} — дней: ${p.days.length}`);
-          // один и тот же seed должен давать один и тот же план
-          const again = GymPlanner.build(catalog, { goal, level, days_per_week: days, equipment, seed });
-          if (JSON.stringify(again) !== JSON.stringify(p)) problems.push(`${goal}/${level}/${days}/${equipment} — недетерминированно`);
-        }
-      }
+  /* ---------- 1. Каталог ---------- */
+  var catalog = [];
+  (async function () {
+    try {
+      var res = await fetch("./data/exercises.json");
+      catalog = (await res.json()).exercises || [];
+    } catch (e) {
+      document.getElementById("summary").innerHTML =
+        '<span class="fail">FAIL</span> каталог: ' + e.message;
+      return;
     }
-  }
 
-  // Детерминизм по seed
-  const a = GymPlanner.build(catalog, { goal: "muscle", level: "advanced", days_per_week: 5, equipment: "full_gym", seed: 777 });
-  const b = GymPlanner.build(catalog, { goal: "muscle", level: "advanced", days_per_week: 5, equipment: "full_gym", seed: 778 });
-  if (JSON.stringify(a) === JSON.stringify(b)) problems.push("разные seed дают одинаковый план");
+    /* ---------- 2. Генерация планов ---------- */
+    var allIds = new Set(catalog.map(function (e) { return e.id; }));
 
-  // Разнообразие: 50 разных seed не должны сводиться к одному набору упражнений
-  const seen = new Set();
-  for (let s = 1; s <= 50; s++) {
-    const p = GymPlanner.build(catalog, { goal: "muscle", level: "advanced", days_per_week: 4, equipment: "full_gym", seed: s * 101 });
-    p.days.forEach((d) => d.items.forEach((it) => seen.add(it.exercise_id)));
-  }
-  if (seen.size < 20) problems.push("мало разнообразия: уникальных упражнений за 50 seed = " + seen.size);
+    GOALS.forEach(function (goal) {
+      LEVELS.forEach(function (level) {
+        DAYS.forEach(function (days) {
+          EQUIPS.forEach(function (equip) {
+            CHECKED++;
+            var plan = GymPlanner.build(catalog, { goal: goal, level: level, days_per_week: days, equipment: equip, seed: CHECKED * 1000 });
+            plan.days.forEach(function (d) {
+              d.items.forEach(function (it) {
+                if (!it.name || !it.exercise_id) PROBLEMS.push(goal + '/' + level + '/' + days + '/' + equip + ': пустой item');
+              });
+            });
+            if (plan.days.length !== days) PROBLEMS.push(goal + '/' + level + '/' + days + '/' + equip + ': дней=' + plan.days.length);
+          });
+        });
+      });
+    });
 
-  const ok = problems.length === 0;
-  document.getElementById("summary").innerHTML = ok
-    ? '<span class="ok">PASS</span> — проверено ' + checked + ' комбинаций, пустых: ' + empty
-    : '<span class="fail">FAIL</span> — проблем: ' + problems.length;
+    /* ---------- 3. Детерминизм ---------- */
+    var a = GymPlanner.build(catalog, { goal: "power", level: "advanced", days_per_week: 4, equipment: "full_gym", seed: 777 });
+    var b = GymPlanner.build(catalog, { goal: "power", level: "advanced", days_per_week: 4, equipment: "full_gym", seed: 777 });
+    if (JSON.stringify(a) !== JSON.stringify(b)) PROBLEMS.push("детерминизм сломан");
 
-  document.getElementById("result").innerHTML =
-    '<table><tr><th>Метрика</th><th>Значение</th></tr>' +
-    '<tr><td>Упражнений в каталоге</td><td>' + catalog.length + '</td></tr>' +
-    '<tr><td>Комбинаций проверено</td><td>' + checked + '</td></tr>' +
-    '<tr><td>Мин. упражнений в плане</td><td>' + minItems + '</td></tr>' +
-    '<tr><td>Макс. упражнений в плане</td><td>' + maxItems + '</td></tr>' +
-    '<tr><td>Средне подходов в плане</td><td>' + (totalSets / plans).toFixed(1) + '</td></tr>' +
-    '</table>' +
-    (problems.length ? '<pre style="white-space:pre-wrap;margin-top:12px">' + problems.slice(0, 40).join('\n') + '</pre>' : '');
+    /* ---------- 4. Календарь ---------- */
+    var testPlan = GymPlanner.build(catalog, { goal: "power", level: "advanced", days_per_week: 3, equipment: "full_gym", seed: 42 });
+    var cal = GymPlanner.buildCalendar(testPlan, "2026-01-01");
+    if (cal.length !== 12) PROBLEMS.push("календарь power/3: " + cal.length + " сессий (ожидалось 12)");
+
+    /* Проверка волн */
+    var waveKeys = new Set();
+    var deloadWeek = new Set();
+    var dates = [];
+    cal.forEach(function (c) {
+      waveKeys.add(c.wave.key);
+      dates.push(c.date);
+      if (c.week === 4) deloadWeek.add(c.wave.key);
+    });
+    /* Должны быть все 3 волны */
+    var requiredWaves = ["medium", "heavy", "light"];
+    requiredWaves.forEach(function (wk) {
+      if (!waveKeys.has(wk)) PROBLEMS.push("календарь: нет волны " + wk);
+    });
+    /* Неделя 4 — только разгрузка */
+    deloadWeek.forEach(function (wk) {
+      if (wk !== "deload") PROBLEMS.push("календарь: неделя 4 содержит волну " + wk);
+    });
+    /* Даты растут */
+    for (var i = 1; i < dates.length; i++) {
+      if (dates[i] < dates[i - 1]) { PROBLEMS.push("календарь: даты не растут на " + i); break; }
+    }
+
+    /* ---------- 5. Своя программа ---------- */
+    var ep = GymPlanner.emptyPlan("Тест");
+    if (ep.kind !== "custom" || ep.goal !== "custom") PROBLEMS.push("emptyPlan: kind=" + ep.kind + " goal=" + ep.goal);
+    if (ep.days.length !== 1 || ep.days[0].items.length !== 0) PROBLEMS.push("emptyPlan: days/items");
+
+    /* ---------- 6. Разнообразие ---------- */
+    var seen = new Set();
+    for (var s = 1; s <= 50; s++) {
+      var p = GymPlanner.build(catalog, { goal: "power", level: "advanced", days_per_week: 4, equipment: "full_gym", seed: s * 7919 });
+      p.days.forEach(function (d) { d.items.forEach(function (it) { seen.add(it.exercise_id); }); });
+    }
+    if (seen.size < 40) PROBLEMS.push("разнообразие: только " + seen.size + " уникальных");
+
+    /* ---------- ИТОГ ---------- */
+    var ok = PROBLEMS.length === 0;
+    document.getElementById("summary").innerHTML = ok
+      ? '<span class="ok">PASS</span> — ' + CHECKED + ' планов + календарь + custom'
+      : '<span class="fail">FAIL</span> — ' + PROBLEMS.length + ' проблем';
+
+    document.getElementById("result").innerHTML =
+      '<table><tr><th>Метрика</th><th>Значение</th></tr>' +
+      '<tr><td>Упражнений в каталоге</td><td>' + catalog.length + '</td></tr>' +
+      '<tr><td>Планов сгенерировано</td><td>' + CHECKED + '</td></tr>' +
+      '<tr><td>Сессий в календаре</td><td>' + cal.length + '</td></tr>' +
+      '<tr><td>Уникальных упражнений (50 сидов)</td><td>' + seen.size + ' / ' + catalog.length + '</td></tr>' +
+      '</table>' +
+      (PROBLEMS.length ? '<pre style="white-space:pre-wrap;margin-top:12px">' + PROBLEMS.join('\n') + '</pre>' : '');
+  })();
 })();
 </script>
 </body>

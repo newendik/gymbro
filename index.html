@@ -82,6 +82,21 @@
   <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5M12 8h.01"/>
   </symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>
+  </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+  </symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 15c2.5 0 2.5-6 5-6s2.5 6 5 6 2.5-6 5-6 2.5 6 5 6"/>
+  </symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+    <path d="M5 12h14"/>
+  </symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>
+  </symbol>
 </defs>
 </svg>
 
@@ -139,6 +154,60 @@
     <div class="sheet-body" id="wizard-body"></div>
   </section>
 
+  <!-- ============ КОНСТРУКТОР СВОЕЙ ПРОГРАММЫ ============ -->
+  <section class="screen" id="screen-build" hidden>
+    <header class="app-bar">
+      <div class="ab-left">
+        <button class="ab-btn" id="btn-build-back" aria-label="Назад"><svg class="ic"><use href="#i-chev-l"/></svg></button>
+        <h1 class="ab-title" id="build-title">Своя программа</h1>
+      </div>
+      <div class="ab-right">
+        <button class="ab-btn accent" id="btn-build-save" aria-label="Сохранить">
+          <svg class="ic"><use href="#i-check"/></svg>
+          <span>Сохранить</span>
+        </button>
+      </div>
+    </header>
+
+    <div style="padding:0 16px;margin-top:12px">
+      <div class="input-card">
+        <input id="inp-build-title" maxlength="60" placeholder="Название программы" autocomplete="off">
+        <button class="clear" id="btn-clear-build-title" aria-label="Очистить"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+    </div>
+
+    <div style="padding:0 16px;margin-top:16px">
+      <div class="segmented" id="build-day-tabs"></div>
+    </div>
+
+    <main class="scroll" id="build-scroll">
+      <div id="build-days"></div>
+    </main>
+
+    <footer class="bottom-bar three">
+      <button class="btn btn-quiet" id="btn-build-add-day"><svg class="ic"><use href="#i-plus"/></svg><span>День</span></button>
+      <button class="btn btn-fill" id="btn-build-add-ex"><svg class="ic"><use href="#i-search"/></svg><span>Упражнение</span></button>
+      <button class="btn btn-quiet danger" id="btn-build-del-day"><svg class="ic"><use href="#i-trash"/></svg><span>День</span></button>
+    </footer>
+  </section>
+
+  <!-- ============ ВЫБОР УПРАЖНЕНИЯ (палитра) ============ -->
+  <div class="overlay" id="pick-overlay" hidden></div>
+  <section class="sheet sheet-lg" id="sheet-pick" hidden>
+    <div class="sheet-grab"><span></span></div>
+    <div style="padding:0 16px">
+      <div class="input-card">
+        <input id="inp-pick-search" maxlength="40" placeholder="Поиск упражнения…" autocomplete="off">
+        <button class="clear" id="btn-clear-pick-search" aria-label="Очистить"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="chip-row" id="pick-muscle-filters" style="margin-top:12px"></div>
+    </div>
+    <div class="sheet-body" id="pick-list"></div>
+    <footer class="bottom-bar">
+      <button class="btn btn-primary" id="btn-pick-done">Готово</button>
+    </footer>
+  </section>
+
   <!-- ============ ПЛАН ============ -->
   <section class="screen" id="screen-plan" hidden>
     <header class="app-bar">
@@ -147,13 +216,20 @@
         <h1 class="ab-title" id="plan-ab-title">План</h1>
       </div>
       <div class="ab-right">
+        <button class="ab-btn" id="btn-edit-plan" aria-label="Редактировать"><svg class="ic"><use href="#i-pencil"/></svg></button>
         <button class="ab-btn danger" id="btn-delete-plan" aria-label="Удалить"><svg class="ic"><use href="#i-trash"/></svg></button>
       </div>
     </header>
 
     <div class="plan-hero" id="plan-hero"></div>
 
+    <div class="segmented" id="plan-view-toggle" hidden>
+      <button class="on" data-pv="days">По дням</button>
+      <button data-pv="weeks">График месяца</button>
+    </div>
+
     <div class="segmented" id="day-tabs"></div>
+    <div class="wave-tabs" id="wave-tabs" hidden></div>
 
     <main class="scroll" id="plan-scroll"></main>
 
