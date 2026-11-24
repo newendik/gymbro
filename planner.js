@@ -199,7 +199,14 @@
         day_num: day.day_num,
         title: day.title,
         wave: wave,
-        items: (day.items || []).map(function (it) {
+      items: (day.items || []).map(function (it) {
+          /* Каталогные программы сохраняют свою схему; генерированные — по волне */
+          if (plan.keep_scheme) {
+            return {
+              exercise_id: it.exercise_id, name: it.name, muscle: it.muscle,
+              sets: it.sets, reps: it.reps, rest_sec: it.rest_sec,
+            };
+          }
           var sc = scheme(plan.goal, wave, it.compound, it.muscle);
           return {
             exercise_id: it.exercise_id, name: it.name, muscle: it.muscle,
@@ -222,7 +229,10 @@
       : "p" + Date.now() + Math.random().toString(36).slice(2, 8);
   }
 
-  function emptyPlan(title) {
+  function emptyPlan(title, nDays) {
+    var n = Math.max(1, Math.min(7, nDays || 1));
+    var days = [];
+    for (var i = 0; i < n; i++) days.push({ day_num: i + 1, title: "День " + (i + 1), items: [] });
     return {
       kind: "custom",
       id: newId(),
@@ -230,9 +240,9 @@
       goal: "custom",
       level: "intermediate",
       equipment: "full_gym",
-      days_per_week: 1,
+      days_per_week: n,
       created_at: new Date().toISOString(),
-      days: [{ day_num: 1, title: "День 1", items: [] }],
+      days: days,
     };
   }
 

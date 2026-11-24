@@ -1,5 +1,5 @@
 ﻿/* GymBro — Service Worker (network-first, offline fallback) */
-const CACHE = "gymbro.v5";
+const CACHE = "gymbro.v6";
 const ASSETS = [
   "./",
   "./style.css",
@@ -9,6 +9,7 @@ const ASSETS = [
   "./icon-192.png",
   "./icon-512.png",
   "./data/exercises.json",
+  "./data/programs.json",
   "./selftest.html",
 ];
 

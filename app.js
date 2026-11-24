@@ -4,14 +4,14 @@
 
   /* ============ Метаданные ============ */
   const GOAL_META = {
-    power:  { label: "Силовые",       icon: "i-barbell", grad: "linear-gradient(135deg,#5E5CE6,#BF5AF2)", desc: "Периодизация: тяжёлые / средние / лёгкие недели" },
-    fitness:{ label: "Фитнес",        icon: "i-heart",   grad: "linear-gradient(135deg,#30D158,#0FB5A3)", desc: "Много повторов, короткий отдых — тонус" },
+    power:  { label: "Силовые",        icon: "i-barbell", grad: "linear-gradient(135deg,#5E5CE6,#BF5AF2)", desc: "Периодизация: тяжёлые / средние / лёгкие недели" },
+    fitness:{ label: "Фитнес",         icon: "i-heart",   grad: "linear-gradient(135deg,#30D158,#0FB5A3)", desc: "Много повторов, короткий отдых — тонус" },
     custom: { label: "Своя программа", icon: "i-pencil",  grad: "linear-gradient(135deg,#FF9500,#FFD60A)", desc: "Собираешь сам: упражнения, подходы, повторы" },
   };
   const LEVEL_META = {
-    beginner:     { label: "Новичок",     icon: "i-sprout", desc: "До года опыта · меньше упражнений" },
-    intermediate: { label: "Средний",     icon: "i-chart",  desc: "1–3 года · сбалансированный объём" },
-    advanced:     { label: "Продвинутый", icon: "i-zap",    desc: "3+ года · максимальный объём" },
+    beginner:     { label: "Новичок",     icon: "i-sprout" },
+    intermediate: { label: "Средний",     icon: "i-chart" },
+    advanced:     { label: "Продвинутый", icon: "i-zap" },
   };
   const EQUIP_META = {
     full_gym: { label: "Полный зал", icon: "i-building", desc: "Штанги, тренажёры, блоки" },
@@ -32,25 +32,30 @@
     "Трицепс": "#32ADE6", "Пресс": "#D9A000", "Икры": "#8E8E93",
   };
   const STORE_KEY = "gymbro.plans";
+  const SET_KEY = "gymbro.settings";
 
   /* ============ Состояние ============ */
   const state = {
     exercises: [], exMap: new Map(),
+    programs: [],
     plans: [],
     plan: null,
     day: 0,
-    view: "days",   /* days | weeks */
-    wiz: { step: 0, draft: { goal: null, level: null, days_per_week: 3, equipment: "full_gym", title: "" }, busy: false },
-    build: null,     /* копия плана в редакторе */
+    view: "days",            /* days | weeks */
+    catalogSel: null,        /* выбранный каталогный id или null */
+    settings: { theme: "system", anim: true },
+    wiz: { step: 0, draft: { goal: null, days_per_week: 3, equipment: "full_gym", title: "" }, busy: false },
+    build: null,
     buildDay: 0,
     pick: { q: "", muscle: "all" },
+    guideTab: "ios",
   };
 
   /* ============ DOM ============ */
   const $ = (s) => document.querySelector(s);
   const dom = {
-    home: $("#screen-home"), plan: $("#screen-plan"), build: $("#screen-build"),
-    greeting: $("#greeting"), today: $("#today-chip"),
+    home: $("#screen-home"), plan: $("#screen-plan"), build: $("#screen-build"), catalog: $("#screen-catalog"),
+    today: $("#today-chip"),
     homeEmpty: $("#home-empty"), plansSection: $("#plans-section"), plansList: $("#plans-list"),
     wizOverlay: $("#wiz-overlay"), sheetWizard: $("#sheet-wizard"), wizBody: $("#wizard-body"),
     wizNext: $("#wiz-next"), wizCancel: $("#wiz-cancel"),
@@ -65,6 +70,9 @@
     buildDayTabs: $("#build-day-tabs"), buildScroll: $("#build-scroll"),
     pickOverlay: $("#pick-overlay"), sheetPick: $("#sheet-pick"),
     pickSearch: $("#inp-pick-search"), pickFilters: $("#pick-muscle-filters"), pickList: $("#pick-list"),
+    catalogScroll: $("#catalog-scroll"), catalogAbTitle: $("#catalog-ab-title"),
+    setOverlay: $("#set-overlay"), sheetSettings: $("#sheet-settings"),
+    guideOverlay: $("#guide-overlay"), sheetGuide: $("#sheet-guide"), guideTabs: $("#guide-tabs"), guideBody: $("#guide-body"),
   };
 
   /* ============ Утилиты ============ */
@@ -158,6 +166,39 @@
     setTimeout(() => { overlay.hidden = true; sheet.hidden = true; }, 480);
   }
 
+  /* ============ Настройки и тема ============ */
+  function readSettings() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(SET_KEY) || "{}");
+      state.settings.theme = ["light", "dark", "system"].includes(raw.theme) ? raw.theme : "system";
+      state.settings.anim = raw.anim !== false;
+    } catch (e) { /* дефолты */ }
+  }
+  function writeSettings() {
+    try { localStorage.setItem(SET_KEY, JSON.stringify(state.settings)); } catch (e) {}
+  }
+
+function syncThemeUI() {
+    if (dom.sheetSettings) renderSettings();
+  }
+
+function applyTheme() {
+  const pref = state.settings.theme;
+  const resolved = pref === "system"
+    ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+    : pref;
+  document.documentElement.dataset.theme = resolved;
+  document.documentElement.dataset.anim = state.settings.anim ? "on" : "off";
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", resolved === "dark" ? "#07070d" : "#f4f4f8");
+  syncThemeUI();
+}
+  if (window.matchMedia) {
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = () => { if (state.settings.theme === "system") applyTheme(); };
+    if (mq.addEventListener) mq.addEventListener("change", onChange); else mq.addListener(onChange);
+  }
+
   /* ============ Миграция старых целей ============ */
   const GOAL_MIGRATE = { muscle: "power", strength: "power", weight_loss: "fitness", health: "fitness" };
 
@@ -198,9 +239,11 @@
     dom.home.hidden = which !== "home";
     dom.plan.hidden = which !== "plan";
     dom.build.hidden = which !== "build";
+    dom.catalog.hidden = which !== "catalog";
     window.scrollTo(0, 0);
     if (which === "plan") dom.planScroll.scrollTop = 0;
     if (which === "build") dom.buildScroll.scrollTop = 0;
+    if (which === "catalog") dom.catalogScroll.scrollTop = 0;
   }
 
   /* ============ Главная ============ */
@@ -224,6 +267,116 @@
       b.addEventListener("click", () => openPlan(b.dataset.plan)));
   }
 
+  /* ============ Каталог готовых программ ============ */
+  function openCatalog() {
+    state.catalogSel = null;
+    renderCatalog();
+    showScreen("catalog");
+  }
+
+  function renderCatalog() {
+    if (state.catalogSel) return renderCatalogDetail();
+    dom.catalogAbTitle.textContent = "Каталог";
+    $("#btn-prog-add").hidden = true;
+    const list = state.programs;
+    dom.catalogScroll.innerHTML = `
+      <p class="catalog-lead">Проверенные программы со всего интернета — выбери и добавь к себе одним нажатием.</p>
+      <div class="prog-grid">` +
+      list.map((pr, i) => `
+        <button class="prog-card rise" style="--i:${i}" data-prog="${esc(pr.id)}">
+          <div class="prog-top" style="background:${pr.grad}">
+            <div class="prog-icon">${svg(pr.icon)}</div>
+            <span class="prog-days">${pr.days_per_week}×/нед</span>
+          </div>
+          <div class="prog-body">
+            <h4>${esc(pr.name)}</h4>
+            <p>${esc(pr.desc)}</p>
+            <div class="tag-row">${(pr.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+          </div>
+        </button>`).join("") +
+      `</div>`;
+    dom.catalogScroll.querySelectorAll("[data-prog]").forEach((b) =>
+      b.addEventListener("click", () => { state.catalogSel = b.dataset.prog; renderCatalog(); }));
+  }
+
+  function renderCatalogDetail() {
+    const pr = state.programs.find((x) => x.id === state.catalogSel);
+    if (!pr) { state.catalogSel = null; return renderCatalog(); }
+    dom.catalogAbTitle.textContent = pr.name;
+    $("#btn-prog-add").hidden = false;
+    const items = pr.days.reduce((a, d) => a + d.items.length, 0);
+    dom.catalogScroll.innerHTML = `
+      <div class="hero-card prog-hero rise" style="background:${pr.grad}">
+        <div class="prog-hero-icon">${svg(pr.icon)}</div>
+        <h2>${esc(pr.name)}</h2>
+        <p class="hero-sub">${esc(pr.desc)}</p>
+        <div class="hero-stats">
+          <div class="hero-stat">${svg("i-calendar")}<b>${pr.days_per_week}</b><span>${dayWord(pr.days_per_week)}</span></div>
+          <div class="hero-stat">${svg("i-layers")}<b>${items}</b><span>упр.</span></div>
+          <div class="hero-stat">${svg("i-list")}<b>${pr.days.length}</b><span>дн. в цикле</span></div>
+        </div>
+        ${pr.source ? `<p class="prog-src">${svg("i-info")}<span>${esc(pr.source)}</span></p>` : ""}
+      </div>
+      <div class="stack">` +
+      pr.days.map((d, di) => `
+        <div class="card rise" style="--i:${di}">
+          <div class="day-head"><b>${esc(d.title)}</b></div>
+          <div class="day-items">` +
+          d.items.map((it) => {
+            const ex = state.exMap.get(it.ex);
+            const color = MUSCLE_COLOR[(ex || {}).muscle] || "#8E8E93";
+            return `
+            <div class="ex-item">
+              ${tile("i-dumbbell", color, true)}
+              <div style="min-width:0;flex:1">
+                <div class="ex-name">${esc((ex || {}).name || it.ex)}</div>
+                <div class="ex-muscle">${esc((ex || {}).muscle || "")}</div>
+              </div>
+              <div class="ex-scheme">${it.sets} × ${esc(it.reps)}<small>${fmtRest(it.rest_sec)}</small></div>
+            </div>`;
+          }).join("") + `
+          </div>
+        </div>`).join("") +
+      `</div>`;
+  }
+
+  function importProgram(prg) {
+    const days = prg.days.map((d, i) => ({
+      day_num: i + 1, title: d.title,
+      items: d.items.map((it) => {
+        const ex = state.exMap.get(it.ex);
+        if (!ex) return null;
+        return {
+          exercise_id: ex.id, name: ex.name, muscle: ex.muscle,
+          compound: !!ex.compound, sets: it.sets, reps: it.reps, rest_sec: it.rest_sec,
+        };
+      }).filter(Boolean),
+    }));
+    if (!days.some((d) => d.items.length)) { hud("Список упражнений не загружен"); return; }
+    const plan = {
+      id: newId(), title: prg.name, kind: "generated", goal: prg.goal,
+      level: "intermediate", equipment: "full_gym",
+      days_per_week: prg.days_per_week, created_at: new Date().toISOString(),
+      keep_scheme: true, program_src: prg.source || "",
+      days,
+    };
+    state.plans = [plan, ...state.plans];
+    writeStore(); renderHome();
+    hud("Добавлено в мои планы");
+    openPlan(plan.id);
+  }
+
+  $("#btn-catalog").addEventListener("click", openCatalog);
+  $("#btn-catalog-home").addEventListener("click", openCatalog);
+  $("#btn-catalog-back").addEventListener("click", () => {
+    if (state.catalogSel) { state.catalogSel = null; renderCatalog(); }
+    else showScreen("home");
+  });
+  $("#btn-prog-add").addEventListener("click", () => {
+    const pr = state.programs.find((x) => x.id === state.catalogSel);
+    if (pr) importProgram(pr);
+  });
+
   /* ============ Просмотр плана ============ */
   function openPlan(id) {
     const p = state.plans.find((x) => String(x.id) === String(id));
@@ -239,7 +392,7 @@
   function renderPlan() {
     const p = state.plan;
     const g = GOAL_META[p.goal] || GOAL_META.fitness;
-    const lv = LEVEL_META[p.level] || LEVEL_META.beginner;
+    const lv = LEVEL_META[p.level] || LEVEL_META.intermediate;
     const eq = EQUIP_META[p.equipment] || EQUIP_META.full_gym;
     const isPower = p.goal === "power" && p.kind === "generated";
 
@@ -260,6 +413,7 @@
           <div class="hero-stat">${svg("i-layers")}<b>${items}</b><span>упр.</span></div>
           <div class="hero-stat">${svg("i-check")}<b>${sets}</b><span>подходов</span></div>
         </div>
+        ${p.program_src ? `<p class="prog-src">${svg("i-info")}<span>${esc(p.program_src)}</span></p>` : ""}
       </div>`;
 
     if (isPower && state.view === "weeks") { renderCalendar(); return; }
@@ -277,7 +431,7 @@
     renderDay();
   }
 
-  /* Календарь на месяц (только power/fitness) */
+  /* Календарь на месяц */
   function renderCalendar() {
     const p = state.plan;
     dom.dayTabs.hidden = true;
@@ -293,7 +447,7 @@
       const wave = wk[0] ? wk[0].wave : GymPlanner.DELOAD;
       const active = i === 0;
       return `<button data-week="${i}" class="${active ? "on" : ""}" style="border-color:${wave.color}">
-        <b>Нед ${i + 1}</b><span>${wave.label}</span></button>`;
+        <b>Нед ${i + 1}</b><span>${p.keep_scheme ? "Цикл" : wave.label}</span></button>`;
     }).join("");
     dom.waveTabs.querySelectorAll("[data-week]").forEach((b) =>
       b.addEventListener("click", () => {
@@ -310,8 +464,8 @@
     const cal = GymPlanner.buildCalendar(p, p.created_at || new Date().toISOString());
     const sessions = cal.filter((s) => s.week === weekIdx + 1);
 
-    dom.planScroll.innerHTML = sessions.map((s) => `
-      <div class="cal-session">
+    dom.planScroll.innerHTML = sessions.map((s, i) => `
+      <div class="cal-session rise" style="--i:${i}">
         <div class="cal-session-head" style="border-left-color:${s.wave.color}">
           <div class="cal-wave-badge" style="background:${s.wave.color}">${s.wave.short}</div>
           <div class="cal-session-info">
@@ -384,9 +538,11 @@
   $("#btn-close-info").addEventListener("click", () => closeSheet(dom.infoOverlay, dom.sheetEx));
   dom.infoOverlay.addEventListener("click", () => closeSheet(dom.infoOverlay, dom.sheetEx));
 
-  /* ============ Мастер ============ */
+  /* ============ МАСТЕР ============ */
+  function wizLastStep() { return state.wiz.draft.goal === "custom" ? 1 : 3; }
+
   function openWizard() {
-    state.wiz = { step: 0, draft: { goal: null, level: null, days_per_week: 3, equipment: "full_gym", title: "" }, busy: false };
+    state.wiz = { step: 0, draft: { goal: null, days_per_week: 3, equipment: "full_gym", title: "" }, busy: false };
     renderWizard();
     openSheet(dom.wizOverlay, dom.sheetWizard);
   }
@@ -394,14 +550,17 @@
 
   function renderWizard() {
     const { step, draft } = state.wiz;
-    for (let i = 1; i <= 5; i++) {
+    const last = wizLastStep();
+    for (let i = 1; i <= 4; i++) {
       const d = document.getElementById(`wiz-dot-${i}`);
       if (d) d.classList.toggle("on", i <= step + 1);
     }
-    dom.wizNext.textContent = step === 4 ? "Создать план" : "Далее";
-    dom.wizNext.disabled = (step === 0 && !draft.goal) || (step === 1 && !draft.level) || state.wiz.busy;
+    dom.wizNext.textContent = step === last ? (draft.goal === "custom" ? "Начать сборку" : "Создать план") : "Далее";
+    dom.wizNext.disabled = (step === 0 && !draft.goal) || state.wiz.busy;
 
-    const titles = ["Тип программы", "Опыт", "Частота", "Экипировка", "Название"];
+    const titles = draft.goal === "custom"
+      ? ["Тип программы", "Сколько дней"]
+      : ["Тип программы", "Сколько дней", "Где тренируешься", "Название"];
     let inner = `<div class="title-row">${step > 0 ? `<button class="step-back" aria-label="Назад">${svg("i-chev-l")}</button>` : ""}<h3 class="sheet-title">${titles[step]}</h3></div>`;
 
     if (step === 0) {
@@ -413,22 +572,14 @@
             <div class="opt-check">${svg("i-check")}</div>
           </button>`).join("") + `</div>`;
     } else if (step === 1) {
-      inner += `<div class="field-label">Опыт тренировок</div><div class="card">` +
-        Object.entries(LEVEL_META).map(([k, v]) => `
-          <button class="option ${draft.level === k ? "sel" : ""}" data-level="${k}">
-            ${tile(v.icon, "linear-gradient(135deg,#0A84FF,#5E5CE6)")}
-            <div class="opt-text"><b>${v.label}</b><span>${v.desc}</span></div>
-            <div class="opt-check">${svg("i-check")}</div>
-          </button>`).join("") + `</div>`;
-    } else if (step === 2) {
       inner += `<div class="field-label">Тренировок в неделю</div>
         <div class="segmented static" id="seg-days">
           ${[2, 3, 4, 5, 6].map((n) => `<button data-days="${n}" class="${draft.days_per_week === n ? "on" : ""}">${n}</button>`).join("")}
         </div>
         <div class="rows" style="margin-top:14px">
-          <div class="row">${svg("i-info")}<span class="k" style="text-align:left;font-weight:400">${DAYS_HINT[draft.days_per_week] || ""}</span></div>
+          <div class="row">${svg("i-info")}<span class="k" style="text-align:left;font-weight:400">${draft.goal === "custom" ? (DAYS_HINT[draft.days_per_week] || "") : (DAYS_HINT[draft.days_per_week] || "")}</span></div>
         </div>`;
-    } else if (step === 3) {
+    } else if (step === 2) {
       inner += `<div class="field-label">Где тренируешься</div><div class="card">` +
         Object.entries(EQUIP_META).map(([k, v]) => `
           <button class="option ${draft.equipment === k ? "sel" : ""}" data-equip="${k}">
@@ -438,7 +589,6 @@
           </button>`).join("") + `</div>`;
     } else {
       const g = GOAL_META[draft.goal] || GOAL_META.fitness;
-      const lv = LEVEL_META[draft.level] || LEVEL_META.beginner;
       inner += `
         <div class="field-label">Название программы</div>
         <div class="input-card">
@@ -448,7 +598,6 @@
         <div class="field-label" style="margin-top:20px">Итог</div>
         <div class="rows">
           <div class="row">${svg(g.icon)}<span class="k">Тип</span><span class="v">${g.label}</span></div>
-          <div class="row">${svg(lv.icon)}<span class="k">Уровень</span><span class="v">${lv.label}</span></div>
           <div class="row">${svg("i-calendar")}<span class="k">Частота</span><span class="v">${draft.days_per_week} ${dayWord(draft.days_per_week)}</span></div>
           <div class="row">${svg((EQUIP_META[draft.equipment] || {}).icon || "i-building")}<span class="k">Место</span><span class="v">${(EQUIP_META[draft.equipment] || {}).label || ""}</span></div>
         </div>`;
@@ -474,11 +623,6 @@
       wrap.querySelectorAll("[data-goal]").forEach((x) => x.classList.toggle("sel", x === b));
       dom.wizNext.disabled = false;
     }));
-    wrap.querySelectorAll("[data-level]").forEach((b) => b.addEventListener("click", () => {
-      state.wiz.draft.level = b.dataset.level;
-      wrap.querySelectorAll("[data-level]").forEach((x) => x.classList.toggle("sel", x === b));
-      dom.wizNext.disabled = false;
-    }));
     wrap.querySelectorAll("[data-days]").forEach((b) => b.addEventListener("click", () => {
       state.wiz.draft.days_per_week = Number(b.dataset.days);
       renderWizard();
@@ -486,6 +630,7 @@
     wrap.querySelectorAll("[data-equip]").forEach((b) => b.addEventListener("click", () => {
       state.wiz.draft.equipment = b.dataset.equip;
       wrap.querySelectorAll("[data-equip]").forEach((x) => x.classList.toggle("sel", x === b));
+      dom.wizNext.disabled = false;
     }));
     const inp = wrap.querySelector("#inp-title");
     if (inp) {
@@ -500,11 +645,11 @@
 
   function submitWizard() {
     const d = state.wiz.draft;
-    if (!d.goal || !d.level) return;
+    if (!d.goal) return;
 
     if (d.goal === "custom") {
       closeWizard();
-      openBuilder(null);
+      openBuilder(null, d.days_per_week);
       return;
     }
 
@@ -516,7 +661,7 @@
     setTimeout(() => {
       try {
         const built = GymPlanner.build(state.exercises, {
-          goal: d.goal, level: d.level, days_per_week: d.days_per_week, equipment: d.equipment,
+          goal: d.goal, level: "intermediate", days_per_week: d.days_per_week, equipment: d.equipment,
           seed: Math.floor(Math.random() * 1e9),
         });
         if (!built.days.some((x) => x.items.length)) {
@@ -541,8 +686,7 @@
   dom.wizNext.addEventListener("click", () => {
     const w = state.wiz;
     if (w.step === 0 && !w.draft.goal) return;
-    if (w.step === 1 && !w.draft.level) return;
-    if (w.step === 4) return submitWizard();
+    if (w.step === wizLastStep()) return submitWizard();
     w.step++; renderWizard();
   });
   dom.wizBody.addEventListener("click", (e) => {
@@ -553,8 +697,8 @@
   dom.wizOverlay.addEventListener("click", closeWizard);
 
   /* ============ КОНСТРУКТОР СВОЕЙ ПРОГРАММЫ ============ */
-  function openBuilder(plan) {
-    state.build = plan ? JSON.parse(JSON.stringify(plan)) : GymPlanner.emptyPlan();
+  function openBuilder(plan, nDays) {
+    state.build = plan ? JSON.parse(JSON.stringify(plan)) : GymPlanner.emptyPlan(null, nDays || 1);
     state.buildDay = 0;
     dom.buildInpTitle.value = state.build.title;
     dom.buildAbTitle.textContent = state.build.title || "Своя программа";
@@ -606,7 +750,7 @@
 
     dom.buildScroll.innerHTML = `
       <h3 class="section-label">${esc(day.title || `День ${state.buildDay + 1}`)}</h3>
-      <div class="card build-list">${items || `<div class="empty"><p>Нажми «Упражнение» чтобы добавить</p></div>`}</div>`;
+      <div class="build-list">${items || `<div class="card empty"><p>Нажми «Упражнение» чтобы добавить</p></div>`}</div>`;
 
     dom.buildScroll.querySelectorAll("[data-bact]").forEach((btn) =>
       btn.addEventListener("click", () => {
@@ -752,12 +896,98 @@
       renderPlan();
     }));
 
+  /* ============ НАСТРОЙКИ ============ */
+  function openSettings() { renderSettings(); openSheet(dom.setOverlay, dom.sheetSettings); }
+  function closeSettings() { closeSheet(dom.setOverlay, dom.sheetSettings); }
+
+  function renderSettings() {
+    dom.sheetSettings.querySelectorAll("[data-th]").forEach((b) =>
+      b.classList.toggle("on", b.dataset.th === state.settings.theme));
+    const sw = dom.sheetSettings.querySelector("#sw-anim");
+    if (sw) sw.classList.toggle("on", state.settings.anim);
+  }
+
+  dom.sheetSettings.querySelectorAll("[data-th]").forEach((b) =>
+    b.addEventListener("click", () => {
+      state.settings.theme = b.dataset.th;
+      writeSettings(); applyTheme(); renderSettings();
+    }));
+  $("#sw-anim").addEventListener("click", () => {
+    state.settings.anim = !state.settings.anim;
+    writeSettings(); applyTheme(); renderSettings();
+  });
+  $("#btn-open-guide").addEventListener("click", () => { closeSettings(); setTimeout(openGuide, 380); });
+  $("#btn-close-settings").addEventListener("click", closeSettings);
+  dom.setOverlay.addEventListener("click", closeSettings);
+
+  /* ============ ГАЙД УСТАНОВКИ ============ */
+  const GUIDE = {
+    ios: {
+      steps: [
+        "Открой сайт в <b>Safari</b> (в браузере из Telegram/VK кнопки не будет).",
+        "Нажми <b>«Поделиться»</b> — квадрат со стрелкой вверх в нижней панели.",
+        "Пролистай меню и выбери <b>«На экран Домой»</b>.",
+        "Подтверди — GymBro появится среди приложений и откроется во весь экран.",
+      ],
+      note: "Работает на iOS 12.2+. Программа всегда офлайн — даже без интернета в зале.",
+    },
+    android: {
+      steps: [
+        "Открой сайт в <b>Chrome</b>.",
+        "Нажми <b>⋮</b> (три точки) в правом верхнем углу.",
+        "Выбери <b>«Установить приложение»</b> или «Добавить на главный экран».",
+        "Подтверди — появится иконка GymBro и приложение без адресной строки.",
+      ],
+      note: "Если пункта «Установить» нет — обнови Chrome или используй «Добавить на главный экран».",
+    },
+    desktop: {
+      steps: [
+        "Открой сайт в <b>Chrome</b> или <b>Edge</b>.",
+        "В адресной строке справа нажми иконку <b>монитора со стрелкой</b> — «Установить».",
+        "Или меню <b>⋮</b> → «Готово к установке» → «Установить GymBro».",
+        "Приложение откроется в отдельном окне и добавится в меню Пуск.",
+      ],
+      note: "На macOS аналогично в Chrome/Edge; в Safari: Файл → «Добавить в Dock».",
+    },
+  };
+
+  function openGuide(plat) {
+    state.guideTab = plat || state.guideTab || "ios";
+    renderGuide();
+    openSheet(dom.guideOverlay, dom.sheetGuide);
+  }
+  function closeGuide() { closeSheet(dom.guideOverlay, dom.sheetGuide); }
+
+  function renderGuide() {
+    const key = state.guideTab || "ios";
+    dom.guideTabs.querySelectorAll("[data-gp]").forEach((b) =>
+      b.classList.toggle("on", b.dataset.gp === key));
+    const g = GUIDE[key];
+    dom.guideBody.innerHTML = `
+      <div class="step-anim">
+        <h3 class="sheet-title">На рабочий стол</h3>
+        <ol class="guide-steps">` +
+        g.steps.map((s, i) => `<li><span class="guide-num">${i + 1}</span><div>${s}</div></li>`).join("") +
+        `</ol>
+        <div class="guide-note">${svg("i-info")}<span>${g.note}</span></div>
+      </div>`;
+  }
+
+  dom.guideTabs.querySelectorAll("[data-gp]").forEach((b) =>
+    b.addEventListener("click", () => { state.guideTab = b.dataset.gp; renderGuide(); }));
+  $("#btn-close-guide").addEventListener("click", closeGuide);
+  dom.guideOverlay.addEventListener("click", closeGuide);
+  $("#btn-install-home").addEventListener("click", () => openGuide(
+    /iPhone|iPad|iPod/.test(navigator.userAgent) ? "ios" :
+    /Mac/.test(navigator.platform) ? "desktop" :
+    /Android/.test(navigator.userAgent) ? "android" : "desktop"));
+
   /* ============ Текстовая версия ============ */
   function planToText(p) {
     const L = [];
     L.push(`📋 ${p.title}`);
     const g = GOAL_META[p.goal] || {};
-    L.push(`${g.label || p.goal} · ${(LEVEL_META[p.level] || {}).label || p.level} · ${p.days_per_week} ${dayWord(p.days_per_week)} · ${(EQUIP_META[p.equipment] || {}).label || p.equipment}`);
+    L.push(`${g.label || p.goal} · ${p.days_per_week} ${dayWord(p.days_per_week)} · ${(EQUIP_META[p.equipment] || {}).label || p.equipment}`);
     L.push("");
     (p.days || []).forEach((d) => {
       L.push(`День ${d.day_num}. ${d.title}`);
@@ -802,30 +1032,20 @@
     renderHome(); showScreen("home"); hud("Удалено");
   }
 
-  /* ============ About ============ */
-  async function showAbout() {
-    const n = state.exercises.length;
-    await showAlert({
-      title: "GymBro",
-      message: `${n} упражнений · 3 режима (силовые с периодизацией, фитнес, своя программа) · 3 уровня · 2–6 дней · всё считается в браузере.`,
-      actions: [{ label: "Понятно", value: true }],
-    });
-  }
-
   /* ============ Навигация ============ */
   $("#btn-new-plan").addEventListener("click", openWizard);
   $("#btn-new-again").addEventListener("click", openWizard);
   $("#btn-back-home").addEventListener("click", () => { state.plan = null; showScreen("home"); });
   $("#btn-share-plan").addEventListener("click", sharePlan);
   $("#btn-delete-plan").addEventListener("click", deletePlan);
-  $("#btn-about").addEventListener("click", showAbout);
   $("#btn-edit-plan").addEventListener("click", () => {
     if (!state.plan) return;
     openBuilder(state.plan);
   });
+  $("#btn-settings").addEventListener("click", openSettings);
 
   /* ============ Данные ============ */
-  async function loadCatalog() {
+  async function loadExercises() {
     try {
       const res = await fetch("./data/exercises.json");
       if (!res.ok) throw new Error("HTTP " + res.status);
@@ -833,26 +1053,27 @@
       state.exercises = data.exercises || [];
       state.exMap = new Map(state.exercises.map((e) => [String(e.id), e]));
     } catch (e) {
-      hud("Не удалось загрузить каталог");
+      hud("Не удалось загрузить каталог упражнений");
     }
   }
 
-  function applyTheme() {
-    const cs = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    document.documentElement.dataset.theme = cs;
-  }
-
-  function greet() {
-    const h = new Date().getHours();
-    dom.greeting.textContent = h < 6 ? "Доброй ночи" : h < 12 ? "Доброе утро" : h < 18 ? "Добрый день" : "Добрый вечер";
-    dom.today.textContent = new Date().toLocaleDateString("ru-RU", { weekday: "short", day: "numeric", month: "short" });
+  async function loadPrograms() {
+    try {
+      const res = await fetch("./data/programs.json");
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      state.programs = data.programs || [];
+    } catch (e) {
+      /* каталог программ не критичен для остального функционала */
+    }
   }
 
   async function boot() {
-    greet(); applyTheme();
+    readSettings(); applyTheme();
+    dom.today.textContent = new Date().toLocaleDateString("ru-RU", { weekday: "short", day: "numeric", month: "short" });
     state.plans = readStore().map(migratePlan);
     renderHome();
-    await loadCatalog();
+    await Promise.all([loadExercises(), loadPrograms()]);
     renderHome();
   }
 
