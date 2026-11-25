@@ -447,11 +447,12 @@
       </div>
       <div class="prog-grid">${list.map((pr, i) => `
         <button class="prog-card rise" style="--i:${i}" data-prog="${esc(pr.id)}">
-          <div class="prog-top" style="background:var(--accent)">
-            <div class="prog-icon">${svg(pr.icon)}</div>
-            <span class="prog-days">${pr.days_per_week}×/нед</span>
-          </div>
+          <span class="prog-strip" style="background:${esc(pr.grad || "var(--accent)")}"></span>
           <div class="prog-body">
+            <div class="prog-head">
+              <div class="prog-icon">${svg(pr.icon)}</div>
+              <span class="prog-days">${pr.days_per_week}×/нед</span>
+            </div>
             <h4>${esc(pr.name)}</h4>
             <p>${esc(pr.desc)}</p>
             <div class="tag-row">${(pr.tags || []).slice(0, 3).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
