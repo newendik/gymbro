@@ -175,7 +175,8 @@
   function hud(text) {
     dom.hudText.textContent = text;
     dom.hud.hidden = false;
-    requestAnimationFrame(() => dom.hud.classList.add("open"));
+    void dom.hud.offsetHeight; /* reflow: анимация без зависимости от rAF */
+    dom.hud.classList.add("open");
     clearTimeout(hudTimer);
     hudTimer = setTimeout(() => {
       dom.hud.classList.remove("open");
@@ -201,7 +202,8 @@
         dom.alertActions.appendChild(b);
       });
       dom.alertWrap.hidden = false;
-      requestAnimationFrame(() => dom.alertWrap.classList.add("open"));
+      void dom.alertWrap.offsetHeight;
+      dom.alertWrap.classList.add("open");
       const onKey = (e) => { if (e.key === "Escape") done(null); };
       const onClick = (e) => { if (e.target === dom.alertWrap) done(null); };
       function cleanup() {
@@ -217,7 +219,8 @@
 
   function openSheet(overlay, sheet) {
     overlay.hidden = false; sheet.hidden = false;
-    requestAnimationFrame(() => { overlay.classList.add("open"); sheet.classList.add("open"); });
+    void sheet.offsetHeight; /* reflow: transition стартует гарантированно */
+    overlay.classList.add("open"); sheet.classList.add("open");
   }
   function closeSheet(overlay, sheet) {
     overlay.classList.remove("open"); sheet.classList.remove("open");
