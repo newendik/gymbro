@@ -6,33 +6,33 @@
   var SPLITS = {
     2: [
       { title: "Верх тела", muscles: ["Грудь", "Спина", "Плечи", "Бицепс", "Трицепс"] },
-      { title: "Низ тела + пресс", muscles: ["Квадрицепс", "Бицепс бедра", "Ягодицы", "Пресс"] },
+      { title: "Низ тела + пресс", muscles: ["Квадрицепс", "Бицепс бедра", "Ягодицы", "Икры", "Пресс"] },
     ],
     3: [
       { title: "Жим (грудь, плечи, трицепс)", muscles: ["Грудь", "Плечи", "Трицепс"] },
       { title: "Тяга (спина, бицепс)", muscles: ["Спина", "Бицепс"] },
-      { title: "Ноги + пресс", muscles: ["Квадрицепс", "Бицепс бедра", "Ягодицы", "Пресс"] },
+      { title: "Ноги + пресс", muscles: ["Квадрицепс", "Бицепс бедра", "Ягодицы", "Икры", "Пресс"] },
     ],
     4: [
       { title: "Грудь + трицепс", muscles: ["Грудь", "Трицепс"] },
       { title: "Спина + бицепс", muscles: ["Спина", "Бицепс"] },
-      { title: "Ноги + ягодицы", muscles: ["Квадрицепс", "Бицепс бедра", "Ягодицы"] },
+      { title: "Ноги + ягодицы", muscles: ["Квадрицепс", "Бицепс бедра", "Ягодицы", "Икры"] },
       { title: "Плечи + пресс", muscles: ["Плечи", "Пресс"] },
     ],
     5: [
       { title: "Грудь", muscles: ["Грудь", "Трицепс"] },
       { title: "Спина", muscles: ["Спина", "Бицепс"] },
-      { title: "Ноги", muscles: ["Квадрицепс", "Бицепс бедра"] },
+      { title: "Ноги", muscles: ["Квадрицепс", "Бицепс бедра", "Икры"] },
       { title: "Плечи", muscles: ["Плечи"] },
-      { title: "Финиш: ягодицы + пресс", muscles: ["Ягодицы", "Пресс"] },
+      { title: "Ягодицы + пресс", muscles: ["Ягодицы", "Пресс"] },
     ],
     6: [
       { title: "Грудь + трицепс", muscles: ["Грудь", "Трицепс"] },
       { title: "Спина + бицепс", muscles: ["Спина", "Бицепс"] },
-      { title: "Ноги (акцент квадрицепс)", muscles: ["Квадрицепс", "Икры"] },
+      { title: "Ноги: квадрицепс", muscles: ["Квадрицепс", "Икры"] },
       { title: "Плечи + пресс", muscles: ["Плечи", "Пресс"] },
-      { title: "Задняя поверхность", muscles: ["Бицепс бедра", "Ягодицы"] },
-      { title: "Руки + верх", muscles: ["Бицепс", "Трицепс"] },
+      { title: "Ноги: задняя цепь", muscles: ["Бицепс бедра", "Ягодицы"] },
+      { title: "Руки + верх", muscles: ["Бицепс", "Трицепс", "Плечи"] },
     ],
   };
 
@@ -44,35 +44,43 @@
   var GOALS = {
     power: {
       label: "Силовые", icon: "i-barbell",
-      grad: "linear-gradient(135deg,#5E5CE6,#BF5AF2)",
+      grad: "linear-gradient(135deg,#2563EB,#1D4ED8)",
       desc: "Периодизация: тяжёлые, средние и лёгкие недели по кругу",
     },
     fitness: {
       label: "Фитнес", icon: "i-heart",
-      grad: "linear-gradient(135deg,#30D158,#0FB5A3)",
+      grad: "linear-gradient(135deg,#2563EB,#60A5FA)",
       desc: "Много повторов, короткий отдых — тонус и выносливость",
     },
     custom: {
       label: "Своя программа", icon: "i-pencil",
-      grad: "linear-gradient(135deg,#FF9500,#FFD60A)",
+      grad: "linear-gradient(135deg,#334155,#0F172A)",
       desc: "Собираешь сам: упражнения, подходы, повторы, отдых",
     },
   };
 
   /* ---------------- Волны периодизации ---------------- */
-  /* База — силовые (compound). Изоляция сдвигается ниже в scheme(). */
   var WAVES = [
-    { key: "medium", label: "Средняя",  short: "С", reps: "6–8",   sets: 4, rest: 150, pct: "75–80% 1ПМ", rpe: 8, color: "#FF9500" },
-    { key: "heavy",  label: "Тяжёлая",  short: "Т", reps: "3–5",   sets: 5, rest: 180, pct: "85–92% 1ПМ", rpe: 9, color: "#FF3B30" },
-    { key: "light",  label: "Лёгкая",   short: "Л", reps: "10–12", sets: 3, rest: 90,  pct: "60–70% 1ПМ", rpe: 6, color: "#30D158" },
+    { key: "medium", label: "Средняя", short: "С", reps: "6–8",   sets: 4, rest: 150, pct: "75–80% 1ПМ", rpe: 8, color: "#2563EB" },
+    { key: "heavy",  label: "Тяжёлая", short: "Т", reps: "3–5",   sets: 5, rest: 180, pct: "85–92% 1ПМ", rpe: 9, color: "#DC2626" },
+    { key: "light",  label: "Лёгкая",  short: "Л", reps: "10–12", sets: 3, rest: 90,  pct: "60–70% 1ПМ", rpe: 6, color: "#16A34A" },
   ];
-  var DELOAD = { key: "deload", label: "Разгрузка", short: "Р", reps: "10–12", sets: 2, rest: 60, pct: "50–60% 1ПМ", rpe: 5, color: "#8E8E93" };
+  var DELOAD = { key: "deload", label: "Разгрузка", short: "Р", reps: "10–12", sets: 2, rest: 60, pct: "50–60% 1ПМ", rpe: 5, color: "#94A3B8" };
 
-  /* Фитнес: одна схема без волн */
   var FITNESS = { base: { reps: "12–15", sets: 3, rest: 45 }, iso: { reps: "15–20", sets: 3, rest: 30 } };
 
-  var EXERCISES_PER_GROUP = { beginner: 1, intermediate: 2, advanced: 2 };
-  var MAX_ITEMS_PER_DAY = { beginner: 4, intermediate: 6, advanced: 7 };
+  /* Ограничения по уровню: упражнений на мышцу и всего в дне */
+  var LEVEL_LIMITS = {
+    beginner:     { perMuscle: 1, maxItems: 5, isoBonus: 0 },
+    intermediate: { perMuscle: 2, maxItems: 6, isoBonus: 1 },
+    advanced:     { perMuscle: 2, maxItems: 7, isoBonus: 1 },
+  };
+
+  /* Порядок «крупные раньше мелких» */
+  var MUSCLE_ORDER = ["Квадрицепс", "Бицепс бедра", "Спина", "Грудь", "Ягодицы", "Плечи", "Трицепс", "Бицепс", "Икры", "Пресс"];
+  var MUSCLE_RANK = {};
+  MUSCLE_ORDER.forEach(function (m, i) { MUSCLE_RANK[m] = i; });
+
   var SMALL_MUSCLES = new Set(["Пресс", "Икры", "Бицепс", "Трицепс"]);
   var SMALL_REST_FACTOR = 0.5;
 
@@ -91,7 +99,6 @@
     return { sets: s.sets, reps: s.reps, rest_sec: rest };
   }
 
-  /* Для изоляции в силовой волне — повторы выше */
   function bumpReps(range) {
     var m = String(range).match(/(\d+)\D+(\d+)/);
     if (!m) return range;
@@ -105,7 +112,7 @@
     return new Set(["dumbbell", "no_equipment"]);
   }
 
-  /* Детерминированный PRNG (mulberry32): один seed -> один план */
+  /* Детерминированный PRNG (mulberry32) */
   function makeRng(seed) {
     var a = seed >>> 0;
     return function () {
@@ -126,6 +133,74 @@
     return out;
   }
 
+  /* ---------------- Подбор упражнений на день ---------------- */
+  function pickForDay(catalog, dayDef, ctx) {
+    var allowed = ctx.allowed, rand = ctx.rand, used = ctx.used;
+    var perMuscle = ctx.perMuscle, maxItems = ctx.maxItems;
+    var chosen = [], chosenIds = new Set(), mvCount = {};
+
+    function poolFor(muscle) {
+      var p = catalog.filter(function (e) {
+        return e.muscle === muscle && allowed.has(e.equipment) && !chosenIds.has(e.id);
+      });
+      var fresh = p.filter(function (e) { return !used.has(e.id); });
+      return fresh.length ? fresh : p;
+    }
+
+    function add(ex) {
+      if (!ex || chosen.length >= maxItems || chosenIds.has(ex.id)) return false;
+      var cnt = 0;
+      for (var i = 0; i < chosen.length; i++) if (chosen[i].muscle === ex.muscle) cnt++;
+      if (cnt >= perMuscle) return false;
+      chosen.push(ex);
+      chosenIds.add(ex.id);
+      mvCount[ex.movement] = (mvCount[ex.movement] || 0) + 1;
+      return true;
+    }
+
+    function ordered(muscle) {
+      var pool = poolFor(muscle);
+      var comp = shuffle(pool.filter(function (e) { return e.compound; }), rand);
+      var iso = shuffle(pool.filter(function (e) { return !e.compound; }), rand);
+      var list = comp.concat(iso);
+      list.sort(function (a, b) {
+        return (mvCount[a.movement] || 0) - (mvCount[b.movement] || 0);
+      });
+      return list;
+    }
+
+    /* Фаза 1: по одному упражнению на каждую мышцу дня */
+    dayDef.muscles.forEach(function (muscle) {
+      var list = ordered(muscle);
+      for (var i = 0; i < list.length; i++) if (add(list[i])) break;
+    });
+
+    /* Фаза 2: добираем объём, крупные мышцы первыми */
+    var bySize = dayDef.muscles.slice().sort(function (a, b) {
+      return (MUSCLE_RANK[a] || 99) - (MUSCLE_RANK[b] || 99);
+    });
+    for (var pass = 0; pass < 3 && chosen.length < maxItems; pass++) {
+      bySize.forEach(function (muscle) {
+        if (chosen.length >= maxItems) return;
+        var list = ordered(muscle);
+        for (var i = 0; i < list.length; i++) {
+          var ex = list[i];
+          if (chosen.length >= maxItems) return;
+          if (chosenIds.has(ex.id)) continue;
+          if ((mvCount[ex.movement] || 0) >= 2) continue;
+          if (add(ex)) break;
+        }
+      });
+    }
+
+    /* Порядок в дне: сначала многосуставные, затем крупные мышцы */
+    chosen.sort(function (a, b) {
+      if (!!a.compound !== !!b.compound) return a.compound ? -1 : 1;
+      return (MUSCLE_RANK[a.muscle] || 99) - (MUSCLE_RANK[b.muscle] || 99);
+    });
+    return chosen;
+  }
+
   /* ---------------- Сборка плана ---------------- */
   function build(catalog, opts) {
     var goal = opts.goal || "power";
@@ -137,30 +212,26 @@
     var rand = makeRng(seed);
     var split = SPLITS[daysPerWeek] || SPLITS[3];
     var allowed = allowedEquipment(equipment);
-    var perGroup = EXERCISES_PER_GROUP[level] || 1;
-    var maxItems = MAX_ITEMS_PER_DAY[level] || 5;
+    var lim = LEVEL_LIMITS[level] || LEVEL_LIMITS.beginner;
+    var used = new Set();
     var wave = WAVES[0];
 
-    var days = [];
-    split.forEach(function (dayDef, i) {
-      var chosen = [];
-      dayDef.muscles.forEach(function (muscle) {
-        var pool = catalog.filter(function (e) {
-          return e.muscle === muscle && allowed.has(e.equipment);
-        });
-        if (!pool.length) return;
-        var base = shuffle(pool.filter(function (e) { return e.compound; }), rand);
-        var iso = shuffle(pool.filter(function (e) { return !e.compound; }), rand);
-        base.concat(iso).slice(0, perGroup).forEach(function (ex) {
-          var sc = scheme(goal, wave, ex.compound, ex.muscle);
-          chosen.push({
-            exercise_id: ex.id, name: ex.name, muscle: ex.muscle,
-            compound: !!ex.compound,
-            sets: sc.sets, reps: sc.reps, rest_sec: sc.rest_sec,
-          });
-        });
+    var days = split.map(function (dayDef, i) {
+      var maxItems = Math.max(lim.maxItems, Math.min(dayDef.muscles.length + lim.isoBonus, lim.maxItems + 1));
+      var picked = pickForDay(catalog, dayDef, {
+        allowed: allowed, rand: rand, used: used,
+        perMuscle: lim.perMuscle, maxItems: maxItems,
       });
-      days.push({ day_num: i + 1, title: dayDef.title, items: chosen.slice(0, maxItems) });
+      var items = picked.map(function (ex) {
+        used.add(ex.id);
+        var sc = scheme(goal, wave, ex.compound, ex.muscle);
+        return {
+          exercise_id: ex.id, name: ex.name, muscle: ex.muscle,
+          compound: !!ex.compound,
+          sets: sc.sets, reps: sc.reps, rest_sec: sc.rest_sec,
+        };
+      });
+      return { day_num: i + 1, title: dayDef.title, items: items };
     });
 
     return {
@@ -172,8 +243,6 @@
   }
 
   /* ---------------- Календарь на мезоцикл ---------------- */
-  /* Возвращает тренировки по датам: волна назначается по номеру тренировки,
-     последняя неделя — разгрузка. */
   function buildCalendar(plan, startISO) {
     var d = plan.days_per_week;
     var gaps = WEEK_GAPS[d] || WEEK_GAPS[3];
@@ -199,8 +268,7 @@
         day_num: day.day_num,
         title: day.title,
         wave: wave,
-      items: (day.items || []).map(function (it) {
-          /* Каталогные программы сохраняют свою схему; генерированные — по волне */
+        items: (day.items || []).map(function (it) {
           if (plan.keep_scheme) {
             return {
               exercise_id: it.exercise_id, name: it.name, muscle: it.muscle,
@@ -222,7 +290,7 @@
     return out;
   }
 
-  /* ---------------- Утилиты для своей программы ---------------- */
+  /* ---------------- Утилиты ---------------- */
   function newId() {
     return (global.crypto && crypto.randomUUID)
       ? crypto.randomUUID()
@@ -257,11 +325,16 @@
     };
   }
 
+  function targetItems(level, musclesCount) {
+    var lim = LEVEL_LIMITS[level] || LEVEL_LIMITS.beginner;
+    return Math.min(lim.maxItems + 1, Math.max(3, musclesCount + lim.isoBonus));
+  }
+
   global.GymPlanner = {
     build: build, buildCalendar: buildCalendar, scheme: scheme,
-    emptyPlan: emptyPlan, fromCatalog: fromCatalog, newId: newId,
+    emptyPlan: emptyPlan, fromCatalog: fromCatalog, newId: newId, targetItems: targetItems,
     GOALS: GOALS, SPLITS: SPLITS, WEEK_GAPS: WEEK_GAPS,
     WAVES: WAVES, DELOAD: DELOAD, MESO_WEEKS: MESO_WEEKS,
-    SMALL_MUSCLES: SMALL_MUSCLES,
+    SMALL_MUSCLES: SMALL_MUSCLES, MUSCLE_ORDER: MUSCLE_ORDER,
   };
 })(window);
