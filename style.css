@@ -463,6 +463,10 @@ b, strong { font-weight: 650; }
 .bar-fill.zero { background: var(--surface-3); }
 .bar-label { font-size: 10px; color: var(--text3); font-weight: 600; white-space: nowrap; }
 .bar-val { font-size: 10px; color: var(--text2); font-weight: 650; }
+.bars-empty {
+  flex: 1; display: grid; place-items: center; text-align: center;
+  padding: 0 16px; font-size: 13px; color: var(--text3); line-height: 1.5;
+}
 
 .hist-item {
   display: flex; align-items: center; gap: 12px;

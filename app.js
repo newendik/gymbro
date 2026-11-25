@@ -15,9 +15,9 @@
   };
   const EX_EQUIP_LABEL = { full_gym: "Полный зал", dumbbell: "Гантели", no_equipment: "Свой вес", band: "Резинки" };
   const MUSCLE_COLOR = {
-    "Грудь": "#EF4444", "Спина": "#6366F1", "Плечи": "#F59E0B", "Квадрицепс": "#0EA5E9",
-    "Бицепс бедра": "#8B5CF6", "Ягодицы": "#EC4899", "Бицепс": "#10B981",
-    "Трицепс": "#3B82F6", "Пресс": "#F97316", "Икры": "#64748B",
+    "Грудь": "var(--accent)", "Спина": "var(--accent)", "Плечи": "var(--accent)", "Квадрицепс": "var(--accent)",
+    "Бицепс бедра": "var(--accent)", "Ягодицы": "var(--accent)", "Бицепс": "var(--accent)",
+    "Трицепс": "var(--accent)", "Пресс": "var(--accent)", "Икры": "var(--accent)",
   };
   const DAYS_HINT = {
     2: "Верх / Низ — два сбалансированных дня.",
@@ -933,12 +933,13 @@
       weeks.push({ v, label: i === 0 ? "тек" : "-" + i });
     }
     const maxV = Math.max(...weeks.map((w) => w.v), 1);
-    dom.statsBars.innerHTML = weeks.map((w) => `
+    const anyData = weeks.some((w) => w.v > 0);
+    dom.statsBars.innerHTML = anyData ? weeks.map((w) => `
       <div class="bar">
         <span class="bar-val">${w.v ? round1(w.v) : ""}</span>
         <div class="bar-fill ${w.v ? "" : "zero"}" style="height:${Math.max(3, (w.v / maxV) * 100)}%"></div>
         <span class="bar-label">${w.label}</span>
-      </div>`).join("");
+      </div>`).join("") : `<div class="bars-empty">Заверши тренировку — график появится здесь</div>`;
 
     // Рекорды
     const best = {};
