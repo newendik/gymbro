@@ -5,26 +5,62 @@
       "name": "StrongLifts 5×5",
       "source": "Mehdi Hadjim, stronglifts.com",
       "desc": "Легендарная база для новичков: пять упражнений, пять подходов, пять повторений. Прогрессия веса каждую тренировку.",
-      "tags": ["Силовые", "Новичок", "Штанга"],
+      "tags": [
+        "Силовые",
+        "Новичок",
+        "Штанга"
+      ],
+      "level": "beginner",
+      "place": "gym",
       "goal": "power",
       "days_per_week": 3,
       "icon": "i-barbell",
-      "grad": "linear-gradient(135deg,#5E5CE6,#BF5AF2)",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
       "days": [
         {
           "title": "Тренировка A",
           "items": [
-            { "ex": "squat_high_bar", "sets": 5, "reps": "5", "rest_sec": 180 },
-            { "ex": "bench_barbell", "sets": 5, "reps": "5", "rest_sec": 180 },
-            { "ex": "barbell_row", "sets": 5, "reps": "5", "rest_sec": 180 }
+            {
+              "ex": "squat_high_bar",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            }
           ]
         },
         {
           "title": "Тренировка B",
           "items": [
-            { "ex": "squat_low_bar", "sets": 5, "reps": "5", "rest_sec": 180 },
-            { "ex": "ohp", "sets": 5, "reps": "5", "rest_sec": 180 },
-            { "ex": "deadlift", "sets": 1, "reps": "5", "rest_sec": 240 }
+            {
+              "ex": "squat_low_bar",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "ohp",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "deadlift",
+              "sets": 1,
+              "reps": "5",
+              "rest_sec": 240
+            }
           ]
         }
       ]
@@ -32,44 +68,110 @@
     {
       "id": "531",
       "name": "5/3/1 Wendler",
-      "source": "Jim Wendler, joewendler.com",
+      "source": "Jim Wendler, jimwendler.com",
       "desc": "Классика силового тренинга: четыре базовых движения, волны 5/3/1 и постепенная прибавка раз в цикл.",
-      "tags": ["Силовые", "Средний", "Штанга"],
+      "tags": [
+        "Силовые",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
       "goal": "power",
       "days_per_week": 4,
       "icon": "i-barbell",
-      "grad": "linear-gradient(135deg,#FF3B30,#FF9500)",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
       "days": [
         {
           "title": "Присед",
           "items": [
-            { "ex": "squat_low_bar", "sets": 4, "reps": "5/3/1+5", "rest_sec": 210 },
-            { "ex": "leg_press", "sets": 3, "reps": "10–12", "rest_sec": 120 },
-            { "ex": "cable_crunch", "sets": 3, "reps": "15–20", "rest_sec": 60 }
+            {
+              "ex": "squat_low_bar",
+              "sets": 4,
+              "reps": "5/3/1+5",
+              "rest_sec": 210
+            },
+            {
+              "ex": "leg_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "cable_crunch",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         },
         {
           "title": "Жим",
           "items": [
-            { "ex": "bench_barbell", "sets": 4, "reps": "5/3/1+5", "rest_sec": 210 },
-            { "ex": "dips_chest", "sets": 3, "reps": "8–12", "rest_sec": 120 },
-            { "ex": "barbell_row", "sets": 4, "reps": "8–12", "rest_sec": 120 }
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "5/3/1+5",
+              "rest_sec": 210
+            },
+            {
+              "ex": "dips_chest",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 120
+            }
           ]
         },
         {
           "title": "Становая",
           "items": [
-            { "ex": "deadlift", "sets": 4, "reps": "5/3/1+5", "rest_sec": 240 },
-            { "ex": "leg_curl_lying", "sets": 3, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "plank", "sets": 3, "reps": "60 с", "rest_sec": 60 }
+            {
+              "ex": "deadlift",
+              "sets": 4,
+              "reps": "5/3/1+5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "60 с",
+              "rest_sec": 60
+            }
           ]
         },
         {
           "title": "Жим стоя",
           "items": [
-            { "ex": "ohp", "sets": 4, "reps": "5/3/1+5", "rest_sec": 210 },
-            { "ex": "db_lateral", "sets": 4, "reps": "12–15", "rest_sec": 60 },
-            { "ex": "ez_curl", "sets": 3, "reps": "10–12", "rest_sec": 90 }
+            {
+              "ex": "ohp",
+              "sets": 4,
+              "reps": "5/3/1+5",
+              "rest_sec": 210
+            },
+            {
+              "ex": "pullup_wide",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "face_pull",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
@@ -77,42 +179,123 @@
     {
       "id": "ppl",
       "name": "Push / Pull / Legs",
-      "source": "Классический сплит (вдохновлён Raye Carlson, 1996)",
-      "desc": "Самый популярный сплит в мире: жимовые, тяговые и дни ног. Повторяй цикл через день или две недели по кругу.",
-      "tags": ["Гипертрофия", "Средний", "Зал"],
-      "goal": "fitness",
+      "source": "Классика бодибилдинга",
+      "desc": "Самый популярный сплит: жим, тяга и ноги по кругу. Шесть тренировок в неделю или три через день.",
+      "tags": [
+        "Гипертрофия",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
       "days_per_week": 6,
       "icon": "i-layers",
-      "grad": "linear-gradient(135deg,#0A84FF,#5E5CE6)",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
       "days": [
         {
-          "title": "Push (грудь, плечи, трицепс)",
+          "title": "Push (жим)",
           "items": [
-            { "ex": "bench_barbell", "sets": 4, "reps": "6–10", "rest_sec": 120 },
-            { "ex": "db_press_incline", "sets": 3, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "db_shoulder_press", "sets": 4, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "db_lateral", "sets": 4, "reps": "12–15", "rest_sec": 60 },
-            { "ex": "pushdown_rope", "sets": 3, "reps": "10–15", "rest_sec": 60 }
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_shoulder_press",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pushdown_rope",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Pull (спина, бицепс, задняя дельта)",
+          "title": "Pull (тяга)",
           "items": [
-            { "ex": "pullup_wide", "sets": 4, "reps": "6–10", "rest_sec": 120 },
-            { "ex": "barbell_row", "sets": 4, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "cable_row_v", "sets": 3, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "face_pull", "sets": 4, "reps": "15–20", "rest_sec": 60 },
-            { "ex": "ez_curl", "sets": 3, "reps": "10–12", "rest_sec": 60 }
+            {
+              "ex": "pullup_wide",
+              "sets": 4,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_curl",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "face_pull",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Legs (ноги, ягодицы, икры)",
+          "title": "Legs (ноги)",
           "items": [
-            { "ex": "squat_high_bar", "sets": 4, "reps": "6–10", "rest_sec": 150 },
-            { "ex": "rdl", "sets": 3, "reps": "8–12", "rest_sec": 120 },
-            { "ex": "leg_press", "sets": 3, "reps": "10–15", "rest_sec": 90 },
-            { "ex": "leg_curl_lying", "sets": 3, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "calf_stand_machine", "sets": 4, "reps": "12–15", "rest_sec": 60 }
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 180
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 4,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
@@ -120,49 +303,158 @@
     {
       "id": "upper-lower",
       "name": "Upper / Lower",
-      "source": "Charles Poliquin / Jordan Peters",
-      "desc": "Четыре дня: верх и низ по два раза в неделю. Золотая середина между силой и массой для среднего уровня.",
-      "tags": ["Гипертрофия", "Средний", "4 дня"],
-      "goal": "fitness",
+      "source": "Классика силового бодибилдинга",
+      "desc": "Верх и низ тела по очереди. Оптимальный баланс частоты и объёма — четыре тренировки в неделю.",
+      "tags": [
+        "Гипертрофия",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
       "days_per_week": 4,
       "icon": "i-layers",
-      "grad": "linear-gradient(135deg,#30D158,#0FB5A3)",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
       "days": [
         {
-          "title": "Верх — сила",
+          "title": "Верх A",
           "items": [
-            { "ex": "bench_barbell", "sets": 4, "reps": "4–6", "rest_sec": 180 },
-            { "ex": "pullup_medium", "sets": 4, "reps": "5–8", "rest_sec": 150 },
-            { "ex": "db_press_incline", "sets": 3, "reps": "8–10", "rest_sec": 120 },
-            { "ex": "cable_row_one", "sets": 3, "reps": "10–12", "rest_sec": 90 }
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "ohp",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "bar_curl",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Низ — сила",
+          "title": "Низ A",
           "items": [
-            { "ex": "squat_low_bar", "sets": 4, "reps": "4–6", "rest_sec": 180 },
-            { "ex": "rdl", "sets": 3, "reps": "6–8", "rest_sec": 150 },
-            { "ex": "bulgarian_bw", "sets": 3, "reps": "8–10", "rest_sec": 120 },
-            { "ex": "calf_stand_machine", "sets": 4, "reps": "8–10", "rest_sec": 60 }
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 180
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Верх — масса",
+          "title": "Верх B",
           "items": [
-            { "ex": "db_press_incline", "sets": 4, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "lat_pulldown_wide", "sets": 4, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "db_lateral", "sets": 4, "reps": "12–20", "rest_sec": 60 },
-            { "ex": "ez_curl", "sets": 3, "reps": "10–12", "rest_sec": 60 },
-            { "ex": "pushdown_rope", "sets": 3, "reps": "12–15", "rest_sec": 60 }
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "cable_row_v",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_shoulder_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "french_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Низ — масса",
+          "title": "Низ B",
           "items": [
-            { "ex": "leg_press", "sets": 4, "reps": "10–15", "rest_sec": 120 },
-            { "ex": "leg_curl_lying", "sets": 4, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "hip_thrust", "sets": 3, "reps": "10–15", "rest_sec": 90 },
-            { "ex": "leg_extension", "sets": 3, "reps": "12–15", "rest_sec": 60 }
+            {
+              "ex": "deadlift",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "hack_squat",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "hip_thrust",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "leg_curl_seated",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_seated_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
@@ -170,53 +462,152 @@
     {
       "id": "phul",
       "name": "PHUL",
-      "source": "Power Hypertrophy Upper Lower, FST (Greg Nuckols)",
-      "desc": "Две силовые + две гипертрофийные тренировки за неделю. Сила в начале недели, объём в конце.",
-      "tags": ["Сила+масса", "Продвинутый", "4 дня"],
+      "source": "Power Hypertrophy Upper Lower",
+      "desc": "Сила и масса вместе: два тяжёлых дня на силу, два на гипертрофию. Золотая середина для среднего уровня.",
+      "tags": [
+        "Гипертрофия",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
       "goal": "power",
       "days_per_week": 4,
-      "icon": "i-zap",
-      "grad": "linear-gradient(135deg,#FF9500,#FF3B30)",
+      "icon": "i-chart",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
       "days": [
         {
-          "title": "Upper Power",
+          "title": "Верх (сила)",
           "items": [
-            { "ex": "bench_barbell", "sets": 3, "reps": "3–5", "rest_sec": 180 },
-            { "ex": "barbell_row", "sets": 3, "reps": "3–5", "rest_sec": 180 },
-            { "ex": "ohp", "sets": 2, "reps": "6–8", "rest_sec": 150 },
-            { "ex": "pullup_wide", "sets": 2, "reps": "6–8", "rest_sec": 120 },
-            { "ex": "skullcrusher_ez", "sets": 3, "reps": "8–10", "rest_sec": 90 }
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "3–5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "3–5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "ohp",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "pullup_wide",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "bar_curl",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Lower Power",
+          "title": "Низ (сила)",
           "items": [
-            { "ex": "squat_high_bar", "sets": 3, "reps": "3–5", "rest_sec": 210 },
-            { "ex": "deadlift", "sets": 1, "reps": "3–5", "rest_sec": 240 },
-            { "ex": "leg_press", "sets": 2, "reps": "10–12", "rest_sec": 120 },
-            { "ex": "leg_curl_lying", "sets": 3, "reps": "8–10", "rest_sec": 90 },
-            { "ex": "calf_stand_machine", "sets": 3, "reps": "8–10", "rest_sec": 60 }
+            {
+              "ex": "squat_low_bar",
+              "sets": 4,
+              "reps": "3–5",
+              "rest_sec": 210
+            },
+            {
+              "ex": "deadlift",
+              "sets": 3,
+              "reps": "3–5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "leg_press",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 90
+            }
           ]
         },
         {
-          "title": "Upper Hypertrophy",
+          "title": "Верх (объём)",
           "items": [
-            { "ex": "db_press_incline", "sets": 3, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "cable_row_v", "sets": 3, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "db_shoulder_press", "sets": 3, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "lat_pulldown_wide", "sets": 3, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "ez_curl", "sets": 2, "reps": "10–12", "rest_sec": 60 },
-            { "ex": "pushdown_rope", "sets": 2, "reps": "10–12", "rest_sec": 60 }
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "cable_row_v",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_shoulder_press",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pushdown_rope",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Lower Hypertrophy",
+          "title": "Низ (объём)",
           "items": [
-            { "ex": "front_squat", "sets": 3, "reps": "6–10", "rest_sec": 150 },
-            { "ex": "lunge_barbell", "sets": 3, "reps": "8–10", "rest_sec": 120 },
-            { "ex": "leg_extension", "sets": 3, "reps": "10–15", "rest_sec": 90 },
-            { "ex": "leg_curl_lying", "sets": 3, "reps": "10–15", "rest_sec": 90 },
-            { "ex": "calf_seated_machine", "sets": 4, "reps": "12–15", "rest_sec": 60 }
+            {
+              "ex": "hack_squat",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 150
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "hip_thrust",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "leg_curl_seated",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 4,
+              "reps": "12–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
@@ -224,42 +615,117 @@
     {
       "id": "arnold",
       "name": "Arnold Split",
-      "source": "Арнольд Шварценеггер, Encyclopedia of Modern Bodybuilding",
-      "desc": "Сплит легенды: антагонисты в один день — грудь/спина, плечи/руки, ноги. Высокий объём, шесть дней в неделю.",
-      "tags": ["Бодибилдинг", "Продвинутый", "6 дней"],
-      "goal": "fitness",
+      "source": "Арнольд Шварценеггер",
+      "desc": "Сплит «золотой эры»: грудь+спина, плечи+руки, ноги — по кругу. Максимальный объём на группу.",
+      "tags": [
+        "Гипертрофия",
+        "Продвинутый",
+        "Штанга"
+      ],
+      "level": "advanced",
+      "place": "gym",
+      "goal": "power",
       "days_per_week": 6,
       "icon": "i-flame",
-      "grad": "linear-gradient(135deg,#FF2D55,#BF5AF2)",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
       "days": [
         {
-          "title": "Грудь + спина",
+          "title": "Грудь + Спина",
           "items": [
-            { "ex": "bench_barbell", "sets": 4, "reps": "6–12", "rest_sec": 90 },
-            { "ex": "pullup_wide", "sets": 4, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "cable_fly_mid", "sets": 3, "reps": "12–15", "rest_sec": 60 },
-            { "ex": "barbell_row", "sets": 3, "reps": "8–12", "rest_sec": 90 },
-            { "ex": "db_pullover", "sets": 3, "reps": "10–15", "rest_sec": 60 }
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "pullup_wide",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_pullover",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Плечи + руки",
+          "title": "Плечи + Руки",
           "items": [
-            { "ex": "ohp", "sets": 4, "reps": "6–10", "rest_sec": 120 },
-            { "ex": "db_lateral", "sets": 4, "reps": "12–15", "rest_sec": 60 },
-            { "ex": "ez_curl", "sets": 4, "reps": "8–12", "rest_sec": 60 },
-            { "ex": "skullcrusher_ez", "sets": 4, "reps": "8–12", "rest_sec": 60 },
-            { "ex": "db_curl_hammer", "sets": 3, "reps": "10–12", "rest_sec": 60 }
+            {
+              "ex": "ohp",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_lateral",
+              "sets": 4,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "upright_row",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "bar_curl",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "skullcrusher_ez",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Ноги + поясница",
+          "title": "Ноги",
           "items": [
-            { "ex": "squat_high_bar", "sets": 4, "reps": "8–12", "rest_sec": 120 },
-            { "ex": "leg_press", "sets": 4, "reps": "10–15", "rest_sec": 90 },
-            { "ex": "leg_extension", "sets": 4, "reps": "12–15", "rest_sec": 60 },
-            { "ex": "leg_curl_lying", "sets": 4, "reps": "10–12", "rest_sec": 60 },
-            { "ex": "calf_stand_machine", "sets": 5, "reps": "10–15", "rest_sec": 45 }
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "leg_press",
+              "sets": 4,
+              "reps": "10–15",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 4,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 4,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
@@ -267,40 +733,110 @@
     {
       "id": "gvt",
       "name": "German Volume 10×10",
-      "source": "Rolf Fink / Charles Poliquin",
-      "desc": "Жёсткая немецкая классика: десять упражнений по десять повторений. Минимум веса-максимум объёма.",
-      "tags": ["Объём", "Продвинутый", "4 дня"],
-      "goal": "fitness",
+      "source": "Charles Poliquin",
+      "desc": "Немецкий объёмный тренинг: десять подходов по десять повторений на два упражнения. Жёстко, но результативно.",
+      "tags": [
+        "Гипертрофия",
+        "Продвинутый",
+        "Штанга"
+      ],
+      "level": "advanced",
+      "place": "gym",
+      "goal": "power",
       "days_per_week": 4,
-      "icon": "i-flame",
-      "grad": "linear-gradient(135deg,#FF3B30,#FF2D55)",
+      "icon": "i-zap",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
       "days": [
         {
-          "title": "A: Грудь + спина",
+          "title": "Грудь + Спина",
           "items": [
-            { "ex": "bench_barbell", "sets": 10, "reps": "10", "rest_sec": 120 },
-            { "ex": "barbell_row", "sets": 10, "reps": "10", "rest_sec": 120 }
+            {
+              "ex": "bench_barbell",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "B: Ноги",
+          "title": "Ноги",
           "items": [
-            { "ex": "squat_high_bar", "sets": 10, "reps": "10", "rest_sec": 150 },
-            { "ex": "leg_curl_lying", "sets": 10, "reps": "10", "rest_sec": 90 }
+            {
+              "ex": "squat_high_bar",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 60
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 4,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "C: Плечи + руки",
+          "title": "Плечи + Руки",
           "items": [
-            { "ex": "db_shoulder_press", "sets": 10, "reps": "10", "rest_sec": 120 },
-            { "ex": "ez_curl", "sets": 10, "reps": "10", "rest_sec": 90 }
+            {
+              "ex": "ohp",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "bar_curl",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pushdown_rope",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "D: Спина + грудь (подтяг)",
+          "title": "Спина + Ноги",
           "items": [
-            { "ex": "pullup_wide", "sets": 10, "reps": "max (≈10)", "rest_sec": 120 },
-            { "ex": "dips_chest", "sets": 10, "reps": "max (≈10)", "rest_sec": 120 }
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "leg_press",
+              "sets": 10,
+              "reps": "10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "cable_crunch",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
@@ -308,30 +844,105 @@
     {
       "id": "fullbody",
       "name": "Full Body 3×",
-      "source": "Вдохновлено Starting Strength / Jeff Nippard",
-      "desc": "Всё тело за тренировку, три раза в неделю. Идеально для новичков и занятых людей.",
-      "tags": ["Новичок", "3 дня", "База"],
-      "goal": "fitness",
+      "source": "Классика фулбоди",
+      "desc": "Всё тело три раза в неделю. Отличный выбор, когда мало времени, но хочется прогресса.",
+      "tags": [
+        "Силовые",
+        "Новичок",
+        "Штанга"
+      ],
+      "level": "beginner",
+      "place": "gym",
+      "goal": "power",
       "days_per_week": 3,
       "icon": "i-heart",
-      "grad": "linear-gradient(135deg,#30D158,#0FB5A3)",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
       "days": [
         {
-          "title": "Тренировка A",
+          "title": "Фулбоди A",
           "items": [
-            { "ex": "squat_high_bar", "sets": 3, "reps": "6–10", "rest_sec": 150 },
-            { "ex": "bench_barbell", "sets": 3, "reps": "6–10", "rest_sec": 150 },
-            { "ex": "barbell_row", "sets": 3, "reps": "8–12", "rest_sec": 120 },
-            { "ex": "plank", "sets": 3, "reps": "45–60 с", "rest_sec": 60 }
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 120
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "45 с",
+              "rest_sec": 60
+            }
           ]
         },
         {
-          "title": "Тренировка B",
+          "title": "Фулбоди B",
           "items": [
-            { "ex": "deadlift", "sets": 1, "reps": "5", "rest_sec": 240 },
-            { "ex": "ohp", "sets": 3, "reps": "6–10", "rest_sec": 120 },
-            { "ex": "pullup_wide", "sets": 3, "reps": "max", "rest_sec": 120 },
-            { "ex": "lunge_barbell", "sets": 2, "reps": "10–12", "rest_sec": 90 }
+            {
+              "ex": "deadlift",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 210
+            },
+            {
+              "ex": "ohp",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 120
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Фулбоди C",
+          "items": [
+            {
+              "ex": "front_squat",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "cable_row_v",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "cable_crunch",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
@@ -339,42 +950,105 @@
     {
       "id": "dfhome",
       "name": "Дома без железа",
-      "source": "Калланетика / convicts conditioning (адаптация)",
-      "desc": "Домашняя программа со своим весом и гантелями: тонус, выносливость, пресс. Нужны только коврик и гантели.",
-      "tags": ["Фитнес", "Дома", "3 дня"],
+      "source": "Тренировки с собственным весом",
+      "desc": "Ничего кроме пола и стены: отжимания, приседы, мостики. Полноценная программа на старт.",
+      "tags": [
+        "Дома",
+        "Новичок",
+        "Свой вес"
+      ],
+      "level": "beginner",
+      "place": "home",
       "goal": "fitness",
       "days_per_week": 3,
       "icon": "i-home",
-      "grad": "linear-gradient(135deg,#32ADE6,#5E5CE6)",
+      "grad": "linear-gradient(135deg,#334155,#0F172A)",
       "days": [
         {
-          "title": "День 1: Верх",
+          "title": "День A",
           "items": [
-            { "ex": "pushup", "sets": 4, "reps": "max", "rest_sec": 60 },
-            { "ex": "db_row", "sets": 4, "reps": "10–12", "rest_sec": 60 },
-            { "ex": "pike_pushup", "sets": 3, "reps": "8–12", "rest_sec": 60 },
-            { "ex": "crunch", "sets": 3, "reps": "15–20", "rest_sec": 45 },
-            { "ex": "plank", "sets": 3, "reps": "60 с", "rest_sec": 45 }
+            {
+              "ex": "pushup",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "squat_bodyweight",
+              "sets": 4,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "glute_bridge",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "30–45 с",
+              "rest_sec": 45
+            }
           ]
         },
         {
-          "title": "День 2: Низ",
+          "title": "День B",
           "items": [
-            { "ex": "squat_bodyweight", "sets": 4, "reps": "15–20", "rest_sec": 60 },
-            { "ex": "bulgarian_bw", "sets": 3, "reps": "10–12", "rest_sec": 60 },
-            { "ex": "glute_bridge", "sets": 4, "reps": "15–20", "rest_sec": 60 },
-            { "ex": "calf_raise_bw", "sets": 4, "reps": "20", "rest_sec": 45 },
-            { "ex": "wall_sit", "sets": 3, "reps": "45 с", "rest_sec": 60 }
+            {
+              "ex": "pike_pushup",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lunge_reverse_bw",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "superman",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "crunch",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            }
           ]
         },
         {
-          "title": "День 3: Фулбоди",
+          "title": "День C",
           "items": [
-            { "ex": "pushup", "sets": 3, "reps": "max", "rest_sec": 60 },
-            { "ex": "squat_bodyweight", "sets": 3, "reps": "20", "rest_sec": 60 },
-            { "ex": "lunge_reverse_bw", "sets": 3, "reps": "12", "rest_sec": 60 },
-            { "ex": "bird_dog", "sets": 3, "reps": "10", "rest_sec": 45 },
-            { "ex": "hanging_knee", "sets": 3, "reps": "12–15", "rest_sec": 45 }
+            {
+              "ex": "pushup_diamond",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "single_leg_dl_bw",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 60
+            },
+            {
+              "ex": "calf_raise_bw",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "leg_raise_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
           ]
         }
       ]
@@ -382,42 +1056,2413 @@
     {
       "id": "glute",
       "name": "Ягодицы и пресс 3×",
-      "source": "Вдохновлено программы Bret Contreras",
-      "desc": "Фитнес-акцент: тазовые мостики, приседы, отведения. Три тренировки в неделю для тонуса и формы.",
-      "tags": ["Фитнес", "Ягодицы", "3 дня"],
+      "source": "Акцент на нижнюю часть",
+      "desc": "Три тренировки с фокусом на ягодицы, заднюю поверхность и кор. Красивый силуэт и сильный центр.",
+      "tags": [
+        "Женская",
+        "Средний",
+        "Тренажёры"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "fitness",
+      "days_per_week": 3,
+      "icon": "i-sprout",
+      "grad": "linear-gradient(135deg,#0EA5E9,#2563EB)",
+      "days": [
+        {
+          "title": "Ягодицы",
+          "items": [
+            {
+              "ex": "hip_thrust",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_bulgarian",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "cable_kickback",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "hip_abduction",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Задняя цепь",
+          "items": [
+            {
+              "ex": "rdl",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "back_extension_glute",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "45 с",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Ноги + кор",
+          "items": [
+            {
+              "ex": "goblet_squat",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_step_through",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "cable_crunch",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "leg_raise_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bro-split",
+      "name": "Классический сплит 5×",
+      "source": "Бодибилдинг-классика",
+      "desc": "Одна мышечная группа в день: грудь, спина, ноги, плечи, руки. Просто, понятно и эффективно для объёма.",
+      "tags": [
+        "Гипертрофия",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 5,
+      "icon": "i-list",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
+      "days": [
+        {
+          "title": "Грудь",
+          "items": [
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "pec_deck",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "dips_chest",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            }
+          ]
+        },
+        {
+          "title": "Спина",
+          "items": [
+            {
+              "ex": "pullup_wide",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "cable_row_v",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_shrug",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Ноги",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "leg_press",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 4,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Плечи",
+          "items": [
+            {
+              "ex": "ohp",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_shoulder_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 4,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "rear_delt_cable",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "face_pull",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Руки",
+          "items": [
+            {
+              "ex": "bar_curl",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_curl_hammer",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pushdown_rope",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "skullcrusher_ez",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "preacher_curl",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upper-lower-3",
+      "name": "Верх / Низ 3×",
+      "source": "Новичковый Upper/Lower",
+      "desc": "Четыре дня по кругу, три тренировки в неделю. Меньше объёма — быстрее восстановление и рост.",
+      "tags": [
+        "Силовые",
+        "Новичок",
+        "Штанга"
+      ],
+      "level": "beginner",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 3,
+      "icon": "i-layers",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
+      "days": [
+        {
+          "title": "Верх A",
+          "items": [
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 120
+            },
+            {
+              "ex": "ohp",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "bar_curl",
+              "sets": 2,
+              "reps": "10–12",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Низ A",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 180
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Верх B",
+          "items": [
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "cable_row_v",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_shoulder_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "pushdown_rope",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Низ B",
+          "items": [
+            {
+              "ex": "deadlift",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "hack_squat",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "leg_curl_seated",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_seated_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "starting-strength",
+      "name": "Starting Strength",
+      "source": "Mark Rippetoe",
+      "desc": "Три базовых движения, три подхода по пять. Самый быстрый старт для новичка со штангой.",
+      "tags": [
+        "Силовые",
+        "Новичок",
+        "Штанга"
+      ],
+      "level": "beginner",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 3,
+      "icon": "i-barbell",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
+      "days": [
+        {
+          "title": "Тренировка A",
+          "items": [
+            {
+              "ex": "squat_low_bar",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "deadlift",
+              "sets": 1,
+              "reps": "5",
+              "rest_sec": 240
+            }
+          ]
+        },
+        {
+          "title": "Тренировка B",
+          "items": [
+            {
+              "ex": "squat_low_bar",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "ohp",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "pendlay_row",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "texas-method",
+      "name": "Texas Method",
+      "source": "Классический силовой цикл",
+      "desc": "Три дня: объём, восстановление, интенсивность. Для тех, кто уже прошёл новичковый этап.",
+      "tags": [
+        "Силовые",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 3,
+      "icon": "i-barbell",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
+      "days": [
+        {
+          "title": "Объём",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 150
+            }
+          ]
+        },
+        {
+          "title": "Восстановление",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 2,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "ohp",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 150
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8",
+              "rest_sec": 120
+            }
+          ]
+        },
+        {
+          "title": "Интенсивность",
+          "items": [
+            {
+              "ex": "squat_low_bar",
+              "sets": 1,
+              "reps": "5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 1,
+              "reps": "5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "deadlift",
+              "sets": 1,
+              "reps": "5",
+              "rest_sec": 240
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "madcow",
+      "name": "Madcow 5×5",
+      "source": "Bill Starr / Madcow",
+      "desc": "Промежуточный 5×5: тяжёлый, лёгкий и средний день. Плавная прогрессия без перетрена.",
+      "tags": [
+        "Силовые",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 3,
+      "icon": "i-barbell",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
+      "days": [
+        {
+          "title": "Тяжёлый",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 5,
+              "reps": "5",
+              "rest_sec": 150
+            }
+          ]
+        },
+        {
+          "title": "Лёгкий",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 150
+            },
+            {
+              "ex": "ohp",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 150
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8",
+              "rest_sec": 120
+            }
+          ]
+        },
+        {
+          "title": "Средний",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "deadlift",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 210
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gzclp",
+      "name": "GZCLP",
+      "source": "Cody Lefever (GZCL)",
+      "desc": "Простая линейная прогрессия: тяжёлое базовое движение + два вспомогательных. Гибко и по делу.",
+      "tags": [
+        "Силовые",
+        "Новичок",
+        "Штанга"
+      ],
+      "level": "beginner",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 3,
+      "icon": "i-chart",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
+      "days": [
+        {
+          "title": "День 1",
+          "items": [
+            {
+              "ex": "squat_low_bar",
+              "sets": 5,
+              "reps": "3",
+              "rest_sec": 180
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 3,
+              "reps": "10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "15",
+              "rest_sec": 90
+            }
+          ]
+        },
+        {
+          "title": "День 2",
+          "items": [
+            {
+              "ex": "deadlift",
+              "sets": 5,
+              "reps": "3",
+              "rest_sec": 210
+            },
+            {
+              "ex": "ohp",
+              "sets": 3,
+              "reps": "10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 3,
+              "reps": "15",
+              "rest_sec": 90
+            }
+          ]
+        },
+        {
+          "title": "День 3",
+          "items": [
+            {
+              "ex": "bench_barbell",
+              "sets": 5,
+              "reps": "3",
+              "rest_sec": 180
+            },
+            {
+              "ex": "squat_high_bar",
+              "sets": 3,
+              "reps": "10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "cable_row_v",
+              "sets": 3,
+              "reps": "15",
+              "rest_sec": 90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phat",
+      "name": "PHAT",
+      "source": "Layne Norton",
+      "desc": "Power Hypertrophy Adaptive Training: сила + объём в одной неделе. Пять тренировок, серьёзный тоннаж.",
+      "tags": [
+        "Гипертрофия",
+        "Продвинутый",
+        "Штанга"
+      ],
+      "level": "advanced",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 5,
+      "icon": "i-zap",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
+      "days": [
+        {
+          "title": "Верх (сила)",
+          "items": [
+            {
+              "ex": "bench_barbell",
+              "sets": 3,
+              "reps": "3–5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 3,
+              "reps": "3–5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "ohp",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "pullup_wide",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "bar_curl",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 60
+            },
+            {
+              "ex": "skullcrusher_ez",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Низ (сила)",
+          "items": [
+            {
+              "ex": "squat_low_bar",
+              "sets": 3,
+              "reps": "3–5",
+              "rest_sec": 210
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "3–5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "leg_press",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 2,
+              "reps": "6–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 4,
+              "reps": "6–10",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Спина + Плечи",
+          "items": [
+            {
+              "ex": "cable_row_v",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_row",
+              "sets": 2,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "face_pull",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 3,
+              "reps": "12–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Низ (объём)",
+          "items": [
+            {
+              "ex": "hack_squat",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_seated",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "hip_thrust",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_seated_machine",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Грудь + Руки",
+          "items": [
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_press",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "pec_deck",
+              "sets": 2,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_curl",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pushdown_rope",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calisthenics-beginner",
+      "name": "Калистеника: старт",
+      "source": "Тренировки с собственным весом",
+      "desc": "Свой вес, турник и пол. Учишься подтягиваться, отжиматься и приседать с прогрессией.",
+      "tags": [
+        "Калистеника",
+        "Новичок",
+        "Свой вес"
+      ],
+      "level": "beginner",
+      "place": "home",
+      "goal": "fitness",
+      "days_per_week": 3,
+      "icon": "i-heart",
+      "grad": "linear-gradient(135deg,#334155,#0F172A)",
+      "days": [
+        {
+          "title": "День A",
+          "items": [
+            {
+              "ex": "pushup",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "inverted_row_table",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "squat_bodyweight",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "30–45 с",
+              "rest_sec": 45
+            },
+            {
+              "ex": "superman",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День B",
+          "items": [
+            {
+              "ex": "pike_pushup",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "chinup_bw",
+              "sets": 3,
+              "reps": "3–6",
+              "rest_sec": 120
+            },
+            {
+              "ex": "glute_bridge",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "leg_raise_lying",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "dead_hang",
+              "sets": 3,
+              "reps": "20–30 с",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День C",
+          "items": [
+            {
+              "ex": "pushup_diamond",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "inverted_row_table",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "assisted_pistol",
+              "sets": 3,
+              "reps": "5–8",
+              "rest_sec": 90
+            },
+            {
+              "ex": "hollow_hold",
+              "sets": 3,
+              "reps": "20–30 с",
+              "rest_sec": 45
+            },
+            {
+              "ex": "calf_raise_bw",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "calisthenics-advanced",
+      "name": "Калистеника: продвинутый",
+      "source": "Street workout",
+      "desc": "Пистолетики, арчер-отжимания, выходы силой. Программа для тех, кто уверенно владеет телом.",
+      "tags": [
+        "Калистеника",
+        "Продвинутый",
+        "Свой вес"
+      ],
+      "level": "advanced",
+      "place": "home",
+      "goal": "power",
+      "days_per_week": 4,
+      "icon": "i-zap",
+      "grad": "linear-gradient(135deg,#334155,#0F172A)",
+      "days": [
+        {
+          "title": "Отжимания",
+          "items": [
+            {
+              "ex": "pushup_archer",
+              "sets": 4,
+              "reps": "6–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "pushup_diamond",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pike_pushup_elevated",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "60 с",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Подтягивания",
+          "items": [
+            {
+              "ex": "pullup_bw",
+              "sets": 4,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "chinup_bw",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "inverted_row_table",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "hanging_leg_raise",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Ноги",
+          "items": [
+            {
+              "ex": "pistol_squat",
+              "sets": 4,
+              "reps": "5–8",
+              "rest_sec": 90
+            },
+            {
+              "ex": "shrimp_squat",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "nordic_curl",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_one_leg_bw",
+              "sets": 3,
+              "reps": "12–20",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Всё тело",
+          "items": [
+            {
+              "ex": "handstand_hold",
+              "sets": 3,
+              "reps": "20–40 с",
+              "rest_sec": 90
+            },
+            {
+              "ex": "pushup",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pullup_bw",
+              "sets": 3,
+              "reps": "макс",
+              "rest_sec": 120
+            },
+            {
+              "ex": "glute_bridge",
+              "sets": 3,
+              "reps": "20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "hollow_hold",
+              "sets": 3,
+              "reps": "30–45 с",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "strong-curves",
+      "name": "Strong Curves",
+      "source": "Bret Contreras",
+      "desc": "Программа с акцентом на ягодицы и баланс тела. Три тренировки, доступный инвентарь.",
+      "tags": [
+        "Женская",
+        "Новичок",
+        "Тренажёры"
+      ],
+      "level": "beginner",
+      "place": "gym",
+      "goal": "fitness",
+      "days_per_week": 3,
+      "icon": "i-sprout",
+      "grad": "linear-gradient(135deg,#0EA5E9,#2563EB)",
+      "days": [
+        {
+          "title": "День A",
+          "items": [
+            {
+              "ex": "hip_thrust",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "squat_high_bar",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_row",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "cable_crunch",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День B",
+          "items": [
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "db_bulgarian",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "30–45 с",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День C",
+          "items": [
+            {
+              "ex": "db_hip_thrust",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "hip_abduction",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "cable_kickback",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "back_extension_glute",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "leg_raise_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glute-ham",
+      "name": "Ягодицы + Бицепс бедра",
+      "source": "Задняя цепь",
+      "desc": "Четыре дня с фокусом на ягодицы и заднюю поверхность бедра. Сильный низ и спортивный силуэт.",
+      "tags": [
+        "Женская",
+        "Средний",
+        "Тренажёры"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "fitness",
+      "days_per_week": 4,
+      "icon": "i-sprout",
+      "grad": "linear-gradient(135deg,#0EA5E9,#2563EB)",
+      "days": [
+        {
+          "title": "Ягодицы",
+          "items": [
+            {
+              "ex": "hip_thrust",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_bulgarian",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "cable_kickback",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "hip_abduction",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Бицепс бедра",
+          "items": [
+            {
+              "ex": "rdl",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "glute_ham",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "back_extension_glute",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Ягодицы + квадрицепс",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "8–10",
+              "rest_sec": 150
+            },
+            {
+              "ex": "db_sumo_dl_glute",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_step_through",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "cable_abduction",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Задняя цепь",
+          "items": [
+            {
+              "ex": "deadlift",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "leg_curl_seated",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "hip_thrust_single",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "calf_seated_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home-dumbbell",
+      "name": "Дома с гантелями",
+      "source": "Домашний зал",
+      "desc": "Пара гантелей и скамья — и полноценный зал дома. Четыре тренировки на всё тело.",
+      "tags": [
+        "Дома",
+        "Средний",
+        "Гантели"
+      ],
+      "level": "intermediate",
+      "place": "home",
+      "goal": "power",
+      "days_per_week": 4,
+      "icon": "i-dumbbell",
+      "grad": "linear-gradient(135deg,#334155,#0F172A)",
+      "days": [
+        {
+          "title": "Верх A",
+          "items": [
+            {
+              "ex": "db_press",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_row",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_shoulder_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 75
+            },
+            {
+              "ex": "db_curl",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_overhead_ext",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Низ A",
+          "items": [
+            {
+              "ex": "goblet_squat",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_rdl",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_lunge",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "calf_db",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Верх B",
+          "items": [
+            {
+              "ex": "db_press_incline",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_bent_over_row",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_lateral",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_curl_hammer",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_kickback",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Низ B",
+          "items": [
+            {
+              "ex": "db_bulgarian",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_sumo_squat",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_glute_bridge",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "russian_twist",
+              "sets": 3,
+              "reps": "20",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home-bands",
+      "name": "Дома с резинками",
+      "source": "Резинки и петли",
+      "desc": "Резинки весят немного, а работают на всё тело. Мягкая нагрузка на суставы и хороший тонус.",
+      "tags": [
+        "Дома",
+        "Новичок",
+        "Резинки"
+      ],
+      "level": "beginner",
+      "place": "home",
+      "goal": "fitness",
+      "days_per_week": 3,
+      "icon": "i-heart",
+      "grad": "linear-gradient(135deg,#334155,#0F172A)",
+      "days": [
+        {
+          "title": "День A",
+          "items": [
+            {
+              "ex": "band_squat",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "band_row",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "band_press",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "band_curl",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "band_pallof",
+              "sets": 3,
+              "reps": "12",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День B",
+          "items": [
+            {
+              "ex": "band_rdl",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "band_leg_curl",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "band_glute_bridge",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "band_lateral",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "band_crunch",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День C",
+          "items": [
+            {
+              "ex": "pushup",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 75
+            },
+            {
+              "ex": "band_pulldown",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "band_pushdown",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "band_face_pull",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "30–45 с",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home-fullbody",
+      "name": "Дома фулбоди 2×",
+      "source": "Минимум инвентаря",
+      "desc": "Всего две тренировки в неделю, но всё тело. Когда времени мало, а форму держать нужно.",
+      "tags": [
+        "Дома",
+        "Новичок",
+        "Свой вес"
+      ],
+      "level": "beginner",
+      "place": "home",
+      "goal": "fitness",
+      "days_per_week": 2,
+      "icon": "i-home",
+      "grad": "linear-gradient(135deg,#334155,#0F172A)",
+      "days": [
+        {
+          "title": "День A",
+          "items": [
+            {
+              "ex": "pushup",
+              "sets": 4,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "squat_bodyweight",
+              "sets": 4,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "glute_bridge",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "30–45 с",
+              "rest_sec": 45
+            },
+            {
+              "ex": "superman",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День B",
+          "items": [
+            {
+              "ex": "pike_pushup",
+              "sets": 3,
+              "reps": "8–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "single_leg_dl_bw",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 60
+            },
+            {
+              "ex": "curtsy_lunge_glute",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "leg_raise_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "calf_raise_bw",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fullbody-2",
+      "name": "Фулбоди 2× (зал)",
+      "source": "Два дня в неделю",
+      "desc": "Две насыщенные тренировки на всё тело. Подходит, если зал доступен только по выходным.",
+      "tags": [
+        "Силовые",
+        "Новичок",
+        "Штанга"
+      ],
+      "level": "beginner",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 2,
+      "icon": "i-heart",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
+      "days": [
+        {
+          "title": "День A",
+          "items": [
+            {
+              "ex": "squat_high_bar",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 150
+            },
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 120
+            },
+            {
+              "ex": "lateral_cable",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "cable_crunch",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "День B",
+          "items": [
+            {
+              "ex": "deadlift",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "ohp",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 120
+            },
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abs-core",
+      "name": "Пресс и кор 3×",
+      "source": "Сильный центр",
+      "desc": "Три коротких блока на пресс и кор. Плоский живот, крепкая поясница и лучшая осанка.",
+      "tags": [
+        "Пресс",
+        "Новичок",
+        "Свой вес"
+      ],
+      "level": "beginner",
+      "place": "any",
       "goal": "fitness",
       "days_per_week": 3,
       "icon": "i-flame",
-      "grad": "linear-gradient(135deg,#FF2D55,#FF9500)",
+      "grad": "linear-gradient(135deg,#0EA5E9,#2563EB)",
       "days": [
         {
-          "title": "День 1: Сила ягодиц",
+          "title": "День A",
           "items": [
-            { "ex": "hip_thrust", "sets": 4, "reps": "8–12", "rest_sec": 120 },
-            { "ex": "squat_high_bar", "sets": 3, "reps": "10–12", "rest_sec": 120 },
-            { "ex": "rdl", "sets": 3, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "hip_abduction", "sets": 3, "reps": "15–20", "rest_sec": 45 },
-            { "ex": "crunch", "sets": 3, "reps": "15–20", "rest_sec": 45 }
+            {
+              "ex": "crunch",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "leg_raise_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "plank",
+              "sets": 3,
+              "reps": "30–60 с",
+              "rest_sec": 45
+            },
+            {
+              "ex": "russian_twist",
+              "sets": 3,
+              "reps": "20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "mountain_climber",
+              "sets": 3,
+              "reps": "30 с",
+              "rest_sec": 45
+            }
           ]
         },
         {
-          "title": "День 2: Объём",
+          "title": "День B",
           "items": [
-            { "ex": "glute_bridge", "sets": 4, "reps": "15–20", "rest_sec": 60 },
-            { "ex": "bulgarian_bw", "sets": 3, "reps": "10–12", "rest_sec": 90 },
-            { "ex": "donkey_kick", "sets": 3, "reps": "15", "rest_sec": 45 },
-            { "ex": "fire_hydrant", "sets": 3, "reps": "15", "rest_sec": 45 },
-            { "ex": "side_plank", "sets": 3, "reps": "30 с", "rest_sec": 45 }
+            {
+              "ex": "hanging_leg_raise",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "crunch_bicycle",
+              "sets": 3,
+              "reps": "20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "side_plank",
+              "sets": 3,
+              "reps": "30–45 с",
+              "rest_sec": 45
+            },
+            {
+              "ex": "dead_bug",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 45
+            },
+            {
+              "ex": "hollow_hold",
+              "sets": 3,
+              "reps": "20–30 с",
+              "rest_sec": 45
+            }
           ]
         },
         {
-          "title": "День 3: Задняя цепь",
+          "title": "День C",
           "items": [
-            { "ex": "rdl", "sets": 4, "reps": "8–10", "rest_sec": 120 },
-            { "ex": "leg_press", "sets": 3, "reps": "12–15", "rest_sec": 90 },
-            { "ex": "leg_curl_lying", "sets": 3, "reps": "12–15", "rest_sec": 60 },
-            { "ex": "calf_raise_bw", "sets": 4, "reps": "20", "rest_sec": 45 },
-            { "ex": "cable_crunch", "sets": 3, "reps": "12–15", "rest_sec": 45 }
+            {
+              "ex": "v_up",
+              "sets": 3,
+              "reps": "10–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "flutter_kicks",
+              "sets": 3,
+              "reps": "20–30 с",
+              "rest_sec": 45
+            },
+            {
+              "ex": "plank_shoulder_tap",
+              "sets": 3,
+              "reps": "20",
+              "rest_sec": 45
+            },
+            {
+              "ex": "ab_wheel",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "superman",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arms-specialization",
+      "name": "Специализация: руки",
+      "source": "Акцент на бицепс и трицепс",
+      "desc": "Четыре дня только на руки: два тяжёлых, два объёмных. Рукава станут теснее.",
+      "tags": [
+        "Гипертрофия",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 4,
+      "icon": "i-dumbbell",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
+      "days": [
+        {
+          "title": "Бицепс (сила)",
+          "items": [
+            {
+              "ex": "bar_curl",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_curl_hammer",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 75
+            },
+            {
+              "ex": "preacher_curl",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "cable_curl_bar",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Трицепс (сила)",
+          "items": [
+            {
+              "ex": "close_grip_bench",
+              "sets": 4,
+              "reps": "6–8",
+              "rest_sec": 120
+            },
+            {
+              "ex": "skullcrusher_ez",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 75
+            },
+            {
+              "ex": "pushdown_rope",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_overhead_ext",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Бицепс (объём)",
+          "items": [
+            {
+              "ex": "incline_cable_curl",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_concentration",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "spider_curl",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "reverse_curl",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Трицепс (объём)",
+          "items": [
+            {
+              "ex": "pushdown_bar",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 45
+            },
+            {
+              "ex": "french_press",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 60
+            },
+            {
+              "ex": "db_kickback",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 45
+            },
+            {
+              "ex": "bench_dip",
+              "sets": 3,
+              "reps": "макс",
+              "rest_sec": 75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chest-back",
+      "name": "Грудь + Спина 4×",
+      "source": "Антагонисты",
+      "desc": "Грудь и спина в один день: суперсеты антагонистов, мощный пампинг и хорошая осанка.",
+      "tags": [
+        "Гипертрофия",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 4,
+      "icon": "i-layers",
+      "grad": "linear-gradient(135deg,#2563EB,#1D4ED8)",
+      "days": [
+        {
+          "title": "Грудь (сила)",
+          "items": [
+            {
+              "ex": "bench_barbell",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "bench_incline_barbell",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "dips_chest",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 90
+            },
+            {
+              "ex": "pec_deck",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Спина (сила)",
+          "items": [
+            {
+              "ex": "barbell_row",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 180
+            },
+            {
+              "ex": "pullup_wide",
+              "sets": 3,
+              "reps": "6–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "cable_row_v",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_shrug",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "Грудь (объём)",
+          "items": [
+            {
+              "ex": "db_press",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "bench_decline_barbell",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "machine_press",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "pec_deck",
+              "sets": 3,
+              "reps": "15",
+              "rest_sec": 45
+            }
+          ]
+        },
+        {
+          "title": "Спина (объём)",
+          "items": [
+            {
+              "ex": "lat_pulldown_wide",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "db_row",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "straight_arm_bar",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 60
+            },
+            {
+              "ex": "face_pull",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legs-glutes-2",
+      "name": "Ноги и ягодицы 2×",
+      "source": "Нижняя часть",
+      "desc": "Два мощных дня только на низ. Отличная добавка к верху или самостоятельный цикл.",
+      "tags": [
+        "Силовые",
+        "Средний",
+        "Штанга"
+      ],
+      "level": "intermediate",
+      "place": "gym",
+      "goal": "power",
+      "days_per_week": 2,
+      "icon": "i-barbell",
+      "grad": "linear-gradient(135deg,#3B82F6,#1D4ED8)",
+      "days": [
+        {
+          "title": "День A",
+          "items": [
+            {
+              "ex": "squat_low_bar",
+              "sets": 4,
+              "reps": "5",
+              "rest_sec": 210
+            },
+            {
+              "ex": "leg_press",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 120
+            },
+            {
+              "ex": "rdl",
+              "sets": 3,
+              "reps": "8–10",
+              "rest_sec": 120
+            },
+            {
+              "ex": "leg_curl_lying",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_stand_machine",
+              "sets": 4,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
+          ]
+        },
+        {
+          "title": "День B",
+          "items": [
+            {
+              "ex": "deadlift",
+              "sets": 3,
+              "reps": "5",
+              "rest_sec": 240
+            },
+            {
+              "ex": "hack_squat",
+              "sets": 3,
+              "reps": "10–12",
+              "rest_sec": 150
+            },
+            {
+              "ex": "hip_thrust",
+              "sets": 4,
+              "reps": "10–12",
+              "rest_sec": 90
+            },
+            {
+              "ex": "leg_curl_seated",
+              "sets": 3,
+              "reps": "12–15",
+              "rest_sec": 90
+            },
+            {
+              "ex": "calf_seated_machine",
+              "sets": 3,
+              "reps": "15–20",
+              "rest_sec": 60
+            }
           ]
         }
       ]
