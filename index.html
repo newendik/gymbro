@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f4f4fa">
+<meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="GymBro">
-<meta name="description" content="GymBro: каталог готовых программ тренировок, генератор с периодизацией, своя программа. Работает офлайн на любом устройстве.">
-<meta property="og:title" content="GymBro — тренировки">
-<meta property="og:description" content="Каталог легендарных программ + генератор под тебя. Работает офлайн.">
+<meta name="description" content="GymBro: 29 готовых программ тренировок, умный генератор, свой конструктор, журнал тренировок и статистика. Работает офлайн.">
+<meta property="og:title" content="GymBro — тренировки и прогресс">
+<meta property="og:description" content="Готовые программы, умный генератор, журнал и статистика. Работает офлайн.">
 <meta property="og:type" content="website">
-<title>GymBro — программы тренировок</title>
+<title>GymBro — тренировки и прогресс</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="./icon-192.png">
 <link rel="stylesheet" href="./style.css">
 <script>
-/* Тема до первого кадра — чтобы не было вспышки */
+/* Тема до первого кадра — без вспышки */
 try {
   var s = JSON.parse(localStorage.getItem("gymbro.settings") || "{}");
   var t = ["light", "dark"].includes(s.theme) ? s.theme :
@@ -30,198 +30,301 @@ try {
 </head>
 <body>
 
-<!-- ===== Иконки (Sprite) ===== -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<defs>
-  <symbol id="i-dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6.5 7.5v9M17.5 7.5v9M3.5 10v4M20.5 10v4M6.5 12h11"/>
-  </symbol>
-  <symbol id="i-barbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3.5 9v6M7 7.5v9M17 7.5v9M20.5 9v6M7 12h10"/>
-  </symbol>
-  <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-  </symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-  </symbol>
-  <symbol id="i-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 21v-9M12 12C12 8.5 9 6 5 6c0 3.5 3 6 7 6zM12 12c0-3.5 3-6 7-6 0 3.5-3 6-7 6z"/>
-  </symbol>
-  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
-  </symbol>
-  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
-  </symbol>
-  <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="4.5" y="2" width="15" height="20" rx="2"/><path d="M9 22v-4h6v4M8.5 7h1M14.5 7h1M8.5 11h1M14.5 11h1"/>
-  </symbol>
-  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 9.5 12 3l9 6.5"/><path d="M5 9.5V20a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 20V9.5"/><path d="M9 21.5V14h6v7.5"/>
-  </symbol>
-  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M16 2.5v4M8 2.5v4M3 11.5h18"/>
-  </symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
-  </symbol>
-  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="m12 2.5 9.5 5-9.5 5-9.5-5 9.5-5z"/><path d="m2.5 16.5 9.5 5 9.5-5M2.5 12l9.5 5 9.5-5"/>
-  </symbol>
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="m4.5 12.5 5 5 10-11"/>
-  </symbol>
-  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="m9 5 7 7-7 7"/>
-  </symbol>
-  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="m15 5-7 7 7 7"/>
-  </symbol>
-  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 6 6 18M6 6l12 12"/>
-  </symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 5v14M5 12h14"/>
-  </symbol>
-  <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3.5 6h17M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-  </symbol>
-  <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21.5 2.5 11 13"/><path d="M21.5 2.5 15 22l-4-9-9-4 19.5-6.5z"/>
-  </symbol>
-  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5M12 8h.01"/>
-  </symbol>
-  <symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>
-  </symbol>
-  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
-  </symbol>
-  <symbol id="i-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M2 15c2.5 0 2.5-6 5-6s2.5 6 5 6 2.5-6 5-6 2.5 6 5 6"/>
-  </symbol>
-  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-    <path d="M5 12h14"/>
-  </symbol>
-  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>
-  </symbol>
-  <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="3.2"/>
-    <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.56V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 9 19.34a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.03H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1.03-1.56V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.25.6.84 1.03 1.51 1.03H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1z"/>
-  </symbol>
-  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="2"/><rect x="13" y="13" width="7.5" height="7.5" rx="2"/>
-  </symbol>
-  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/>
-  </symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
-  </symbol>
-  <symbol id="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="9.5"/><path d="M12 2.5a9.5 9.5 0 0 1 0 19z" fill="currentColor" stroke="none"/>
-  </symbol>
-  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 3v12M6.5 10.5 12 15.5l5.5-5M4 20.5h16"/>
-  </symbol>
-  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/><path d="M19 16l.9 2.6L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.4z"/>
-  </symbol>
-  <symbol id="i-apple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M17.3 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.9.9-3.6.9-.8 0-1.9-.9-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.8 2.5 3.1 2.4 1.2 0 1.7-.9 3.2-.9 1.5 0 1.9.9 3.1.8 1.4 0 2.3-1.5 3-2.7.6-1 .9-1.7 1.3-2.9-2.6-1-2.9-3.4-2.9-3.4zM14.5 5.4c.7-.8 1.1-1.9 1-3-1 0-2.2.7-2.9 1.5-.6.7-1.1 1.8-1 2.8 1.1.1 2.2-.6 2.9-1.3z"/>
-  </symbol>
-  <symbol id="i-android" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M6 11a6 6 0 0 1 12 0v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 17.5z"/>
-    <path d="M8 8.5 6.7 6.3M16 8.5l1.3-2.2M9.5 10.5h.01M14.5 10.5h.01"/>
-    <path d="M3 12v4M21 12v4M9.5 19v2M14.5 19v2"/>
-  </symbol>
-  <symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="4" y="5" width="16" height="10.5" rx="1.5"/><path d="M2 19.5h20"/>
-  </symbol>
-</defs>
-</svg>
+<!-- ===== Иконки ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-dumbbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 7.5v9M17.5 7.5v9M3.5 10v4M20.5 10v4M6.5 12h11"/></symbol>
+  <symbol id="i-barbell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9v6M7 7.5v9M17 7.5v9M20.5 9v6M7 12h10"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9M12 12C12 8.5 9 6 5 6c0 3.5 3 6 7 6zM12 12c0-3.5 3-6 7-6 0 3.5-3 6-7 6z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="2" width="15" height="20" rx="2"/><path d="M9 22v-4h6v4M8.5 7h1M14.5 7h1M8.5 11h1M14.5 11h1"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 9.5V20a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 20V9.5"/><path d="M9 21.5V14h6v7.5"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M16 2.5v4M8 2.5v4M3 11.5h18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2.5 9.5 5-9.5 5-9.5-5 9.5-5z"/><path d="m2.5 16.5 9.5 5 9.5-5M2.5 12l9.5 5 9.5-5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h17M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2.5 11 13"/><path d="M21.5 2.5 15 22l-4-9-9-4 19.5-6.5z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 16v-5M12 8h.01"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="2"/><rect x="13" y="13" width="7.5" height="7.5" rx="2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 2.5a9.5 9.5 0 0 1 0 19z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6.5 10.5 12 15.5l5.5-5M4 20.5h16"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/><path d="M19 16l.9 2.6L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.4z"/></symbol>
+  <symbol id="i-apple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.3 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.9.9-3.6.9-.8 0-1.9-.9-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.8 2.5 3.1 2.4 1.2 0 1.7-.9 3.2-.9 1.5 0 1.9.9 3.1.8 1.4 0 2.3-1.5 3-2.7.6-1 .9-1.7 1.3-2.9-2.6-1-2.9-3.4-2.9-3.4zM14.5 5.4c.7-.8 1.1-1.9 1-3-1 0-2.2.7-2.9 1.5-.6.7-1.1 1.8-1 2.8 1.1.1 2.2-.6 2.9-1.3z"/></symbol>
+  <symbol id="i-android" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11a6 6 0 0 1 12 0v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 17.5z"/><path d="M8 8.5 6.7 6.3M16 8.5l1.3-2.2M9.5 10.5h.01M14.5 10.5h.01"/><path d="M3 12v4M21 12v4M9.5 19v2M14.5 19v2"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="10.5" rx="1.5"/><path d="M2 19.5h20"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5 9 11l4 4 7.5-8"/><path d="M15.5 3.5h5v5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6a1 1 0 0 0 1.53.85l10.5-6.8a1 1 0 0 0 0-1.7L9.53 4.35A1 1 0 0 0 8 5.2z"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 1.5M9.5 2.5h5"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4.5v2A3.5 3.5 0 0 0 8 11.5M17 6h2.5v2A3.5 3.5 0 0 1 16 11.5"/><path d="M12 14v3M8.5 21h7l-1-4h-5z"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8 9.5a4 4 0 0 1 8 0"/><path d="M12 9.5 14 8"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="8" rx="2"/><path d="M7 8v3M11 8v3M15 8v3M19 8v3"/></symbol>
+  <symbol id="i-cake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5h16M4.5 20.5v-6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v6"/><path d="M12 12.5V9M12 6.5v.01"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 5.5v-1a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h1"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 5.5V11h-5.5"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 20 6v6c0 5-3.5 8.5-8 9.5-4.5-1-8-4.5-8-9.5V6z"/></symbol>
+</defs></svg>
 
-<div class="device">
-
-  <!-- Фон-аврора (стекло) -->
-  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="app">
 
   <!-- ============ ГЛАВНАЯ ============ -->
   <section class="screen" id="screen-home">
     <header class="app-bar">
       <div class="ab-left">
         <div class="ab-logo"><svg class="ic"><use href="#i-dumbbell"/></svg></div>
-        <h1 class="ab-title brand">GymBro</h1>
+        <div>
+          <h1 class="ab-title brand">GymBro</h1>
+          <p class="ab-sub" id="home-greeting">Тренировки и прогресс</p>
+        </div>
       </div>
-      <div class="ab-right">
-        <button class="ab-btn" id="btn-catalog" aria-label="Каталог программ"><svg class="ic"><use href="#i-grid"/></svg></button>
-        <button class="ab-btn" id="btn-settings" aria-label="Настройки"><svg class="ic"><use href="#i-gear"/></svg></button>
-      </div>
+      <button class="icon-btn" id="btn-new-plan" aria-label="Новая программа"><svg class="ic"><use href="#i-plus"/></svg></button>
     </header>
 
     <main class="scroll" id="home-scroll">
-      <div class="greet-row">
-        <h2 class="large-title">Программы</h2>
-        <span class="today-chip" id="today-chip"></span>
+      <div class="hero" id="home-hero"></div>
+
+      <div class="metric-strip" id="home-metrics"></div>
+
+      <div class="quick-row">
+        <button class="quick" id="btn-catalog-home">
+          <span class="quick-ic"><svg class="ic"><use href="#i-grid"/></svg></span>
+          <span><b>Каталог</b><small>29 программ</small></span>
+        </button>
+        <button class="quick" id="btn-install-home">
+          <span class="quick-ic"><svg class="ic"><use href="#i-download"/></svg></span>
+          <span><b>Установить</b><small>на рабочий стол</small></span>
+        </button>
       </div>
 
-      <button class="catalog-banner rise" id="btn-catalog-home">
-        <div class="cb-icon"><svg class="ic"><use href="#i-sparkle"/></svg></div>
-        <div class="cb-text">
-          <b>Каталог готовых программ</b>
-          <span>StrongLifts, 5/3/1, PPL, PHUL и другие — проверенные легенды, добавляются одним тапом</span>
+      <div id="plans-section">
+        <div class="section-head">
+          <h3 class="section-label">Мои программы</h3>
+          <span class="section-count" id="plans-count"></span>
         </div>
-        <span class="chev"><svg class="ic"><use href="#i-chev-r"/></svg></span>
-      </button>
+        <div class="plan-list" id="plans-list"></div>
+      </div>
 
-      <button class="install-chip rise" id="btn-install-home" style="--i:1">
-        <svg class="ic"><use href="#i-download"/></svg>
-        <span>Установить как приложение</span>
-      </button>
-
-      <div id="home-content">
-        <div class="empty" id="home-empty" hidden>
-          <div class="empty-badge"><svg class="ic"><use href="#i-dumbbell"/></svg></div>
-          <h3>Пока пусто</h3>
-          <p>Создай свою программу, собери генератор или возьми готовую из каталога.</p>
-        </div>
-
-        <div id="plans-section" hidden>
-          <h3 class="section-label">Мои планы</h3>
-          <div class="card" id="plans-list"></div>
-        </div>
+      <div class="empty" id="home-empty" hidden>
+        <div class="empty-badge"><svg class="ic"><use href="#i-dumbbell"/></svg></div>
+        <h3>Пока пусто</h3>
+        <p>Возьми готовую программу из каталога или собери свою.</p>
+        <button class="btn btn-primary" id="btn-empty-new"><svg class="ic"><use href="#i-plus"/></svg>Новая программа</button>
       </div>
     </main>
-
-    <footer class="bottom-bar">
-      <button class="btn btn-primary" id="btn-new-plan">
-        <svg class="ic"><use href="#i-plus"/></svg>
-        Новая программа
-      </button>
-    </footer>
   </section>
 
-  <!-- ============ КАТАЛОГ ПРОГРАММ ============ -->
+  <!-- ============ КАТАЛОГ ============ -->
   <section class="screen" id="screen-catalog" hidden>
     <header class="app-bar">
       <div class="ab-left">
-        <button class="ab-btn" id="btn-catalog-back" aria-label="Назад"><svg class="ic"><use href="#i-chev-l"/></svg></button>
         <h1 class="ab-title" id="catalog-ab-title">Каталог</h1>
       </div>
+      <button class="icon-btn" id="btn-catalog-back" aria-label="Назад" hidden><svg class="ic"><use href="#i-chev-l"/></svg></button>
     </header>
     <main class="scroll" id="catalog-scroll"></main>
     <footer class="bottom-bar" id="catalog-footer">
-      <button class="btn btn-primary" id="btn-prog-add" hidden>
-        <svg class="ic"><use href="#i-plus"/></svg>
-        <span>Добавить в мои планы</span>
-      </button>
+      <button class="btn btn-primary" id="btn-prog-add" hidden><svg class="ic"><use href="#i-plus"/></svg><span>Добавить в мои программы</span></button>
     </footer>
   </section>
 
-  <!-- ============ МАСТЕР (bottom sheet) ============ -->
+  <!-- ============ ПРОГРЕСС ============ -->
+  <section class="screen" id="screen-stats" hidden>
+    <header class="app-bar">
+      <div class="ab-left"><h1 class="ab-title">Прогресс</h1></div>
+    </header>
+    <main class="scroll" id="stats-scroll">
+      <div class="stat-hero">
+        <div class="stat-big"><b id="stat-total">0</b><span>тренировок</span></div>
+        <div class="stat-big"><b id="stat-streak">0</b><span>дней подряд</span></div>
+        <div class="stat-big"><b id="stat-volume">0</b><span>тонн объёма</span></div>
+      </div>
+
+      <div class="section-head"><h3 class="section-label">Объём по неделям</h3></div>
+      <div class="card chart-card"><div class="bars" id="stats-bars"></div></div>
+
+      <div class="section-head"><h3 class="section-label">Личные рекорды</h3></div>
+      <div class="card" id="stats-prs"></div>
+
+      <div class="section-head"><h3 class="section-label">История</h3></div>
+      <div id="stats-history"></div>
+
+      <div class="empty" id="stats-empty" hidden>
+        <div class="empty-badge"><svg class="ic"><use href="#i-trend"/></svg></div>
+        <h3>Нет данных</h3>
+        <p>Заверши первую тренировку — и здесь появится статистика.</p>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============ ПРОФИЛЬ ============ -->
+  <section class="screen" id="screen-profile" hidden>
+    <header class="app-bar">
+      <div class="ab-left"><h1 class="ab-title">Профиль</h1></div>
+    </header>
+    <main class="scroll" id="profile-scroll">
+      <div class="profile-card">
+        <div class="avatar" id="profile-avatar">G</div>
+        <div class="profile-main">
+          <input id="profile-name" maxlength="24" placeholder="Твоё имя" autocomplete="off">
+          <span class="profile-sub" id="profile-sub">Данные хранятся только на устройстве</span>
+        </div>
+      </div>
+
+      <div class="section-head"><h3 class="section-label">Тело</h3></div>
+      <div class="card form-grid">
+        <label class="field">
+          <span>Возраст</span>
+          <div class="field-inp"><input id="profile-age" type="number" min="10" max="99" inputmode="numeric" placeholder="—"><i>лет</i></div>
+        </label>
+        <label class="field">
+          <span>Рост</span>
+          <div class="field-inp"><input id="profile-height" type="number" min="100" max="250" inputmode="numeric" placeholder="—"><i>см</i></div>
+        </label>
+        <label class="field">
+          <span>Вес</span>
+          <div class="field-inp"><input id="profile-weight" type="number" min="30" max="250" step="0.1" inputmode="decimal" placeholder="—"><i>кг</i></div>
+        </label>
+        <div class="field">
+          <span>ИМТ</span>
+          <div class="field-inp static"><b id="profile-bmi">—</b><i id="profile-bmi-note"></i></div>
+        </div>
+      </div>
+
+      <div class="section-head"><h3 class="section-label">Оформление</h3></div>
+      <div class="card">
+        <div class="theme-row">
+          <button class="theme-opt" data-th="system"><svg class="ic"><use href="#i-auto"/></svg><span>Авто</span></button>
+          <button class="theme-opt" data-th="light"><svg class="ic"><use href="#i-sun"/></svg><span>Светлая</span></button>
+          <button class="theme-opt" data-th="dark"><svg class="ic"><use href="#i-moon"/></svg><span>Тёмная</span></button>
+        </div>
+        <button class="row" id="sw-anim" role="switch" aria-label="Анимации">
+          <svg class="ic"><use href="#i-zap"/></svg>
+          <span class="k">Анимации</span>
+          <span class="switch"><i></i></span>
+        </button>
+      </div>
+
+      <div class="section-head"><h3 class="section-label">Приложение</h3></div>
+      <div class="card">
+        <button class="row" id="btn-open-guide">
+          <svg class="ic"><use href="#i-download"/></svg>
+          <span class="k">Как установить на рабочий стол</span>
+          <span class="chev"><svg class="ic"><use href="#i-chev-r"/></svg></span>
+        </button>
+        <button class="row danger" id="btn-reset-data">
+          <svg class="ic"><use href="#i-trash"/></svg>
+          <span class="k">Удалить все данные</span>
+          <span class="chev"><svg class="ic"><use href="#i-chev-r"/></svg></span>
+        </button>
+      </div>
+
+      <p class="settings-foot">GymBro · без аккаунтов и серверов. Всё хранится в этом браузере.</p>
+    </main>
+  </section>
+
+  <!-- ============ ПЛАН ============ -->
+  <section class="screen" id="screen-plan" hidden>
+    <header class="app-bar">
+      <div class="ab-left">
+        <button class="icon-btn" id="btn-back-home" aria-label="Назад"><svg class="ic"><use href="#i-chev-l"/></svg></button>
+        <h1 class="ab-title" id="plan-ab-title">Программа</h1>
+      </div>
+      <div class="ab-right">
+        <button class="icon-btn" id="btn-edit-plan" aria-label="Редактировать"><svg class="ic"><use href="#i-pencil"/></svg></button>
+        <button class="icon-btn danger" id="btn-delete-plan" aria-label="Удалить"><svg class="ic"><use href="#i-trash"/></svg></button>
+      </div>
+    </header>
+
+    <div class="plan-hero" id="plan-hero"></div>
+    <div class="segmented" id="plan-view-toggle" hidden>
+      <button class="on" data-pv="days">По дням</button>
+      <button data-pv="weeks">Мезоцикл</button>
+    </div>
+    <div class="segmented" id="day-tabs"></div>
+    <div class="wave-tabs" id="wave-tabs" hidden></div>
+    <main class="scroll" id="plan-scroll"></main>
+    <footer class="bottom-bar two">
+      <button class="btn btn-primary" id="btn-start-workout"><svg class="ic"><use href="#i-play"/></svg><span>Тренировка</span></button>
+      <button class="btn btn-quiet" id="btn-share-plan"><svg class="ic"><use href="#i-send"/></svg><span>Поделиться</span></button>
+    </footer>
+  </section>
+
+  <!-- ============ ТРЕНИРОВКА ============ -->
+  <section class="screen" id="screen-workout" hidden>
+    <header class="app-bar">
+      <div class="ab-left">
+        <button class="icon-btn" id="btn-workout-cancel" aria-label="Отменить"><svg class="ic"><use href="#i-x"/></svg></button>
+        <div>
+          <h1 class="ab-title" id="workout-ab-title">Тренировка</h1>
+          <p class="ab-sub" id="workout-sub"></p>
+        </div>
+      </div>
+      <div class="timer-chip" id="workout-timer"><svg class="ic"><use href="#i-timer"/></svg><span>00:00</span></div>
+    </header>
+    <main class="scroll" id="workout-scroll"></main>
+    <footer class="bottom-bar">
+      <button class="btn btn-primary" id="btn-workout-finish"><svg class="ic"><use href="#i-check"/></svg><span>Завершить тренировку</span></button>
+    </footer>
+  </section>
+
+  <!-- ============ КОНСТРУКТОР ============ -->
+  <section class="screen" id="screen-build" hidden>
+    <header class="app-bar">
+      <div class="ab-left">
+        <button class="icon-btn" id="btn-build-back" aria-label="Назад"><svg class="ic"><use href="#i-chev-l"/></svg></button>
+        <h1 class="ab-title" id="build-title">Своя программа</h1>
+      </div>
+      <button class="text-btn accent" id="btn-build-save">Сохранить</button>
+    </header>
+
+    <div class="pad">
+      <div class="input-card">
+        <input id="inp-build-title" maxlength="60" placeholder="Название программы" autocomplete="off">
+        <button class="clear" id="btn-clear-build-title" aria-label="Очистить"><svg class="ic"><use href="#i-x"/></svg></button>
+      </div>
+    </div>
+
+    <div class="pad">
+      <div class="segmented" id="build-day-tabs"></div>
+      <div class="day-actions">
+        <button class="mini-btn" id="btn-build-add-day"><svg class="ic"><use href="#i-plus"/></svg>День</button>
+        <button class="mini-btn" id="btn-build-copy-day"><svg class="ic"><use href="#i-copy"/></svg>Копировать</button>
+        <button class="mini-btn danger" id="btn-build-del-day"><svg class="ic"><use href="#i-trash"/></svg>Удалить</button>
+      </div>
+    </div>
+
+    <main class="scroll" id="build-scroll"><div id="build-days"></div></main>
+
+    <footer class="bottom-bar">
+      <button class="btn btn-primary" id="btn-build-add-ex"><svg class="ic"><use href="#i-plus"/></svg><span>Добавить упражнение</span></button>
+    </footer>
+  </section>
+
+  <!-- ============ ТАБ-БАР ============ -->
+  <nav class="tabbar" id="tabbar">
+    <button class="tab on" data-tab="home"><svg class="ic"><use href="#i-home"/></svg><span>Главная</span></button>
+    <button class="tab" data-tab="catalog"><svg class="ic"><use href="#i-grid"/></svg><span>Каталог</span></button>
+    <button class="tab" data-tab="stats"><svg class="ic"><use href="#i-trend"/></svg><span>Прогресс</span></button>
+    <button class="tab" data-tab="profile"><svg class="ic"><use href="#i-user"/></svg><span>Профиль</span></button>
+  </nav>
+
+  <!-- ============ МАСТЕР ============ -->
   <div class="overlay" id="wiz-overlay" hidden></div>
   <section class="sheet sheet-lg" id="sheet-wizard" hidden>
     <div class="sheet-grab"><span></span></div>
@@ -233,92 +336,22 @@ try {
     <div class="sheet-body" id="wizard-body"></div>
   </section>
 
-  <!-- ============ КОНСТРУКТОР СВОЕЙ ПРОГРАММЫ ============ -->
-  <section class="screen" id="screen-build" hidden>
-    <header class="app-bar">
-      <div class="ab-left">
-        <button class="ab-btn" id="btn-build-back" aria-label="Назад"><svg class="ic"><use href="#i-chev-l"/></svg></button>
-        <h1 class="ab-title" id="build-title">Своя программа</h1>
-      </div>
-      <div class="ab-right">
-        <button class="ab-btn accent" id="btn-build-save" aria-label="Сохранить">
-          <svg class="ic"><use href="#i-check"/></svg>
-          <span>Сохранить</span>
-        </button>
-      </div>
-    </header>
-
-    <div style="padding:0 16px;margin-top:12px">
-      <div class="input-card">
-        <input id="inp-build-title" maxlength="60" placeholder="Название программы" autocomplete="off">
-        <button class="clear" id="btn-clear-build-title" aria-label="Очистить"><svg class="ic"><use href="#i-x"/></svg></button>
-      </div>
-    </div>
-
-    <div style="padding:0 16px;margin-top:16px">
-      <div class="segmented" id="build-day-tabs"></div>
-    </div>
-
-    <main class="scroll" id="build-scroll">
-      <div id="build-days"></div>
-    </main>
-
-    <footer class="bottom-bar three">
-      <button class="btn btn-quiet" id="btn-build-add-day"><svg class="ic"><use href="#i-plus"/></svg><span>День</span></button>
-      <button class="btn btn-fill" id="btn-build-add-ex"><svg class="ic"><use href="#i-search"/></svg><span>Упражнение</span></button>
-      <button class="btn btn-quiet danger" id="btn-build-del-day"><svg class="ic"><use href="#i-trash"/></svg><span>День</span></button>
-    </footer>
-  </section>
-
-  <!-- ============ ВЫБОР УПРАЖНЕНИЯ (палитра) ============ -->
+  <!-- ============ ПАЛИТРА УПРАЖНЕНИЙ ============ -->
   <div class="overlay" id="pick-overlay" hidden></div>
   <section class="sheet sheet-lg" id="sheet-pick" hidden>
     <div class="sheet-grab"><span></span></div>
-    <div style="padding:0 16px">
+    <div class="pad">
       <div class="input-card">
         <input id="inp-pick-search" maxlength="40" placeholder="Поиск упражнения…" autocomplete="off">
         <button class="clear" id="btn-clear-pick-search" aria-label="Очистить"><svg class="ic"><use href="#i-x"/></svg></button>
       </div>
-      <div class="chip-row" id="pick-muscle-filters" style="margin-top:12px"></div>
+      <div class="chip-row" id="pick-muscle-filters"></div>
     </div>
     <div class="sheet-body" id="pick-list"></div>
-    <footer class="bottom-bar">
-      <button class="btn btn-primary" id="btn-pick-done">Готово</button>
-    </footer>
+    <footer class="bottom-bar"><button class="btn btn-primary" id="btn-pick-done">Готово</button></footer>
   </section>
 
-  <!-- ============ ПЛАН ============ -->
-  <section class="screen" id="screen-plan" hidden>
-    <header class="app-bar">
-      <div class="ab-left">
-        <button class="ab-btn" id="btn-back-home" aria-label="Назад"><svg class="ic"><use href="#i-chev-l"/></svg></button>
-        <h1 class="ab-title" id="plan-ab-title">План</h1>
-      </div>
-      <div class="ab-right">
-        <button class="ab-btn" id="btn-edit-plan" aria-label="Редактировать"><svg class="ic"><use href="#i-pencil"/></svg></button>
-        <button class="ab-btn danger" id="btn-delete-plan" aria-label="Удалить"><svg class="ic"><use href="#i-trash"/></svg></button>
-      </div>
-    </header>
-
-    <div class="plan-hero" id="plan-hero"></div>
-
-    <div class="segmented" id="plan-view-toggle" hidden>
-      <button class="on" data-pv="days">По дням</button>
-      <button data-pv="weeks">График месяца</button>
-    </div>
-
-    <div class="segmented" id="day-tabs"></div>
-    <div class="wave-tabs" id="wave-tabs" hidden></div>
-
-    <main class="scroll" id="plan-scroll"></main>
-
-    <footer class="bottom-bar two">
-      <button class="btn btn-fill" id="btn-share-plan"><svg class="ic"><use href="#i-send"/></svg><span>Поделиться</span></button>
-      <button class="btn btn-quiet" id="btn-new-again"><svg class="ic"><use href="#i-plus"/></svg><span>Новый</span></button>
-    </footer>
-  </section>
-
-  <!-- ============ SHEET: инфо об упражнении ============ -->
+  <!-- ============ ИНФО ОБ УПРАЖНЕНИИ ============ -->
   <div class="overlay thin" id="info-overlay" hidden></div>
   <section class="sheet" id="sheet-exercise" hidden>
     <div class="sheet-grab"><span></span></div>
@@ -326,49 +359,14 @@ try {
     <footer class="bottom-bar"><button class="btn btn-primary" id="btn-close-info">Закрыть</button></footer>
   </section>
 
-  <!-- ============ SHEET: настройки ============ -->
-  <div class="overlay" id="set-overlay" hidden></div>
-  <section class="sheet" id="sheet-settings" hidden>
-    <div class="sheet-grab"><span></span></div>
-    <header class="sheet-nav">
-      <button class="nav-btn accent" id="btn-close-settings" style="margin-left:auto">Готово</button>
-    </header>
-    <div class="sheet-body">
-      <h3 class="sheet-title">Настройки</h3>
-
-      <div class="field-label">Тема оформления</div>
-      <div class="theme-row">
-        <button class="theme-opt" data-th="system"><svg class="ic"><use href="#i-auto"/></svg><span>Авто</span></button>
-        <button class="theme-opt" data-th="light"><svg class="ic"><use href="#i-sun"/></svg><span>Светлая</span></button>
-        <button class="theme-opt" data-th="dark"><svg class="ic"><use href="#i-moon"/></svg><span>Тёмная</span></button>
-      </div>
-
-      <div class="field-label" style="margin-top:22px">Ещё</div>
-      <div class="rows">
-        <button class="row" id="sw-anim" role="switch" aria-label="Анимации">
-          <svg class="ic"><use href="#i-zap"/></svg>
-          <span class="k">Анимации</span>
-          <span class="switch"><i></i></span>
-        </button>
-        <button class="row" id="btn-open-guide">
-          <svg class="ic"><use href="#i-download"/></svg>
-          <span class="k">Как установить приложение</span>
-          <span class="chev"><svg class="ic"><use href="#i-chev-r"/></svg></span>
-        </button>
-      </div>
-
-      <p class="settings-foot">GymBro · всё хранится локально на твоём устройстве, без аккаунтов и серверов.</p>
-    </div>
-  </section>
-
-  <!-- ============ SHEET: гайд установки ============ -->
+  <!-- ============ ГАЙД УСТАНОВКИ ============ -->
   <div class="overlay" id="guide-overlay" hidden></div>
   <section class="sheet" id="sheet-guide" hidden>
     <div class="sheet-grab"><span></span></div>
     <header class="sheet-nav">
       <button class="nav-btn accent" id="btn-close-guide" style="margin-left:auto">Закрыть</button>
     </header>
-    <div style="padding:0 16px">
+    <div class="pad">
       <div class="segmented static" id="guide-tabs">
         <button data-gp="ios" class="on"><svg class="ic"><use href="#i-apple"/></svg></button>
         <button data-gp="android"><svg class="ic"><use href="#i-android"/></svg></button>
@@ -378,7 +376,7 @@ try {
     <div class="sheet-body" id="guide-body"></div>
   </section>
 
-  <!-- ============ iOS Alert ============ -->
+  <!-- ============ ALERT ============ -->
   <div class="alert-wrap" id="alert-wrap" hidden>
     <div class="alert" role="alertdialog" aria-modal="true">
       <div class="alert-icon" id="alert-icon" hidden><svg class="ic"><use href="#i-trash"/></svg></div>
@@ -388,19 +386,13 @@ try {
     </div>
   </div>
 
-  <!-- ============ HUD (ошибки / статусы) ============ -->
   <div class="hud" id="hud" hidden><span id="hud-text"></span></div>
-
-  <div class="home-indicator"></div>
 </div>
 
 <script src="./planner.js"></script>
 <script src="./app.js"></script>
 <script>
-// Service worker для офлайн-режима
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js').catch(() => {});
-}
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
 </script>
 </body>
 </html>
